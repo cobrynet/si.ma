@@ -1,0 +1,305 @@
+/* Palette Colori SI-MA SRL */
+:root {
+    --sima-primary: #18202d;          /* Blu antracite scuro - brand/CTA */
+    --sima-secondary: #9ea7b9;        /* Blu grigio chiaro - hover/link secondari */
+    --sima-accent: #a4adbc;           /* Grigio freddo neutro - bordi/linee */
+    --sima-bg-main: #ffffff;          /* Bianco puro - background principale */
+    --sima-bg-alt: #f6f9fd;           /* Azzurro chiarissimo - sezioni alternate */
+    --sima-text-main: #101722;        /* Blu notte profondo - titoli/testi scuri */
+    --sima-text-secondary: #7c808f;   /* Grigio grafite - testi lunghi */
+    --sima-borders: #a4adbc;          /* Grigio tecnico chiaro - bordi/ombre */
+    --sima-footer: #101722;           /* Blu notte - footer/background scuro */
+    --sima-hover: #003b73;            /* Blu industriale - hover/microaccenti */
+}
+
+/* Stili specifici per Contatti */
+
+.main-container-contatti {
+    width: 1728px;
+    height: 1600px;
+    position: relative;
+    background: var(--sima-bg-main);
+    margin: 0;
+    padding: 0;
+}
+
+.pagina-contatti {
+    position: relative;
+    width: 1728px;
+    height: 1600px;
+    background: var(--sima-bg-main);
+}
+
+/* h1-contatti */
+.h1-contatti {
+    position: absolute;
+    width: 1194px;
+    height: 60px;
+    left: 267px;
+    top: 301px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 60px;
+    text-align: center;
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+/* sito-contatti */
+.sito-contatti {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 267px;
+    top: 497px;
+}
+
+.rectangle-sito {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 0;
+    top: 0;
+    background: var(--sima-primary);
+    border-radius: 50px;
+}
+
+.testo-sito {
+    position: absolute;
+    width: 282px;
+    height: 40px;
+    left: 48px;
+    top: 20px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--sima-bg-main);
+    margin: 0;
+}
+
+/* telefono-contatti */
+.telefono-contatti {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 675px;
+    top: 497px;
+}
+
+.rectangle-telefono {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 0;
+    top: 0;
+    background: var(--sima-primary);
+    border-radius: 50px;
+}
+
+.testo-telefono {
+    position: absolute;
+    width: 192px;
+    height: 40px;
+    left: 93px;
+    top: 20px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--sima-bg-main);
+    margin: 0;
+}
+
+/* email-contatti */
+.email-contatti {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 1083px;
+    top: 497px;
+}
+
+.rectangle-email {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 0;
+    top: 0;
+    background: var(--sima-primary);
+    border-radius: 50px;
+}
+
+.testo-email {
+    position: absolute;
+    width: 250px;
+    height: 40px;
+    left: 64px;
+    top: 20px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--sima-bg-main);
+    margin: 0;
+}
+
+/* instagram-contatti */
+.instagram-contatti {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 267px;
+    top: 677px;
+}
+
+.rectangle-instagram {
+    box-sizing: border-box;
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 0;
+    top: 0;
+    border: 2px solid var(--sima-primary);
+    border-radius: 50px;
+}
+
+.icon-instagram {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 74px;
+    top: 15px;
+    font-size: 50px;
+    color: var(--sima-primary);
+}
+
+.testo-instagram {
+    position: absolute;
+    width: 158px;
+    height: 40px;
+    left: 146px;
+    top: 20px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--sima-primary);
+    margin: 0;
+}
+
+/* facebook-contatti */
+.facebook-contatti {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 675px;
+    top: 677px;
+}
+
+.rectangle-facebook {
+    box-sizing: border-box;
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 0;
+    top: 0;
+    border: 2px solid var(--sima-primary);
+    border-radius: 50px;
+}
+
+.icon-facebook {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 85px;
+    top: 15px;
+    font-size: 50px;
+    color: var(--sima-primary);
+}
+
+.testo-facebook {
+    position: absolute;
+    width: 135px;
+    height: 40px;
+    left: 157px;
+    top: 20px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--sima-primary);
+    margin: 0;
+}
+
+/* linkedin-contatti */
+.linkedin-contatti {
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 1083px;
+    top: 677px;
+}
+
+.rectangle-linkedin {
+    box-sizing: border-box;
+    position: absolute;
+    width: 378px;
+    height: 80px;
+    left: 0;
+    top: 0;
+    border: 2px solid var(--sima-primary);
+    border-radius: 50px;
+}
+
+.icon-linkedin {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 85px;
+    top: 15px;
+    font-size: 50px;
+    color: var(--sima-primary);
+}
+
+.testo-linkedin {
+    position: absolute;
+    width: 135px;
+    height: 40px;
+    left: 157px;
+    top: 20px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--sima-primary);
+    margin: 0;
+}
+
+/* Footer per contatti */
+.main-container-contatti .footer {
+    position: absolute;
+    top: 1150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 450px;
+    margin: 0;
+    padding: 0;
+    background: var(--sima-footer);
+    z-index: 10;
+}
