@@ -470,24 +470,24 @@ body {
 /* Sezione 1 */
 .h2-sezione-1 {
     position: absolute;
-    width: 1200px;
+    width: clamp(800px, 69%, 1200px);
     height: auto;
-    left: 117px;
-    top: 900px;
+    left: clamp(20px, 6.77%, 117px);
+    top: clamp(500px, 52vw, 900px);
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 500;
-    font-size: 80px;
-    line-height: 90px;
+    font-size: clamp(40px, 4.63vw, 80px);
+    line-height: 1.125;
     color: var(--sima-text-main);
 }
 
 .rettangolo-sezione-1 {
     position: absolute;
-    width: 480px;
-    height: 550px;
-    right: 10px;
-    top: 290px;
+    width: clamp(300px, 27.78%, 480px);
+    height: clamp(350px, 31.83vw, 550px);
+    right: clamp(10px, 0.58%, 10px);
+    top: clamp(150px, 16.78vw, 290px);
     background: transparent;
     border-radius: 0;
     overflow: visible;
@@ -503,24 +503,24 @@ body {
 
 .testo-sezione-1 {
     position: absolute;
-    width: 683px;
-    height: 474px;
-    left: 117px;
-    top: 1085px;
+    width: clamp(400px, 39.53%, 683px);
+    height: auto;
+    left: clamp(20px, 6.77%, 117px);
+    top: clamp(700px, 62.79vw, 1085px);
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 300;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: clamp(18px, 1.85vw, 32px);
+    line-height: 1.25;
     color: #82ADE1;
 }
 
 .furgone-animato {
     position: absolute;
-    width: 1100px;
+    width: clamp(600px, 63.66%, 1100px);
     height: auto;
-    right: -900px;
-    top: 935px;
+    right: -52.08%;
+    top: clamp(500px, 54.11vw, 935px);
     transition: transform 0.8s ease-out;
     z-index: 100;
 }
@@ -528,10 +528,10 @@ body {
 /* Icona assistenza animata (Servizi) */
 .icona-assistenza-animata {
     position: absolute;
-    width: 100px;
+    width: clamp(60px, 5.79%, 100px);
     height: auto;
-    right: 120px;
-    top: 960px;
+    right: clamp(60px, 6.94%, 120px);
+    top: clamp(500px, 55.56vw, 960px);
     transform-origin: 50% 50%;
     /* nessuna transizione/rotazione: l'effetto è dato dal cambio frame PNG */
     z-index: 110;
@@ -541,21 +541,21 @@ body {
 .rettangolo-1,
 .rettangolo-2 {
     position: absolute;
-    width: 378px;
-    height: 440px;
+    width: clamp(280px, 21.88%, 378px);
+    height: clamp(320px, 25.46vw, 440px);
     background: #000;
-    border-radius: 25px;
+    border-radius: clamp(15px, 1.45vw, 25px);
     overflow: hidden;
 }
 
 .rettangolo-1 {
-    left: 267px;
-    top: 1601px;
+    left: clamp(30px, 15.45%, 267px);
+    top: clamp(1000px, 92.65vw, 1601px);
 }
 
 .rettangolo-2 {
-    left: 675px;
-    top: 1601px;
+    left: clamp(320px, 39.06%, 675px);
+    top: clamp(1000px, 92.65vw, 1601px);
     background: url('contenuti/foto/lavatrice-ambiente.jpeg') center/cover no-repeat;
 }
 
@@ -585,10 +585,10 @@ body {
 .rettangolo-sezione-bg {
     position: absolute;
     width: 100vw;
-    height: 800px;
+    height: clamp(500px, 46.3vw, 800px);
     left: 50%;
     transform: translateX(-50%);
-    top: 2256px;
+    top: clamp(1300px, 130.56vw, 2256px);
     background: url('contenuti/foto/lavatrici-renzucci.JPG') center/cover no-repeat #f0f0f0;
     transition: filter 1.5s ease-in-out;
 }
@@ -606,18 +606,18 @@ body {
 /* Wrapper per il testo con cornice sfumata nera trasparente */
 .text-box-wrapper {
     position: absolute;
-    left: 267px;
-    top: 2353px;
+    left: clamp(30px, 15.45%, 267px);
+    top: clamp(1350px, 136.17vw, 2353px);
     display: inline-block;
-    padding: 30px 40px;
+    padding: clamp(20px, 1.74vw, 30px) clamp(25px, 2.31vw, 40px);
     margin: 20px 0;
     border: 3px solid transparent;
-    border-radius: 15px;
+    border-radius: clamp(10px, 0.87vw, 15px);
     background: linear-gradient(135deg, 
         rgba(0, 0, 0, 0.4) 0%, 
         rgba(0, 0, 0, 0.6) 50%, 
         rgba(0, 0, 0, 0.5) 100%);
-    max-width: 650px;
+    max-width: clamp(400px, 37.62%, 650px);
     z-index: 5;
     overflow: hidden; /* IMPORTANTE: mantiene la luce dentro la cornice */
     
@@ -1026,31 +1026,31 @@ body {
 /* Sezione 4 */
 .h2-sezione-4 {
     position: absolute;
-    width: 1600px;
+    width: clamp(900px, 92.59%, 1600px);
     height: auto;
     left: 50%;
     transform: translateX(-50%);
-    top: 1600px;
+    top: clamp(1000px, 92.59vw, 1600px);
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 500;
-    font-size: 80px;
-    line-height: 90px;
+    font-size: clamp(40px, 4.63vw, 80px);
+    line-height: 1.125;
     text-align: center;
     color: var(--sima-text-main);
 }
 
 .testo-sezione-4 {
     position: absolute;
-    width: 1194px;
-    height: 319px;
-    left: 267px;
-    top: 1800px;
+    width: clamp(700px, 69.10%, 1194px);
+    height: auto;
+    left: clamp(30px, 15.45%, 267px);
+    top: clamp(1150px, 104.17vw, 1800px);
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 300;
-    font-size: 32px;
-    line-height: 40px;
+    font-size: clamp(18px, 1.85vw, 32px);
+    line-height: 1.25;
     text-align: center;
     color: #82ADE1;
 }
@@ -1058,19 +1058,19 @@ body {
 /* Container icone Sezione 4 */
 .icone-container {
     position: absolute;
-    top: 2001px;
+    top: clamp(1250px, 115.8vw, 2001px);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 400px;
+    gap: clamp(100px, 23.15vw, 400px);
     justify-content: center;
     align-items: center;
 }
 
 .icona-wrapper {
     position: relative;
-    width: 56px;
-    height: 56px;
+    width: clamp(40px, 3.24vw, 56px);
+    height: clamp(40px, 3.24vw, 56px);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -1082,8 +1082,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 56px;
-    height: 56px;
+    width: clamp(40px, 3.24vw, 56px);
+    height: clamp(40px, 3.24vw, 56px);
     object-fit: contain;
     transition: all 0.3s ease-in-out;
 }
@@ -1132,15 +1132,15 @@ body {
 
 .h2-sezione-5 {
     position: absolute;
-    width: 1600px;
-    height: 50px;
-    left: 117px;
-    top: 2301px;
+    width: clamp(900px, 92.59%, 1600px);
+    height: auto;
+    left: clamp(20px, 6.77%, 117px);
+    top: clamp(1400px, 133.22vw, 2301px);
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 500;
-    font-size: 40px;
-    line-height: 50px;
+    font-size: clamp(28px, 2.31vw, 40px);
+    line-height: 1.25;
     text-align: left;
     color: var(--sima-text-main);
 }
@@ -1155,16 +1155,16 @@ body {
 
 .cta-sezione-5 {
     position: relative;
-    width: 258px;
-    height: 70px;
+    width: clamp(200px, 14.93%, 258px);
+    height: clamp(55px, 4.05vw, 70px);
     cursor: pointer;
     z-index: 1;
 }
 
 .sezione-cta-5 {
     position: absolute;
-    width: 258px;
-    height: 70px;
+    width: 100%;
+    height: 100%;
     left: 0px;
     top: 0px;
     background: var(--sima-primary);
@@ -1240,11 +1240,11 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 2951px; /*  Sezione 5 base (2321px) + delta 630  */
+    top: clamp(1800px, 170.78vw, 2951px); /*  Sezione 5 base (2321px) + delta 630  */
     width: 100vw;
-    height: 400px;
+    height: clamp(350px, 23.15vw, 400px);
     margin: 0 !important;
-    padding: 0 0 50px 0;
+    padding: 0 0 clamp(30px, 2.89vw, 50px) 0;
     background: #e6ebf1;
     box-sizing: border-box;
 }
@@ -1256,7 +1256,7 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 1800px;
+    width: clamp(90%, 104.17vw, 1800px);
     height: 1px;
     background: var(--sima-text-main);
 }
@@ -1269,15 +1269,15 @@ body {
 /* Logo Footer */
 .logo-footer-link {
     position: absolute;
-    top: -40px;
-    left: calc(50% - 800px);
+    top: clamp(-30px, -2.31vw, -40px);
+    left: calc(50% - clamp(400px, 46.3%, 800px));
     transform: translateX(-50%);
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.3s ease;
     display: block;
-    width: 600px;
-    height: 300px;
+    width: clamp(350px, 34.72vw, 600px);
+    height: clamp(175px, 17.36vw, 300px);
     z-index: 10;
 }
 
@@ -1307,12 +1307,12 @@ body {
 /* Dati Aziendali nel Footer */
 .footer-info {
     position: absolute;
-    top: 140px;
-    left: calc(50% - 150px);
+    top: clamp(80px, 8.1vw, 140px);
+    left: calc(50% - clamp(80px, 8.68vw, 150px));
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: clamp(10px, 0.93vw, 16px);
     z-index: 10;
 }
 
@@ -1320,8 +1320,8 @@ body {
     margin: 0;
     font-family: 'Outfit', sans-serif;
     font-weight: 300;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: clamp(13px, 0.93vw, 16px);
+    line-height: 1.5;
     color: var(--sima-text-main);
 }
 
@@ -1339,9 +1339,9 @@ body {
 .footer-column-title {
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: clamp(16px, 1.16vw, 20px);
     color: var(--sima-primary);
-    margin: 0 0 12px 0;
+    margin: 0 0 clamp(8px, 0.69vw, 12px) 0;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -1349,8 +1349,8 @@ body {
 /* Orari nel Footer */
 .footer-hours {
     position: absolute;
-    top: 140px;
-    left: calc(50% + 150px);
+    top: clamp(80px, 8.1vw, 140px);
+    left: calc(50% + clamp(80px, 8.68vw, 150px));
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
