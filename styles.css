@@ -2680,4 +2680,67 @@ body {
     }
 }
 
+/* ===== CORREZIONE SCALING PER macOS/iOS/LINUX ===== */
+/* Rileva Safari, Firefox su Mac e Chrome su Linux senza toccare Windows */
+@supports (-webkit-appearance: none) and (not (-ms-ime-align: auto)) {
+    /* Solo per browser non-Windows (Safari Mac, Chrome Mac/Linux) */
+    @media (min-width: 1025px) {
+        /* Riduci leggermente le dimensioni per macOS/Linux */
+        .h2-sezione-1 {
+            font-size: clamp(36px, 4.2vw, 72px);
+        }
+        
+        .testo-sezione-1 {
+            font-size: clamp(16px, 1.7vw, 29px);
+        }
+        
+        .h2-sezione-4 {
+            font-size: clamp(36px, 4.2vw, 72px);
+        }
+        
+        .testo-sezione-4 {
+            font-size: clamp(16px, 1.7vw, 29px);
+        }
+        
+        .h2-sezione-5 {
+            font-size: clamp(26px, 2.1vw, 36px);
+        }
+        
+        .text-box-wrapper {
+            max-width: clamp(380px, 35%, 600px);
+        }
+        
+        .footer-info-line {
+            font-size: clamp(12px, 0.85vw, 15px);
+        }
+        
+        .footer-column-title {
+            font-size: clamp(15px, 1.05vw, 18px);
+        }
+    }
+}
+
+/* Fix specifico solo per Safari su macOS/iOS */
+@supports (-webkit-touch-callout: none) or (-webkit-backdrop-filter: blur(1px)) {
+    @media (min-width: 1025px) {
+        /* Scaling più aggressivo per Safari */
+        body {
+            font-size: 95%; /* Riduci di 5% il font base */
+        }
+        
+        .h2-sezione-1 {
+            font-size: clamp(34px, 4vw, 68px);
+        }
+        
+        .rettangolo-sezione-1 {
+            width: clamp(280px, 25%, 440px);
+            height: clamp(330px, 29vw, 500px);
+        }
+        
+        .testo-sezione-1 {
+            font-size: clamp(15px, 1.6vw, 28px);
+        }
+    }
+}
+
 
