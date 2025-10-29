@@ -197,8 +197,14 @@
             
             // Gestione invio form
             const form = document.querySelector('.contact-form');
-            form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('.submit-btn');
+            
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
+                
+                // Disabilita il bottone durante l'invio
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Invio in corso...';
                 
                 const formData = {
                     department: selectedEmail,
@@ -209,9 +215,37 @@
                     message: document.getElementById('message').value
                 };
                 
-                // Qui puoi aggiungere la logica per inviare i dati
-                console.log('Form data:', formData);
-                alert('Richiesta inviata a: ' + selectedEmail);
+                try {
+                    // Usa /api/send-email per Vercel, oppure send-email.php per hosting PHP
+                    const apiEndpoint = '/api/send-email';
+                    const response = await fetch(apiEndpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert('✅ ' + result.message + '\n\nRiceverai una risposta al più presto.');
+                        form.reset();
+                        // Ripristina il primo dipartimento come attivo
+                        deptButtons.forEach(btn => btn.classList.remove('active'));
+                        deptButtons[0].classList.add('active');
+                        selectedEmail = deptButtons[0].dataset.email;
+                    } else {
+                        alert('❌ Errore: ' + result.message);
+                    }
+                } catch (error) {
+                    console.error('Errore:', error);
+                    alert('❌ Errore di connessione. Verifica la tua connessione internet e riprova.');
+                } finally {
+                    // Riabilita il bottone
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Invia richiesta';
+                }
             });
         });
     </script>

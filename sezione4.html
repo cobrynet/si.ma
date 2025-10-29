@@ -560,16 +560,56 @@
             });
             
             // Gestione invio form
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Qui puoi gestire l'invio del form (es. AJAX, mailto, ecc.)
-                alert('Richiesta inviata! Ti ricontatteremo presto.');
+                const submitBtn = contactForm.querySelector('.contact-modal-submit');
                 
-                // Chiudi modale e resetta form
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-                contactForm.reset();
+                // Disabilita il bottone durante l'invio
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Invio in corso...';
+                
+                // Prepara i dati del form
+                const formData = {
+                    department: 'commerciale@assistenzalavanderie.it',
+                    fullname: document.getElementById('customerName').value,
+                    email: document.getElementById('customerEmail').value,
+                    phone: document.getElementById('customerPhone').value,
+                    organization: productInfoInput.value, // Nome prodotto nel campo organizzazione
+                    message: document.getElementById('customerMessage').value
+                };
+                
+                try {
+                    // Usa /api/send-email per Vercel
+                    const apiEndpoint = '/api/send-email';
+                    const response = await fetch(apiEndpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert('✅ ' + result.message + '\n\nRiceverai una risposta al più presto.');
+                        
+                        // Chiudi modale e resetta form
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                        contactForm.reset();
+                    } else {
+                        alert('❌ Errore: ' + result.message);
+                    }
+                } catch (error) {
+                    console.error('Errore:', error);
+                    alert('❌ Errore di connessione. Verifica la tua connessione internet e riprova.');
+                } finally {
+                    // Riabilita il bottone
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Invia richiesta';
+                }
             });
         });
     </script>

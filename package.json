@@ -1,0 +1,17 @@
+{
+  "name": "sima-srl-website",
+  "version": "1.0.0",
+  "description": "Sito web Si.ma SRL con funzionalità email via Resend",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "resend": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
