@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>SI-MA SRL - Chi Siamo</title>
     <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=88888907">
-    <link rel="stylesheet" href="sezione2.css?v=88888907">
+    <link rel="stylesheet" href="styles.css?v=88888971">
+    <link rel="stylesheet" href="sezione2.css?v=88888971">
 </head>
 <body class="body-sezione2">
     <div class="main-container-sezione2">
+    <meta name="robots" content="noindex, nofollow">
         <!-- Header -->
         <header class="header">
             <div class="sfondo-header"></div>
             <div class="logo"></div>
             <nav class="menu">
              <a href="index.html" class="testo-menu1">Home</a>
-             <a href="sezione2.html" class="testo-menu2">Chi Siamo</a>
-             <a href="sezione3.html" class="testo-menu3">Servizi</a>
-             <a href="sezione4.html" class="testo-menu4">Nuovo/Usato</a>
-             <a href="sezione5.html" class="testo-menu5">Dove Siamo</a>
+             <a href="servizi.html" class="testo-menu3">Servizi</a>
+             <a href="sezione4.html" class="testo-menu4">Nuovo usato</a>
              <a href="contatti.html" class="testo-menu6">Contatti</a>
             </nav>
         </header>
@@ -33,10 +35,13 @@
     <!-- Foto Header Pagina 1 rimossa su richiesta -->
 
         <!-- H1 Pagina 1 -->
-        <h1 class="h1-pagina-1">UN'AZIENDA STORICA,<br>FATTA DI <span class="persone-highlight">PERSONE.</span></h1>
+    <h1 class="h1-pagina-1">UN'AZIENDA STORICA,<br><span class="h1-line-2">FATTA DI <span class="persone-highlight">PERSONE.</span></span></h1>
         
         <!-- Testo sopra rettangoli -->
         <p class="testo-sopra-rettangoli">Siamo Matteo e Simone,<br>e questa è la nostra Impresa</p>
+        
+        <!-- Sottotesto storia aziendale -->
+        <p class="sottotesto-storia">Siamo cresciuti tra macchinari, chiavi inglesi e officine che odoravano di metallo e detergenti. Nostro padre è stato un tecnico instancabile, un uomo che ha dedicato oltre quarant'anni della sua vita al mondo delle lavanderie professionali. Con la sua serietà, la sua competenza e il suo sacrificio ha costruito una reputazione solida, diventando un esempio non solo per noi, ma per molti operatori del settore.<br><br>Nel 2001 abbiamo deciso di raccogliere la sua eredità e fondare SIMA srl.<br>Non era soltanto una scelta di lavoro: era il modo migliore per dare continuità ai valori che ci ha trasmesso – la passione per il lavoro ben fatto, il rispetto per i clienti e l'idea che la professionalità si misuri nei fatti, non nelle parole.<br><br>Oggi, grazie a oltre vent'anni di attività e a un know-how che unisce esperienza storica e aggiornamento costante, SIMA è diventata un punto di riferimento nel settore delle lavanderie professionali.<br>Abbiamo ampliato i nostri servizi, ci siamo dotati delle migliori tecnologie e abbiamo esteso la nostra presenza ben oltre i confini della Toscana, portando la qualità del nostro lavoro anche in Europa e nei mercati internazionali.<br><br>Quello che facciamo ogni giorno va oltre l'installazione e la manutenzione delle lavatrici a carico frontale: significa garantire continuità, affidabilità e soluzioni concrete a chi sceglie di affidarsi a noi.<br>La nostra storia è fatta di persone, di fiducia, di interventi risolutivi.<br><strong>E per noi, questo, è solo l'inizio.</strong></p>
         
         <!-- Rettangoli -->
         <div class="rettangolo-1"></div>
@@ -86,6 +91,33 @@
         </div>
     </footer>
 
-    </div> <!-- Fine main-container -->
+        </div> <!-- Fine main-container -->
+
+                    <script>
+                        // Effetto scroll identico alla Home: font-size da 110px a 140px
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const line2 = document.querySelector('.h1-line-2');
+                            if (!line2) return;
+
+                            function applyScrollEffect() {
+                                const scrollPosition = window.scrollY;
+                                const trigger = 50;
+                                const maxScroll = 600;
+                                if (scrollPosition >= trigger) {
+                                    const minFontSize = 110;
+                                    const maxFontSize = 140;
+                                    let progress = (scrollPosition - trigger) / (maxScroll - trigger);
+                                    progress = Math.max(0, Math.min(1, progress));
+                                    const currentSize = minFontSize + (progress * (maxFontSize - minFontSize));
+                                    line2.style.fontSize = `${currentSize}px`;
+                                } else {
+                                    line2.style.fontSize = '110px';
+                                }
+                            }
+
+                            applyScrollEffect();
+                            window.addEventListener('scroll', applyScrollEffect, { passive: true });
+                        });
+                    </script>
 </body>
 </html>

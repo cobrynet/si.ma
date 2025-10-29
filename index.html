@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" id="top">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-            <link rel="stylesheet" href="styles.css?v=88888966">
+                    <link rel="stylesheet" href="styles.css?v=1730203000">
 </head>
 <body>
     <div class="main-container">
@@ -19,10 +19,8 @@
             <div class="logo"></div>
             <nav class="menu">
              <a href="index.html" class="testo-menu1">Home</a>
-             <a href="sezione2.html" class="testo-menu2">Chi Siamo</a>
-             <a href="sezione3.html" class="testo-menu3">Servizi</a>
-             <a href="sezione4.html" class="testo-menu4">Nuovo/Usato</a>
-             <a href="sezione5.html" class="testo-menu5">Dove Siamo</a>
+             <a href="servizi.html" class="testo-menu3">Servizi</a>
+             <a href="sezione4.html" class="testo-menu4">Nuovo usato</a>
              <a href="contatti.html" class="testo-menu6">Contatti</a>
             </nav>
         </header>
@@ -85,7 +83,7 @@
                 <div class="icona-wrapper">
                     <img src="contenuti/Icone/mobile-vibrate-solid-full.svg" alt="Supporto 24/7" class="icona-base" width="56" height="56">
                     <img src="contenuti/Icone/mobile-vibrate-solid-full-bucato.svg" alt="Supporto 24/7" class="icona-hover" width="56" height="56">
-                    <p class="icona-testo">Supporto continuo h 24</p>
+                    <p class="icona-testo">Presa in carico delle richieste entro 24h</p>
                 </div>
             </div>
         </section>
@@ -99,7 +97,8 @@
                     <span class="testo-cta-5">Scopri chi siamo</span>
                 </div>
             </div>
-            <p class="testo-sezione-5">Conosci la nostra storia, i valori e l'esperienza che ci guidano da oltre vent'anni.</p>
+            <p class="testo-sezione-5">Siamo Matteo e Simone, cresciuti tra officine e macchinari. Da nostro padre, tecnico instancabile con oltre quarant'anni di esperienza nel settore delle lavanderie professionali, abbiamo imparato passione, serietà e rispetto per il lavoro ben fatto.<br>Nel 2001 abbiamo fondato SIMA srl per dare continuità a quei valori.</p>
+            <p class="testo-sezione-5-right">Oggi, con oltre vent'anni di esperienza e una presenza che va oltre i confini della Toscana, offriamo soluzioni complete per le lavanderie professionali, garantendo affidabilità, <span class="tight-fit">competenza e continuità.</span></p>
         </section>
 
         <!-- Footer Content (separato dal footer grigio) -->
@@ -108,7 +107,33 @@
         <!-- Footer (solo sfondo grigio) -->
         <footer class="footer">
             <!-- Logo Footer -->
-            <div class="logo-footer-rect"></div>
+            <a href="#top" class="logo-footer-link">
+                <div class="logo-footer-rect">
+                    <video autoplay loop muted playsinline class="logo-footer-video">
+                        <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
+                        <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </a>
+            
+            <!-- Dati Aziendali -->
+            <div class="footer-info">
+                <h3 class="footer-column-title">Contatti</h3>
+                <p class="footer-info-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
+                <p class="footer-info-line">Tel. 055 7327456</p>
+                <p class="footer-info-line"><a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a></p>
+                <p class="footer-info-line"><a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a></p>
+                <p class="footer-info-line">P.IVA 01867350975</p>
+            </div>
+            
+            <!-- Orari -->
+            <div class="footer-hours">
+                <h3 class="footer-column-title">Orari</h3>
+                <p class="footer-info-line"><strong>Lun-Ven</strong></p>
+                <p class="footer-info-line">9:00 – 18:00</p>
+                <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
+                <p class="footer-info-line">H24/7</p>
+            </div>
             
             <!-- Social Media nel Footer -->
             <div class="social-footer">
@@ -149,7 +174,7 @@
 
     </div> <!-- Fine main-container -->
 
-        <script src="script-simple.js?v=100000009"></script>
+    <script src="script-simple.js?v=1730143000"></script>
     <script>
         // Try to programmatically play all videos on the page.
         // If the browser blocks autoplay, retry after setting muted=true.

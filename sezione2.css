@@ -42,6 +42,7 @@
     color: var(--sima-primary);
     margin: 0;
     z-index: 2;
+    text-align: left;
 }
 
 .h1-nuovo-usato-right {
@@ -53,25 +54,29 @@
     font-weight: 500;
     font-size: 90px;
     line-height: 105px;
+    text-align: right;
     color: #82ADE1;
     margin: 0;
-    text-align: right;
     z-index: 2;
 }
 
 /* Container principale sezione 2 */
 .main-container-sezione2 {
-    width: 1728px;
+    max-width: 1728px;
+    width: 100%;
     position: relative;
     background: transparent;
     margin: 0 auto;
-    padding-top: 100px;
+    padding: 100px clamp(20px, 3vw, 60px) 0;
+    min-height: 2750px; /* footer a 2300px + 400px altezza + 50px spazio finale */
 }
 
 .pagina-1 {
     position: relative;
-    width: 1728px;
-    height: 2900px;
+    max-width: 1728px;
+    width: 100%;
+    height: auto; /* lascia che il contenuto determini l'altezza */
+    min-height: 100vh;
     background: transparent;
 }
 
@@ -88,24 +93,43 @@
     border-radius: 25px;
 }
 
-/* h1-pagina-1 */
+/* h1-pagina-1 - allineato a sinistra come h2-sezione-1 della Home */
 .h1-pagina-1 {
     position: absolute;
-    width: 1410px;
+    width: 1728px;
     height: auto;
     left: 0;
-    top: 300px;
-    font-family: 'Outfit';
+    top: 320px; /* abbassato di 20px da 300px */
+    font-family: 'Outfit', sans-serif;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 110px;
     line-height: 120px;
-    color: var(--sima-primary);
+    text-align: center;
+    color: #18202d;
+    text-shadow: none;
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .persone-highlight {
     color: #82ADE1;
+}
+
+/* Seconda riga del titolo (Chi Siamo) che si ingrandisce con lo scroll - come Home */
+.h1-line-2 {
+    opacity: 1;
+    display: block;
+    margin-top: 10px;
+    font-size: 110px;
+    transform-origin: left center;
+    font-weight: 600;
 }
 
 /* didascalia-pagina-1 */
@@ -162,14 +186,15 @@
 /* Griglia Prodotti */
 .products-grid {
     position: absolute;
+    top: 1250px;
     left: 50%;
     transform: translateX(-50%);
-    top: 1250px;
     width: 1400px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     z-index: 5;
+    padding-bottom: 100px; /* Spazio prima del footer */
 }
 
 /* Main content per pagina prodotti */
@@ -397,17 +422,38 @@ body.body-sezione2 main {
     position: absolute;
     width: 1194px;
     height: 50px;
-    left: 268px;
-    top: 1151px;
+    left: 117px; /* allineato come h2-sezione-1 della Home */
+    top: 851px; /* alzato di 300px (da 1151px a 851px) */
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
     line-height: 40px;
-    text-align: center;
+    text-align: left; /* allineato a sinistra come Home */
     color: var(--sima-text-main);
     margin: 0;
 }
+
+/* Sottotesto storia aziendale - sotto "Siamo Matteo e Simone" */
+.sottotesto-storia {
+    position: absolute;
+    width: 1194px;
+    left: 117px; /* allineato come h2-sezione-1 della Home */
+    top: 950px; /* sotto il testo "Siamo Matteo e Simone" */
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: left;
+    color: #82ADE1; /* celeste chiaro del brand */
+    margin: 0;
+}
+
+.sottotesto-storia strong {
+    font-weight: 500;
+}
+
 
 /* rettangolo-1 */
 .rettangolo-1 {
@@ -415,7 +461,7 @@ body.body-sezione2 main {
     width: 378px;
     height: 440px;
     left: 267px;
-    top: 1451px;
+    top: 1800px; /* abbassato ulteriormente di 200px */
     background: var(--sima-bg-alt);
     border-radius: 25px;
 }
@@ -426,7 +472,7 @@ body.body-sezione2 main {
     width: 378px;
     height: 440px;
     left: 675px;
-    top: 1451px;
+    top: 1800px; /* abbassato ulteriormente di 200px */
     background: var(--sima-bg-alt);
     border-radius: 25px;
 }
@@ -437,7 +483,7 @@ body.body-sezione2 main {
     width: 378px;
     height: 440px;
     left: 1083px;
-    top: 1451px;
+    top: 1800px; /* abbassato ulteriormente di 200px */
     background: var(--sima-bg-alt);
     border-radius: 25px;
 }
@@ -539,11 +585,13 @@ body.body-sezione2 main {
 /* Footer per sezione 2 */
 body.body-sezione2 .footer {
     position: absolute;
-    top: 2500px;
+    top: 2300px; /* posizionato fisso sotto le card */
+    margin-top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
     height: 400px;
+    padding: 0 0 50px 0;
     background: #e6ebf1;
     z-index: 5;
 }
@@ -791,3 +839,103 @@ body.body-sezione2 .footer::before {
 .lightbox-close { top: 28px; right: 28px; }
 .lightbox-prev { left: 24px; top: 50%; transform: translateY(-50%); }
 .lightbox-next { right: 24px; top: 50%; transform: translateY(-50%); }
+
+/* ===== MEDIA QUERIES RESPONSIVE NUOVO/USATO ===== */
+
+/* Desktop (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .main-container-sezione2 {
+        padding: 100px clamp(30px, 3vw, 60px) 0;
+    }
+}
+
+/* Tablet (769px - 1024px) - 2 colonne */
+@media (max-width: 1024px) {
+    .main-container-sezione2 {
+        padding: 100px clamp(20px, 3vw, 40px) 0;
+        min-height: auto;
+    }
+    
+    .foto-header-pagina-1 {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: 30px;
+    }
+    
+    .prodotti-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .prodotto-card {
+        width: 100%;
+    }
+}
+
+/* Mobile (max-width: 768px) - 1 colonna */
+@media (max-width: 768px) {
+    .main-container-sezione2 {
+        padding: 80px 15px 0;
+        min-height: auto;
+    }
+    
+    .foto-header-pagina-1 {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .prodotti-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .prodotto-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .prodotto-immagine {
+        height: 250px;
+    }
+    
+    .prodotto-titolo {
+        font-size: 20px;
+    }
+    
+    .prodotto-descrizione {
+        font-size: 14px;
+    }
+    
+    body.body-sezione2 .footer {
+        position: relative;
+        top: auto;
+        margin-top: 50px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .main-container-sezione2 {
+        padding: 80px 10px 0;
+    }
+    
+    .prodotto-card {
+        max-width: 100%;
+    }
+    
+    .prodotto-immagine {
+        height: 200px;
+    }
+    
+    .prodotto-titolo {
+        font-size: 18px;
+    }
+    
+    .prodotto-descrizione {
+        font-size: 13px;
+    }
+}

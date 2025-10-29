@@ -7,10 +7,10 @@
     <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=1729170030">
-    <link rel="stylesheet" href="contatti.css?v=1729170230">
+    <link rel="stylesheet" href="styles.css?v=1730203000">
+    <link rel="stylesheet" href="contatti.css?v=1730203000">
 </head>
 <body>
     <div class="main-container-contatti">
@@ -20,10 +20,8 @@
             <div class="logo"></div>
             <nav class="menu">
                 <a href="index.html" class="testo-menu1">Home</a>
-                <a href="sezione2.html" class="testo-menu2">Sezione 2</a>
-                <a href="sezione3.html" class="testo-menu3">Servizi</a>
-                <a href="sezione4.html" class="testo-menu4">Nuovo/Usato</a>
-                <a href="sezione5.html" class="testo-menu5">Dove Siamo</a>
+                <a href="servizi.html" class="testo-menu3">Servizi</a>
+                <a href="sezione4.html" class="testo-menu4">Nuovo usato</a>
                 <a href="contatti.html" class="testo-menu6">Contatti</a>
             </nav>
         </header>
@@ -32,45 +30,118 @@
         <main class="pagina-contatti">
             <h1 class="h1-contatti">Contatti</h1>
             
-            <!-- Prima riga: Sito, Telefono, Email -->
-            <div class="sito-contatti">
-                <div class="rectangle-sito"></div>
-                <p class="testo-sito">www.blablabla.com</p>
-            </div>
-            
-            <div class="telefono-contatti">
-                <div class="rectangle-telefono"></div>
-                <p class="testo-telefono">366 985 5864</p>
-            </div>
-            
-            <div class="email-contatti">
-                <div class="rectangle-email"></div>
-                <p class="testo-email">email@gmail.com</p>
-            </div>
-            
-            <!-- Seconda riga: Instagram, Facebook, LinkedIn -->
-            <div class="instagram-contatti">
-                <div class="rectangle-instagram"></div>
-                <i class="fab fa-instagram icon-instagram"></i>
-                <p class="testo-instagram">@blablabla</p>
-            </div>
-            
-            <div class="facebook-contatti">
-                <div class="rectangle-facebook"></div>
-                <i class="fab fa-facebook-f icon-facebook"></i>
-                <p class="testo-facebook">Blablabla</p>
-            </div>
-            
-            <div class="linkedin-contatti">
-                <div class="rectangle-linkedin"></div>
-                <i class="fab fa-linkedin-in icon-linkedin"></i>
-                <p class="testo-linkedin">Blablabla</p>
+            <div class="contatti-container">
+                <!-- Form di contatto a sinistra -->
+                <div class="form-section">
+                    <form class="contact-form">
+                        <!-- Selezione dipartimento email -->
+                        <div class="form-group">
+                            <label for="department">Seleziona dipartimento *</label>
+                            <div class="department-buttons">
+                                <button type="button" class="dept-btn active" data-email="amministrazione@assistenzialavanderie.it">Amministrazione</button>
+                                <button type="button" class="dept-btn" data-email="commerciale@assistenzalavanderie.it">Commerciale</button>
+                                <button type="button" class="dept-btn" data-email="supporto@assistenzalavanderie.it">Supporto</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Nome completo -->
+                        <div class="form-group">
+                            <label for="fullname">Nome completo *</label>
+                            <input type="text" id="fullname" name="fullname" placeholder="Nome e Cognome" required>
+                        </div>
+                        
+                        <!-- Email e Telefono sulla stessa riga -->
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" placeholder="tua@email.com" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="phone">Telefono *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="055 7327456" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Organizzazione -->
+                        <div class="form-group">
+                            <label for="organization">Organizzazione</label>
+                            <input type="text" id="organization" name="organization" placeholder="Nome azienda">
+                        </div>
+                        
+                        <!-- Messaggio -->
+                        <div class="form-group">
+                            <label for="message">Messaggio *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Il tuo messaggio" required></textarea>
+                        </div>
+                        
+                        <!-- Bottone invio -->
+                        <button type="submit" class="submit-btn">Invia richiesta</button>
+                    </form>
+                </div>
+                
+                <!-- Info contatti e mappa a destra -->
+                <div class="info-section">
+                    <div class="contact-info-side">
+                        <h3>Contatti diretti</h3>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@assistenzalavanderie.it</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>055 7327456</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Via Stefano Ussi 22<br>Scandicci (FI) 50018</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Mappa Google Maps -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2883.0!2d11.1850612!3d43.7541893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a4f0b0e5c8a67%3A0x0!2zVmlhIFN0ZWZhbm8gVXNzaSwgMjIsIDUwMDE4IFNjYW5kaWNjaSBGSQ!5e0!3m2!1sit!2sit!4v1730000000000!5m2!1sit!2sit"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </main>
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="logo-footer-rect"></div>
+            <!-- Logo Footer -->
+            <a href="index.html#top" class="logo-footer-link">
+                <div class="logo-footer-rect">
+                    <video autoplay loop muted playsinline class="logo-footer-video">
+                        <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
+                        <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </a>
+            
+            <!-- Dati Aziendali -->
+            <div class="footer-info">
+                <h3 class="footer-column-title">Contatti</h3>
+                <p class="footer-info-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
+                <p class="footer-info-line">Tel. 055 7327456</p>
+                <p class="footer-info-line"><a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a></p>
+                <p class="footer-info-line"><a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a></p>
+                <p class="footer-info-line">P.IVA 01867350975</p>
+            </div>
+            
+            <!-- Orari -->
+            <div class="footer-hours">
+                <h3 class="footer-column-title">Orari</h3>
+                <p class="footer-info-line"><strong>Lun-Ven</strong></p>
+                <p class="footer-info-line">9:00 – 18:00</p>
+                <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
+                <p class="footer-info-line">H24/7</p>
+            </div>
+            
+            <!-- Social Media nel Footer -->
             <div class="social-footer">
                 <a href="#" class="social-link-footer facebook" aria-label="Facebook">
                     <i class="fab fa-facebook"></i>
@@ -82,6 +153,22 @@
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
+            
+            <!-- Google Recensioni nel Footer - separato -->
+            <div class="google-reviews-footer-container">
+                <a href="https://www.google.com/search?sca_esv=289e7c278657c79e&hl=it&sxsrf=AE3TifP-K25LbtxPo-CpA7CVdEmhmptRtQ:1761326424581&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiuqfuerL2QAxWMnf0HHSFOLUMQ0bkNegQISxAE&biw=3440&bih=1305&dpr=1" target="_blank" rel="noopener" class="google-reviews-footer">
+                    <div class="reviews-stars-footer">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <span class="rating-number-footer">4.8</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Links Privacy e Cookie -->
             <div class="footer-links">
                 <a href="#" class="footer-link">Informazioni Policy</a>
                 <a href="#" class="footer-link">Informazioni Cookie</a>
@@ -90,5 +177,43 @@
             </div>
         </footer>
     </div>
+    
+    <script>
+        // Gestione selezione dipartimento
+        document.addEventListener('DOMContentLoaded', function() {
+            const deptButtons = document.querySelectorAll('.dept-btn');
+            let selectedEmail = 'amministrazione@assistenzialavanderie.it';
+            
+            deptButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Rimuovi active da tutti
+                    deptButtons.forEach(btn => btn.classList.remove('active'));
+                    // Aggiungi active al bottone cliccato
+                    this.classList.add('active');
+                    // Salva l'email selezionata
+                    selectedEmail = this.dataset.email;
+                });
+            });
+            
+            // Gestione invio form
+            const form = document.querySelector('.contact-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    department: selectedEmail,
+                    fullname: document.getElementById('fullname').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    organization: document.getElementById('organization').value,
+                    message: document.getElementById('message').value
+                };
+                
+                // Qui puoi aggiungere la logica per inviare i dati
+                console.log('Form data:', formData);
+                alert('Richiesta inviata a: ' + selectedEmail);
+            });
+        });
+    </script>
 </body>
 </html>

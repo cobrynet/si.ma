@@ -1,0 +1,52 @@
+/* CSS specifico per pagina Servizi */
+
+/* Rimuovi l'altezza fissa e lascia che la pagina si adatti */
+.main-container {
+    height: auto !important;
+    min-height: 100vh;
+}
+
+/* Aggiungi padding-top invece di margin per spostare la sezione 4 */
+.sezione-4 {
+    padding-top: 1700px; /* 1200px + 500px = 1700px totale */
+}
+
+/* Aggiungi padding-top per la sezione 5 */
+.sezione-5 {
+    padding-top: 400px;
+}
+
+/* ===== MEDIA QUERIES RESPONSIVE SERVIZI ===== */
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) {
+    .sezione-4 {
+        padding-top: 1200px;
+    }
+    
+    .sezione-5 {
+        padding-top: 300px;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .sezione-4 {
+        padding-top: 800px;
+    }
+    
+    .sezione-5 {
+        padding-top: 200px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .sezione-4 {
+        padding-top: 600px;
+    }
+    
+    .sezione-5 {
+        padding-top: 150px;
+    }
+}

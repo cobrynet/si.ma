@@ -7,10 +7,10 @@
     <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=88888923">
-    <link rel="stylesheet" href="sezione2.css?v=88888953">
+    <link rel="stylesheet" href="styles.css?v=1730203000">
+    <link rel="stylesheet" href="sezione2.css?v=1730203000">
 </head>
 <body class="body-sezione2">
     <div class="main-container-sezione2">
@@ -20,10 +20,8 @@
             <div class="logo"></div>
             <nav class="menu">
                 <a href="index.html" class="testo-menu1">Home</a>
-                <a href="sezione2.html" class="testo-menu2">Chi Siamo</a>
-                <a href="sezione3.html" class="testo-menu3">Servizi</a>
-                <a href="sezione4.html" class="testo-menu4">Nuovo/Usato</a>
-                <a href="sezione5.html" class="testo-menu5">Dove Siamo</a>
+                <a href="servizi.html" class="testo-menu3">Servizi</a>
+                <a href="sezione4.html" class="testo-menu4">Nuovo usato</a>
                 <a href="contatti.html" class="testo-menu6">Contatti</a>
             </nav>
         </header>
@@ -272,22 +270,62 @@
         <!-- Footer -->
         <footer class="footer">
             <!-- Logo Footer -->
-            <div class="logo-footer-rect"></div>
+            <a href="index.html#top" class="logo-footer-link">
+                <div class="logo-footer-rect">
+                    <video autoplay loop muted playsinline class="logo-footer-video">
+                        <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
+                        <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </a>
             
-            <!-- Social Media -->
+            <!-- Dati Aziendali -->
+            <div class="footer-info">
+                <h3 class="footer-column-title">Contatti</h3>
+                <p class="footer-info-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
+                <p class="footer-info-line">Tel. 055 7327456</p>
+                <p class="footer-info-line"><a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a></p>
+                <p class="footer-info-line"><a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a></p>
+                <p class="footer-info-line">P.IVA 01867350975</p>
+            </div>
+            
+            <!-- Orari -->
+            <div class="footer-hours">
+                <h3 class="footer-column-title">Orari</h3>
+                <p class="footer-info-line"><strong>Lun-Ven</strong></p>
+                <p class="footer-info-line">9:00 – 18:00</p>
+                <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
+                <p class="footer-info-line">H24/7</p>
+            </div>
+            
+            <!-- Social Media nel Footer -->
             <div class="social-footer">
-                <a href="#" class="social-link-footer facebook">
-                    <i class="fab fa-facebook-f"></i>
+                <a href="#" class="social-link-footer facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
                 </a>
-                <a href="#" class="social-link-footer instagram">
+                <a href="#" class="social-link-footer instagram" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="social-link-footer linkedin">
-                    <i class="fab fa-linkedin-in"></i>
+                <a href="#" class="social-link-footer linkedin" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
                 </a>
             </div>
             
-            <!-- Footer Links -->
+            <!-- Google Recensioni nel Footer - separato -->
+            <div class="google-reviews-footer-container">
+                <a href="https://www.google.com/search?sca_esv=289e7c278657c79e&hl=it&sxsrf=AE3TifP-K25LbtxPo-CpA7CVdEmhmptRtQ:1761326424581&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiuqfuerL2QAxWMnf0HHSFOLUMQ0bkNegQISxAE&biw=3440&bih=1305&dpr=1" target="_blank" rel="noopener" class="google-reviews-footer">
+                    <div class="reviews-stars-footer">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <span class="rating-number-footer">4.8</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Links Privacy e Cookie -->
             <div class="footer-links">
                 <a href="#" class="footer-link">Informazioni Policy</a>
                 <a href="#" class="footer-link">Informazioni Cookie</a>

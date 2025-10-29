@@ -20,39 +20,49 @@
 }
 
 /* 🔧 Reset generale per evitare spazi extra */
-html, body {
+html {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
     padding: 0;
     height: auto;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    height: auto;
     font-family: 'Outfit', sans-serif;
     background: #e6ebf1;
     color: var(--sima-text-main);
-    min-width: 1728px;
     width: 100%;
+    overflow-x: hidden;
 }
 
 /* Container principale per centrare il contenuto */
 .main-container {
     width: 100vw;
-    height: 3400px;
-    max-height: 3400px;
+    min-height: 3450px;
     position: relative;
     background: #e6ebf1;
     padding-top: 100px;
     margin: 0;
     padding-bottom: 0;
-    overflow: hidden;
 }
 
 /* Wrapper interno per centrare il contenuto */
 .home {
-    width: 1728px;
+    max-width: 1728px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
-    height: 3400px;
+    padding: 0 clamp(20px, 3vw, 60px);
+    min-height: 3500px;
 }
 
 /* Header fisso in alto */
@@ -165,9 +175,9 @@ body {
 .home {
     position: relative;
     width: 1728px;
-    height: 5760px;
+    min-height: 3400px;
     background: transparent;
-    padding-bottom: 150px;
+    padding-bottom: 50px;
 }
 
 /* Hero Section */
@@ -513,6 +523,18 @@ body {
     top: 935px;
     transition: transform 0.8s ease-out;
     z-index: 100;
+}
+
+/* Icona assistenza animata (Servizi) */
+.icona-assistenza-animata {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    right: 120px;
+    top: 960px;
+    transform-origin: 50% 50%;
+    /* nessuna transizione/rotazione: l'effetto è dato dal cambio frame PNG */
+    z-index: 110;
 }
 
 /* Tre Rettangoli */
@@ -1006,14 +1028,15 @@ body {
     position: absolute;
     width: 1600px;
     height: auto;
-    left: 117px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 1600px;
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 500;
     font-size: 80px;
     line-height: 90px;
-    text-align: left;
+    text-align: center;
     color: var(--sima-text-main);
 }
 
@@ -1035,7 +1058,7 @@ body {
 /* Container icone Sezione 4 */
 .icone-container {
     position: absolute;
-    top: 1891px;
+    top: 2001px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -1109,43 +1132,25 @@ body {
 
 .h2-sezione-5 {
     position: absolute;
-    width: 700px;
+    width: 1600px;
     height: 50px;
-    left: 267px;
-    top: 2200px;
+    left: 117px;
+    top: 2301px;
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 500;
     font-size: 40px;
     line-height: 50px;
+    text-align: left;
     color: var(--sima-text-main);
-    white-space: nowrap;
 }
 
 .rettangolo-sezione-5 {
-    position: absolute;
-    width: 480px;
-    height: 550px;
-    left: 981px;
-    top: 2200px;
-    background: #D9D9D9;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    display: none; /* foto rimossa */
 }
 
 .rettangolo-sezione-5::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('contenuti/foto/tecnico-sezione-5.png') center/cover no-repeat;
-    filter: blur(5px);
-    z-index: 0;
+    content: none;
 }
 
 .cta-sezione-5 {
@@ -1195,29 +1200,52 @@ body {
 .testo-sezione-5 {
     position: absolute;
     width: 683px;
-    height: 500px;
-    left: 268px;
-    top: 2276px;
+    height: auto;
+    left: 117px;
+    top: 2377px;
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 300;
     font-size: 32px;
     line-height: 40px;
-    color: var(--sima-secondary);
+    color: #82ADE1;
+    margin: 0; /* evita differenze dovute ai margini dei <p> */
 }
 
-/* ====== FOOTER (in flusso normale, non absolute) ====== */
+/* Testo spostato nell'area ex-foto (a destra) */
+.testo-sezione-5-right {
+    position: absolute;
+    width: 683px;   /* uguale al paragrafo di sinistra */
+    height: auto;
+    left: 981px;    /* stessa colonna della foto */
+    top: 2377px;    /* allineato al top del primo paragrafo */
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400; /* regular */
+    font-size: 42px; /* aumentato a 42px come richiesto */
+    line-height: 54px; /* leggermente aumentato */
+    color: var(--sima-primary);
+    text-align: left;
+    margin: 0; /* evita differenze dovute ai margini dei <p> */
+}
+
+/* Micro-ottimizzazione per tenere "competenza e continuità" sulla stessa riga */
+.testo-sezione-5-right .tight-fit {
+    letter-spacing: -0.3px;
+    word-spacing: -1px;
+}
+
+/* ====== FOOTER (posizionato sotto la sezione 5) ====== */
 .footer {
     position: absolute;
-    top: 2830px;
     left: 50%;
     transform: translateX(-50%);
+    top: 2951px; /*  Sezione 5 base (2321px) + delta 630  */
     width: 100vw;
     height: 400px;
     margin: 0 !important;
-    padding: 0;
+    padding: 0 0 50px 0;
     background: #e6ebf1;
-    margin-bottom: 0 !important;
     box-sizing: border-box;
 }
 
@@ -1239,16 +1267,94 @@ body {
 }
 
 /* Logo Footer */
-.logo-footer-rect {
+.logo-footer-link {
     position: absolute;
-    top: 60px;
+    top: -40px;
     left: calc(50% - 800px);
     transform: translateX(-50%);
-    width: 200px;
-    height: 100px;
-    background: url('contenuti/loghi/SIMA-LOGO_BLU-SCURO.png') center/contain no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: block;
+    width: 600px;
+    height: 300px;
+    z-index: 10;
+}
+
+.logo-footer-link:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.logo-footer-rect {
+    position: relative;
+    width: 100%;
+    height: 100%;
     background-color: transparent;
     border-radius: 8px;
+    overflow: hidden;
+}
+
+.logo-footer-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Dati Aziendali nel Footer */
+.footer-info {
+    position: absolute;
+    top: 140px;
+    left: calc(50% - 150px);
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 10;
+}
+
+.footer-info-line {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--sima-text-main);
+}
+
+.footer-website {
+    color: var(--sima-text-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-website:hover {
+    color: #82ADE1;
+}
+
+/* Titoli delle colonne del footer */
+.footer-column-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--sima-primary);
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Orari nel Footer */
+.footer-hours {
+    position: absolute;
+    top: 140px;
+    left: calc(50% + 150px);
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     z-index: 10;
 }
 
@@ -1297,9 +1403,9 @@ body {
 /* Google Recensioni nel Footer - posizionato separato */
 .google-reviews-footer-container {
     position: absolute;
-    top: 180px;
-    left: calc(50% + 900px);
-    transform: translateX(-100%);
+    top: 140px;
+    left: calc(50% + 450px);
+    transform: translateX(-50%);
     z-index: 10;
 }
 
@@ -2318,23 +2424,251 @@ body {
     }
 }
 
-@media (max-width: 800px) {
-    .main-container {
-        transform: scale(0.5);
-        transform-origin: top center;
-        margin-bottom: -3323px; /* Riduce spazio extra dal scaling */
+/* ===== MEDIA QUERIES RESPONSIVE ===== */
+
+/* Ultra-wide screens (1921px+) */
+@media (min-width: 1921px) {
+    .home {
+        max-width: 1920px;
     }
 }
 
-@media (max-width: 600px) {
-    .main-container {
-        transform: scale(0.4);
-        transform-origin: top center;
-        margin-bottom: -3988px; /* Riduce spazio extra dal scaling */
+/* Large Desktop (1441px - 1920px) - Design ottimale */
+@media (min-width: 1441px) and (max-width: 1920px) {
+    .home {
+        padding: 0 clamp(40px, 4vw, 80px);
     }
 }
 
-/* Assicura che il container sia sempre centrato */
-.main-container {
-    margin: 0 auto;
+/* Desktop (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .home {
+        padding: 0 clamp(30px, 3vw, 60px);
+    }
+    
+    h1 {
+        font-size: clamp(48px, 5vw, 64px);
+    }
+    
+    h2 {
+        font-size: clamp(36px, 4vw, 48px);
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) {
+    .home {
+        padding: 0 clamp(20px, 3vw, 40px);
+    }
+    
+    h1 {
+        font-size: clamp(36px, 5vw, 48px);
+    }
+    
+    h2 {
+        font-size: clamp(28px, 4vw, 36px);
+    }
+    
+    /* Header responsive */
+    .header {
+        padding: 0 20px;
+    }
+    
+    .header-logo-video {
+        width: 180px;
+        height: 90px;
+    }
+    
+    .menu-link {
+        font-size: 15px;
+        padding: 8px 15px;
+    }
+    
+    /* Sezioni tablet */
+    .h2-sezione-1 {
+        width: 90%;
+        left: 5%;
+        font-size: clamp(48px, 6vw, 64px);
+        line-height: 1.1;
+    }
+    
+    .rettangolo-sezione-1 {
+        width: 400px;
+        height: 450px;
+    }
+    
+    .servizi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .home {
+        padding: 0 15px;
+    }
+    
+    .main-container {
+        padding-top: 80px;
+        min-height: auto;
+    }
+    
+    h1 {
+        font-size: clamp(28px, 6vw, 36px);
+    }
+    
+    h2 {
+        font-size: clamp(22px, 5vw, 28px);
+    }
+    
+    /* Header mobile */
+    .header {
+        height: 80px;
+        padding: 0 15px;
+    }
+    
+    .header-logo-rect {
+        width: 160px;
+        height: 80px;
+    }
+    
+    .header-logo-video {
+        width: 160px;
+        height: 80px;
+    }
+    
+    .menu-container {
+        gap: 10px;
+    }
+    
+    .menu-link {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+    
+    /* Sezioni mobile */
+    .h2-sezione-1 {
+        width: 90%;
+        left: 5%;
+        top: 500px;
+        font-size: clamp(32px, 8vw, 48px);
+        line-height: 1.2;
+    }
+    
+    .rettangolo-sezione-1 {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 150px;
+        right: auto;
+    }
+    
+    .servizi-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 20px;
+    }
+    
+    .servizio-card {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .video-container {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Footer mobile - stack verticale */
+    .footer {
+        height: auto;
+        min-height: 600px;
+        padding: 40px 20px 50px 20px;
+    }
+    
+    .logo-footer-link {
+        position: relative;
+        width: 300px;
+        height: 150px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 30px;
+    }
+    
+    .footer-info,
+    .footer-hours {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+    }
+    
+    .footer-info p,
+    .footer-hours p {
+        text-align: center;
+    }
+    
+    .social-footer {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 20px 0;
+    }
+    
+    .google-reviews-footer-container {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        margin: 20px 0;
+    }
+    
+    .footer-links {
+        position: relative;
+        margin-top: 30px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .home {
+        padding: 0 10px;
+    }
+    
+    h1 {
+        font-size: clamp(24px, 7vw, 32px);
+    }
+    
+    h2 {
+        font-size: clamp(20px, 6vw, 24px);
+    }
+    
+    .header-logo-rect {
+        width: 140px;
+        height: 70px;
+    }
+    
+    .header-logo-video {
+        width: 140px;
+        height: 70px;
+    }
+    
+    .menu-link {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    
+    .logo-footer-link {
+        width: 250px;
+        height: 125px;
+    }
 }

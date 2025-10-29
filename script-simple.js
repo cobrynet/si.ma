@@ -121,6 +121,92 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Carosello completamente inizializzato');
 });
 
+// Sezione 5: mantieni il sinistro com'è e adatta il font del destro per eguagliare l'altezza
+document.addEventListener('DOMContentLoaded', function(){
+    const leftP = document.querySelector('.testo-sezione-5');
+    const rightP = document.querySelector('.testo-sezione-5-right');
+    if(!leftP || !rightP) return;
+
+    const BASE_FONT = 32;              // px (valore di partenza per il destro)
+    const BASE_LH_FACTOR = 40/32;      // mantiene proporzione line-height
+    const MIN_FONT = 28;               // limite inferiore sicurezza
+    const MAX_FONT = 56;               // consenti anche aumento
+    const STEP = 0.5;                  // incremento fine
+    const TOL = 2;                     // tolleranza in px
+
+    function scaleRightToMatch(){
+        try {
+            // Disabilita l'autoscaling: manteniamo dimensioni fisse da CSS
+            const csR = window.getComputedStyle(rightP);
+            const csL = window.getComputedStyle(leftP);
+            const msg = `Sez.5 → Right font-size: ${csR.fontSize}, line-height: ${csR.lineHeight} | Left font-size: ${csL.fontSize}, line-height: ${csL.lineHeight}`;
+            rightP.setAttribute('title', msg);
+            rightP.setAttribute('data-font-size', csR.fontSize);
+            console.debug(msg);
+            return; // Esci senza modificare nulla
+        } catch(e) {}
+    }
+
+    const runAll = () => {
+        scaleRightToMatch();
+        setTimeout(scaleRightToMatch, 150);
+        setTimeout(scaleRightToMatch, 500);
+        setTimeout(scaleRightToMatch, 1200);
+    };
+
+    runAll();
+    window.addEventListener('resize', runAll);
+    window.addEventListener('load', runAll);
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(runAll).catch(()=>{});
+    }
+});
+
+// Animazione icona assistenza (rotazione 180° + 7 frame)
+document.addEventListener('DOMContentLoaded', function() {
+    const icona = document.getElementById('iconaAssistenza');
+    const sezione1 = document.querySelector('.sezione-1');
+    if (!icona || !sezione1) {
+        // Niente icona in questa pagina: esco silenziosamente
+        return;
+    }
+
+    // Elenco dei frame disponibili (0 inserito prima di 1)
+    const frames = [
+        'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-0.png',
+        'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-1.png',
+        'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-2.png',
+        'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-3.png',
+        'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-4.png',
+        'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-5.png',
+        'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-6.png'
+    ];
+    const lastIndex = frames.length - 1;
+
+    function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
+
+    function onScroll() {
+        const rect = icona.getBoundingClientRect();
+        const h = window.innerHeight || document.documentElement.clientHeight;
+
+        // Progresso basato sull'intera altezza del viewport (100% -> 0%)
+        const centerY = rect.top + rect.height / 2;
+        const start = h;   // quando il centro è fuori in basso
+        const end   = 0;   // quando il centro è fuori in alto
+        let progress = (start - centerY) / (start - end);
+        progress = clamp(progress, 0, 1);
+
+        // Nessuna rotazione CSS: effetto di rotazione simulato solo dai frame PNG
+        const idx = Math.min(lastIndex, Math.floor(progress * lastIndex));
+        if (icona.getAttribute('src') !== frames[idx]) {
+            icona.setAttribute('src', frames[idx]);
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+});
 // Effetto scroll per il titolo hero
 console.log('Script hero caricato');
 document.addEventListener('DOMContentLoaded', function() {
@@ -185,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const testoSezione1 = document.querySelector('.testo-sezione-1');
     
     if (!furgone || !testoSezione1) {
-        console.error('Furgone o testo sezione 1 non trovato');
+        console.debug('Elemento furgone/testo sezione 1 non presente in questa pagina');
         return;
     }
     
@@ -264,4 +350,96 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', checkTestoSezione1Scroll);
     checkTestoSezione1Scroll();
+});
+
+// Adattamento dinamico spazi sezione 4 in base al testo (sottotesto) inserito
+document.addEventListener('DOMContentLoaded', function() {
+    // Esegui solo se esiste la sezione 4
+    const h2S4 = document.querySelector('.h2-sezione-4');
+    const textS4 = document.querySelector('.testo-sezione-4');
+    const iconsS4 = document.querySelector('.icone-container');
+    if (!h2S4 || !iconsS4) return;
+
+    const h2S5 = document.querySelector('.h2-sezione-5');
+    const rectS5 = document.querySelector('.rettangolo-sezione-5');
+    const testoS5 = document.querySelector('.testo-sezione-5');
+    const footer = document.querySelector('.footer');
+
+    function pxToNum(v){
+        if (!v) return 0;
+        const n = parseFloat(String(v).replace('px',''));
+        return isNaN(n) ? 0 : n;
+    }
+
+    function adjustSection4Layout(){
+        // Posiziona il sottotesto subito sotto l'h2 (se presente)
+        if (textS4) {
+            const newTopText = h2S4.offsetTop + h2S4.offsetHeight + 20; // 20px di spazio
+            textS4.style.top = newTopText + 'px';
+            // Assicura altezza auto
+            textS4.style.height = 'auto';
+        }
+
+        // Calcola dove posizionare le icone (sotto al sottotesto o sotto al titolo)
+        const baseBelow = (textS4 && textS4.offsetHeight > 0)
+            ? (textS4.offsetTop + textS4.offsetHeight + 40) // 40px tra testo e icone
+            : (h2S4.offsetTop + h2S4.offsetHeight + 40);
+        
+        // NON riposizionare le icone - usa la posizione CSS fissa
+        // iconsS4.style.top = baseBelow + 'px';
+
+        // NON riposizionare la sezione 5 - usa la posizione CSS fissa
+        /*
+        // Se esiste la sezione 5, riposiziona i suoi elementi mantenendo i delta originali
+        if (h2S5 && rectS5 && testoS5) {
+            const csH2S5 = window.getComputedStyle(h2S5);
+            const csRectS5 = window.getComputedStyle(rectS5);
+            const csTestoS5 = window.getComputedStyle(testoS5);
+            const csFooter = footer ? window.getComputedStyle(footer) : null;
+
+            const deltaRect = pxToNum(csRectS5.top) - pxToNum(csH2S5.top);    // tipicamente 0
+            const deltaTesto = pxToNum(csTestoS5.top) - pxToNum(csH2S5.top);  // tipicamente 76
+            const deltaFooter = csFooter ? (pxToNum(csFooter.top) - pxToNum(csH2S5.top)) : 630; // default 630
+
+            const newBaseS5 = baseBelow + 120; // 120px di aria dopo le icone
+            h2S5.style.top = newBaseS5 + 'px';
+            rectS5.style.top = (newBaseS5 + deltaRect) + 'px';
+            testoS5.style.top = (newBaseS5 + deltaTesto) + 'px';
+
+            if (footer) {
+                footer.style.top = (newBaseS5 + deltaFooter) + 'px';
+            }
+        }
+        */
+    }
+
+    // Avvia dopo un frame per sicurezza (font/layout)
+    requestAnimationFrame(adjustSection4Layout);
+    window.addEventListener('resize', adjustSection4Layout);
+});
+// Effetto ingrandimento video sezione 4 su scroll
+document.addEventListener('DOMContentLoaded', function() {
+    const videoContainer = document.querySelector('.video-sezione-4-container');
+    if (!videoContainer) return;
+
+    function checkVideoScroll() {
+        const videoRect = videoContainer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Quando il video entra nel viewport (80% visibile)
+        if (videoRect.top < windowHeight * 0.8 && videoRect.bottom > windowHeight * 0.2) {
+            // Calcola il progresso dello scroll (da 0 a 1)
+            const scrollProgress = Math.min(1, Math.max(0, (windowHeight * 0.8 - videoRect.top) / 400));
+            
+            // Ingrandimento da scala 1 a 1.15
+            const scale = 1 + (scrollProgress * 0.15);
+            videoContainer.style.transform = `scale(${scale})`;
+        } else if (videoRect.top >= windowHeight * 0.8) {
+            // Prima di entrare nel viewport
+            videoContainer.style.transform = 'scale(1)';
+        }
+    }
+    
+    window.addEventListener('scroll', checkVideoScroll);
+    checkVideoScroll();
 });
