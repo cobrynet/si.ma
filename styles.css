@@ -540,7 +540,9 @@ body {
     right: clamp(60px, 6.94%, 120px);
     top: clamp(500px, 55.56vw, 960px);
     transform-origin: 50% 50%;
-    /* nessuna transizione/rotazione: l'effetto è dato dal cambio frame PNG */
+    /* Transizione morbida per cambio frame */
+    transition: opacity 0.1s ease-out;
+    will-change: transform;
     z-index: 110;
 }
 

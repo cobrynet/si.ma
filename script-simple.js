@@ -197,9 +197,12 @@ document.addEventListener('DOMContentLoaded', function() {
         progress = clamp(progress, 0, 1);
 
         // Nessuna rotazione CSS: effetto di rotazione simulato solo dai frame PNG
-        const idx = Math.min(lastIndex, Math.floor(progress * lastIndex));
-        if (icona.getAttribute('src') !== frames[idx]) {
-            icona.setAttribute('src', frames[idx]);
+        // Uso Math.round invece di Math.floor per transizioni più fluide
+        const idx = Math.round(progress * lastIndex);
+        const frameIdx = clamp(idx, 0, lastIndex);
+        
+        if (icona.getAttribute('src') !== frames[frameIdx]) {
+            icona.setAttribute('src', frames[frameIdx]);
         }
     }
 
