@@ -1278,7 +1278,7 @@ body {
 /* Logo Footer */
 .logo-footer-link {
     position: absolute;
-    top: clamp(-30px, -2.31vw, -40px);
+    top: clamp(-50px, -3.47vw, -60px);
     left: calc(50% - clamp(400px, 46.3%, 800px));
     transform: translateX(-50%);
     text-decoration: none;
@@ -1394,19 +1394,19 @@ body {
 
 .social-link-footer i {
     font-size: 30px;
-    color: var(--sima-text-main);
+    color: #82ADE1;
 }
 
 .social-link-footer.facebook i {
-    color: #1877F2;
+    color: #82ADE1;
 }
 
 .social-link-footer.instagram i {
-    color: #E4405F;
+    color: #82ADE1;
 }
 
 .social-link-footer.linkedin i {
-    color: #0A66C2;
+    color: #82ADE1;
 }
 
 /* Google Recensioni nel Footer - posizionato separato */
