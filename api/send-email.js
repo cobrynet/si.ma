@@ -74,20 +74,18 @@ export default async function handler(req, res) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: 'Outfit', Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #e6ebf1; }
-        .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
-        .header { background-color: #18202d; padding: 40px 20px; text-align: center; }
-        .logo { max-width: 200px; height: auto; }
-        .content { padding: 40px 30px; background-color: #ffffff; }
-        .title { color: #18202d; font-size: 24px; font-weight: 600; margin-bottom: 20px; text-align: center; }
-        .field { margin-bottom: 20px; padding: 15px; background-color: #f5f8fb; border-left: 4px solid #82ADE1; }
-        .label { font-weight: 600; color: #18202d; display: block; margin-bottom: 5px; }
-        .value { color: #333; }
-        .message-box { background-color: #f5f8fb; padding: 20px; border-radius: 8px; margin-top: 20px; }
-        .footer { background-color: #18202d; color: #82ADE1; padding: 30px 20px; text-align: center; font-size: 14px; }
+        body { font-family: 'Outfit', Arial, sans-serif; line-height: 1.5; margin: 0; padding: 20px; background-color: #E8F1F8; }
+        .email-container { max-width: 600px; margin: 0 auto; background-color: #E8F1F8; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(24,32,45,0.1); }
+        .header { background-color: #18202d; padding: 30px 20px; text-align: center; }
+        .logo { max-width: 160px; height: auto; }
+        .content { padding: 25px 30px; background-color: #E8F1F8; }
+        .title { color: #18202d; font-size: 22px; font-weight: 700; margin: 0 0 20px 0; text-align: center; }
+        .field { margin-bottom: 12px; padding: 12px 15px; background-color: rgba(255,255,255,0.7); border-radius: 6px; border-left: 3px solid #82ADE1; }
+        .label { font-weight: 600; color: #18202d; font-size: 13px; display: block; margin-bottom: 4px; }
+        .value { color: #5A7A95; font-size: 15px; }
+        .message-box { background-color: rgba(255,255,255,0.7); padding: 15px; border-radius: 8px; margin-top: 15px; border: 1px solid #82ADE1; }
+        .footer { background-color: #18202d; color: #82ADE1; padding: 20px; text-align: center; font-size: 13px; line-height: 1.6; }
         .footer a { color: #82ADE1; text-decoration: none; }
-        .footer-info { margin: 10px 0; }
-        .divider { height: 2px; background: linear-gradient(90deg, #82ADE1 0%, #18202d 100%); margin: 30px 0; }
     </style>
 </head>
 <body>
@@ -96,42 +94,39 @@ export default async function handler(req, res) {
             <img src="${logoUrl}" alt="Si.ma SRL" class="logo">
         </div>
         <div class="content">
-            <h2 class="title">${isProductRequest ? '🛒 Nuova Richiesta Prodotto' : '📧 Nuova Richiesta Contatto'}</h2>
-            <div class="divider"></div>
+            <h2 class="title">${isProductRequest ? '🛒 Nuova Richiesta Prodotto' : '📧 Nuovo Contatto'}</h2>
             ${isProductRequest ? `
             <div class="field">
-                <span class="label">🏷️ Prodotto Richiesto:</span>
-                <span class="value">${productName}</span>
+                <span class="label">🏷️ PRODOTTO</span>
+                <span class="value"><strong>${productName}</strong></span>
             </div>` : ''}
             <div class="field">
-                <span class="label">👤 Nome Completo:</span>
+                <span class="label">👤 NOME</span>
                 <span class="value">${cleanFullname}</span>
             </div>
             <div class="field">
-                <span class="label">📧 Email:</span>
-                <span class="value"><a href="mailto:${cleanEmail}" style="color: #82ADE1;">${cleanEmail}</a></span>
+                <span class="label">📧 EMAIL</span>
+                <span class="value"><a href="mailto:${cleanEmail}" style="color: #5A7A95; font-weight: 600;">${cleanEmail}</a></span>
             </div>
             <div class="field">
-                <span class="label">📱 Telefono:</span>
+                <span class="label">📱 TELEFONO</span>
                 <span class="value">${cleanPhone}</span>
             </div>
             ${!isProductRequest && cleanOrganization !== 'Non specificata' ? `
             <div class="field">
-                <span class="label">🏢 Organizzazione:</span>
+                <span class="label">🏢 AZIENDA</span>
                 <span class="value">${cleanOrganization}</span>
             </div>` : ''}
             <div class="message-box">
-                <span class="label">💬 Messaggio:</span>
-                <div class="value" style="margin-top: 10px; white-space: pre-wrap;">${cleanMessage}</div>
+                <span class="label">💬 MESSAGGIO</span>
+                <div class="value" style="margin-top: 8px; white-space: pre-wrap;">${cleanMessage}</div>
             </div>
         </div>
         <div class="footer">
-            <p class="footer-info"><strong>Si.ma SRL</strong></p>
-            <p class="footer-info">Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
-            <p class="footer-info">Tel. <a href="tel:0557327456">055 7327456</a></p>
-            <p class="footer-info">Email: <a href="mailto:info@assistenzalavanderie.it">info@assistenzalavanderie.it</a></p>
-            <p class="footer-info"><a href="${siteUrl}" target="_blank">www.assistenzalavanderie.it</a></p>
-            <p style="margin-top: 20px; font-size: 12px; opacity: 0.8;">Email automatica dal form contatti del sito</p>
+            <strong>Si.ma SRL</strong><br>
+            Via Stefano Ussi 22 - Scandicci (FI) 50018<br>
+            Tel. <a href="tel:0557327456">055 7327456</a> | <a href="mailto:info@assistenzalavanderie.it">info@assistenzalavanderie.it</a><br>
+            <a href="${siteUrl}" target="_blank">www.assistenzalavanderie.it</a>
         </div>
     </div>
 </body>
@@ -144,23 +139,20 @@ export default async function handler(req, res) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: 'Outfit', Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #e6ebf1; }
-        .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
-        .header { background-color: #18202d; padding: 40px 20px; text-align: center; }
-        .logo { max-width: 200px; height: auto; }
-        .content { padding: 40px 30px; background-color: #ffffff; text-align: center; }
-        .title { color: #18202d; font-size: 26px; font-weight: 600; margin-bottom: 20px; }
-        .message { color: #333; font-size: 16px; line-height: 1.8; margin: 20px 0; }
-        .product-box { background-color: #f5f8fb; padding: 20px; border-radius: 8px; margin: 30px 0; border: 2px solid #82ADE1; }
-        .product-name { color: #18202d; font-size: 20px; font-weight: 600; }
-        .cta-box { background: linear-gradient(135deg, #18202d 0%, #2a3644 100%); padding: 30px; border-radius: 8px; margin: 30px 0; color: white; }
-        .cta-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; }
-        .contact-info { color: #82ADE1; font-size: 16px; margin: 10px 0; }
-        .footer { background-color: #18202d; color: #82ADE1; padding: 30px 20px; text-align: center; font-size: 14px; }
+        body { font-family: 'Outfit', Arial, sans-serif; line-height: 1.5; margin: 0; padding: 20px; background-color: #E8F1F8; }
+        .email-container { max-width: 600px; margin: 0 auto; background-color: #E8F1F8; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(24,32,45,0.1); }
+        .header { background-color: #18202d; padding: 30px 20px; text-align: center; }
+        .logo { max-width: 160px; height: auto; }
+        .content { padding: 25px 30px; background-color: #E8F1F8; text-align: center; }
+        .title { color: #18202d; font-size: 24px; font-weight: 700; margin: 0 0 15px 0; }
+        .message { color: #5A7A95; font-size: 15px; line-height: 1.7; margin: 15px 0; }
+        .product-box { background-color: rgba(255,255,255,0.8); padding: 18px; border-radius: 8px; margin: 20px 0; border: 2px solid #82ADE1; }
+        .product-name { color: #18202d; font-size: 18px; font-weight: 700; }
+        .cta-box { background: linear-gradient(135deg, #18202d 0%, #2a3644 100%); padding: 25px; border-radius: 10px; margin: 20px 0; color: white; }
+        .cta-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #82ADE1; }
+        .contact-info { color: #82ADE1; font-size: 15px; margin: 8px 0; }
+        .footer { background-color: #18202d; color: #82ADE1; padding: 20px; text-align: center; font-size: 13px; line-height: 1.6; }
         .footer a { color: #82ADE1; text-decoration: none; }
-        .footer-links { margin-top: 20px; }
-        .footer-links a { display: inline-block; margin: 0 10px; }
-        .divider { height: 2px; background: linear-gradient(90deg, #82ADE1 0%, #18202d 100%); margin: 30px 0; }
     </style>
 </head>
 <body>
@@ -170,41 +162,29 @@ export default async function handler(req, res) {
         </div>
         <div class="content">
             <h1 class="title">✅ Grazie per averci contattato!</h1>
-            <div class="divider"></div>
             <p class="message">
-                Gentile <strong>${cleanFullname}</strong>,<br><br>
-                Abbiamo ricevuto la tua richiesta di informazioni per:
+                Gentile <strong style="color: #18202d;">${cleanFullname}</strong>,<br>
+                Abbiamo ricevuto la tua richiesta per:
             </p>
             <div class="product-box">
                 <div class="product-name">${productName}</div>
             </div>
             <p class="message">
-                Il nostro team commerciale la contatterà al più presto all'indirizzo email <strong>${cleanEmail}</strong> 
-                o al numero <strong>${cleanPhone}</strong> per fornirle tutte le informazioni richieste.
+                Il nostro team commerciale ti contatterà al più presto a <strong style="color: #18202d;">${cleanEmail}</strong> 
+                o al <strong style="color: #18202d;">${cleanPhone}</strong>.
             </p>
             <div class="cta-box">
                 <div class="cta-title">📞 Hai bisogno di assistenza immediata?</div>
-                <div class="contact-info">Tel. <a href="tel:0557327456" style="color: #82ADE1; text-decoration: none;">055 7327456</a></div>
-                <div class="contact-info">Lun-Ven: 9:00 - 18:00</div>
-                <div class="contact-info" style="margin-top: 15px;">Emergenze H24/7</div>
+                <div class="contact-info">Tel. <a href="tel:0557327456" style="color: #82ADE1; text-decoration: none; font-weight: 600;">055 7327456</a></div>
+                <div class="contact-info">Lun-Ven: 9:00 - 18:00 | Emergenze H24/7</div>
             </div>
-            <p class="message" style="margin-top: 30px; font-size: 14px; color: #666;">
-                Nel frattempo, puoi visitare il nostro sito per scoprire altri prodotti e servizi.
-            </p>
         </div>
         <div class="footer">
-            <p><strong>Si.ma SRL</strong></p>
-            <p>Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
-            <p>Tel. <a href="tel:0557327456">055 7327456</a></p>
-            <p>Email: <a href="mailto:commerciale@assistenzalavanderie.it">commerciale@assistenzalavanderie.it</a></p>
-            <p><a href="${siteUrl}" target="_blank">www.assistenzalavanderie.it</a></p>
-            <div class="footer-links">
-                <a href="${siteUrl}" target="_blank">Home</a> | 
-                <a href="${siteUrl}/servizi.html" target="_blank">Servizi</a> | 
-                <a href="${siteUrl}/sezione4.html" target="_blank">Nuovo/Usato</a> | 
-                <a href="${siteUrl}/contatti.html" target="_blank">Contatti</a>
-            </div>
-            <p style="margin-top: 20px; font-size: 12px; opacity: 0.8;">P.IVA 01867350975</p>
+            <strong>Si.ma SRL</strong><br>
+            Via Stefano Ussi 22 - Scandicci (FI) 50018<br>
+            Tel. <a href="tel:0557327456">055 7327456</a> | <a href="mailto:commerciale@assistenzalavanderie.it">commerciale@assistenzalavanderie.it</a><br>
+            <a href="${siteUrl}" target="_blank">www.assistenzalavanderie.it</a><br>
+            <span style="font-size: 11px; opacity: 0.8; margin-top: 10px; display: block;">P.IVA 01867350975</span>
         </div>
     </div>
 </body>
