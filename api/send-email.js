@@ -1,6 +1,8 @@
 // Vercel Serverless Function per invio email
 // Invia email all'azienda e conferma al cliente per richieste prodotto
 
+import { Resend } from 'resend';
+
 export default async function handler(req, res) {
     // CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -235,7 +237,6 @@ export default async function handler(req, res) {
         }
         
         // IMPLEMENTAZIONE RESEND
-        const { Resend } = require('resend');
         const resend = new Resend(resendApiKey);
         
         // Email all'azienda
