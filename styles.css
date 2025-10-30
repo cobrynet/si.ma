@@ -2727,32 +2727,65 @@ body {
     @media (min-width: 1025px) {
         /* Prevenzione overflow orizzontale su Safari */
         html, body {
-            max-width: 100vw;
+            max-width: 100vw !important;
             overflow-x: hidden !important;
             position: relative;
         }
         
         .main-container, .home {
-            max-width: 100vw;
+            max-width: 100vw !important;
+            width: 100% !important;
             overflow-x: hidden;
         }
         
-        /* Forza contenimento di tutti gli elementi larghi */
-        * {
-            max-width: 100%;
+        /* Override TUTTE le larghezze fisse problematiche */
+        .home {
+            width: 100% !important;
+            max-width: 1728px !important;
         }
         
-        /* Eccezioni per elementi che devono essere full-width */
-        .main-container, .home, section, .sezione-1, .sezione-2, .sezione-3, .sezione-4, .sezione-5 {
-            max-width: 100vw;
+        .h1-hero {
+            width: 100% !important;
+            max-width: 100vw !important;
+        }
+        
+        .foto-header {
+            width: 80% !important;
+            max-width: 1410px !important;
+            left: 10% !important;
+        }
+        
+        /* Fix elementi da 683px a percentuale */
+        .testo-sezione-2,
+        .testo-sezione-3,
+        .testo-sezione-5,
+        .testo-sezione-5-right {
+            width: 39% !important;
+            max-width: 683px !important;
+        }
+        
+        /* Fix elementi da 800px */
+        .sezione-3-content {
+            width: 46% !important;
+            max-width: 800px !important;
+        }
+        
+        /* Fix elementi da 600px */
+        .box-sezione-3 {
+            width: 35% !important;
+            max-width: 600px !important;
+        }
+        
+        /* Fix elementi da 1200px */
+        .grid-cards {
+            width: 70% !important;
+            max-width: 1200px !important;
         }
         
         /* Scaling generale per Safari Desktop */
         body {
             font-size: 95%;
             -webkit-font-smoothing: antialiased;
-            transform: scale(1);
-            transform-origin: top left;
         }
         
         /* Hero Section */
@@ -2835,20 +2868,6 @@ body {
         /* Sezione 5 - Chi Siamo */
         .h2-sezione-5 {
             font-size: clamp(26px, 2vw, 34px);
-        }
-        
-        .testo-sezione-5 {
-            width: clamp(450px, 32vw, 600px);
-            max-width: 90%;
-            font-size: clamp(22px, 1.8vw, 30px);
-            line-height: clamp(30px, 2.3vw, 38px);
-        }
-        
-        .testo-sezione-5-right {
-            width: clamp(450px, 32vw, 600px);
-            max-width: 90%;
-            font-size: clamp(28px, 2.3vw, 40px);
-            line-height: clamp(38px, 2.9vw, 52px);
         }
         
         .rettangolo-sezione-5 {
