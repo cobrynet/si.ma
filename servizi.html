@@ -5,13 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>SI-MA SRL - Servizi</title>
     <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
+    
+    <!-- Preconnect per font esterni -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload CSS critici -->
+    <link rel="preload" href="styles.css?v=1730203410" as="style">
+    <link rel="preload" href="servizi.css?v=1730203000" as="style">
+    <link rel="stylesheet" href="styles.css?v=1730203410">
+    <link rel="stylesheet" href="servizi.css?v=1730203000">
+    <link rel="stylesheet" href="servizi-override.css?v=1730145500">
+    
+    <!-- Font con display=swap -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-            <link rel="stylesheet" href="styles.css?v=1730203410">
-            <link rel="stylesheet" href="servizi.css?v=1730203000">
-            <link rel="stylesheet" href="servizi-override.css?v=1730145500">
+    
+    <!-- Font Awesome con async loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 </head>
 <body>
     <div class="main-container">
@@ -55,7 +67,7 @@
             </div>
             <p class="testo-sezione-1">Da oltre 20 anni ci occupiamo di manutenzione e assistenza tecnica specializzata su lavatrici e impianti industriali di qualsiasi marca e modello, garantendo continuità e zero imprevisti.<br><br><span class="testo-blu">Interventi rapidi su guasti e anomalie<br>Manutenzione programmata per prevenire fermi macchina<br>Riparazioni su componenti meccanici, elettrici ed elettronici<br>Assistenza a domicilio in Toscana e regioni limitrofe<br>Servizi su scala internazionale, disponibili su richiesta</span></p>
             <!-- Icona assistenza animata (sostituisce il furgone) -->
-            <img src="contenuti/Icone/assistenza png/ICONA-ASSISTENZA-1.png" alt="Icona assistenza" class="icona-assistenza-animata" id="iconaAssistenza">
+            <img src="contenuti/Icone/assistenza png/ICONA-ASSISTENZA-1.png" alt="Icona assistenza" class="icona-assistenza-animata" id="iconaAssistenza" loading="lazy" decoding="async">
         </section>
         <!-- Sezione 4 -->
         <section class="sezione-4">
@@ -131,11 +143,11 @@
             <div class="google-reviews-footer-container">
                 <a href="https://www.google.com/search?sca_esv=289e7c278657c79e&hl=it&sxsrf=AE3TifP-K25LbtxPo-CpA7CVdEmhmptRtQ:1761326424581&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiuqfuerL2QAxWMnf0HHSFOLUMQ0bkNegQISxAE&biw=3440&bih=1305&dpr=1" target="_blank" rel="noopener" class="google-reviews-footer">
                     <div class="reviews-stars-footer">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
                         <span class="rating-number-footer">4.8</span>
                     </div>
                 </a>

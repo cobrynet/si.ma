@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>SI-MA SRL - Nuovo/Usato</title>
     <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
+    
+    <!-- Preconnect per font esterni -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload CSS critici -->
+    <link rel="preload" href="styles.css?v=1730203410" as="style">
+    <link rel="preload" href="sezione2.css?v=1730278800" as="style">
     <link rel="stylesheet" href="styles.css?v=1730203410">
     <link rel="stylesheet" href="sezione2.css?v=1730278800">
+    
+    <!-- Font con display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome con async loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 </head>
 <body class="body-sezione2">
     <div class="main-container-sezione2">
@@ -27,7 +39,7 @@
         </header>
 
         <!-- Hero Video - Lavatrice Oblò Animato -->
-        <video class="hero-video-oblo" autoplay muted loop playsinline preload="auto" webkit-playsinline>
+        <video class="hero-video-oblo" autoplay muted loop playsinline preload="metadata" webkit-playsinline>
             <source src="contenuti/video/LAVATRICE-OBLò-ANIMATO.webm" type="video/webm">
             Il tuo browser non supporta il tag video.
         </video>
@@ -47,7 +59,7 @@
                 <div class="product-card" data-product="1">
                     <div class="product-card-content">
                         <div class="product-image">
-                            <img src="contenuti/foto/foto-test-nuovo-usato-5.jpg" alt="Lavatrice" class="product-main-img">
+                            <img src="contenuti/foto/foto-test-nuovo-usato-5.jpg" alt="Lavatrice" class="product-main-img" loading="lazy" decoding="async">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Lavatrice Industriale 18kg</h3>
@@ -56,10 +68,10 @@
                         </div>
                         <div class="product-details-expanded">
                             <div class="product-gallery">
-                                <img src="contenuti/foto/foto-test-nuovo-usato-1.jpg" alt="Vista 1">
-                                <img src="contenuti/foto/foto-test-nuovo-usato-2.JPG" alt="Vista 2">
-                                <img src="contenuti/foto/foto-test-nuovo-usato-3.jpg" alt="Vista 3">
-                                <img src="contenuti/foto/foto-test-nuovo-usato-5.jpg" alt="Vista 4">
+                                <img src="contenuti/foto/foto-test-nuovo-usato-1.jpg" alt="Vista 1" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/foto-test-nuovo-usato-2.JPG" alt="Vista 2" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/foto-test-nuovo-usato-3.jpg" alt="Vista 3" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/foto-test-nuovo-usato-5.jpg" alt="Vista 4" loading="lazy" decoding="async">
                             </div>
                             <div class="product-description-full">
                                 <h4>Descrizione completa</h4>
@@ -84,7 +96,7 @@
                 <div class="product-card" data-product="2">
                     <div class="product-card-content">
                         <div class="product-image">
-                            <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Lavatrice" class="product-main-img">
+                            <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Lavatrice" class="product-main-img" loading="lazy" decoding="async">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Lavatrice Professionale 25kg</h3>
@@ -93,10 +105,10 @@
                         </div>
                         <div class="product-details-expanded">
                             <div class="product-gallery">
-                                <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Vista 1">
-                                <img src="contenuti/foto/placeholder-lavatrice-2.jpg" alt="Vista 2">
-                                <img src="contenuti/foto/placeholder-lavatrice-3.jpg" alt="Vista 3">
-                                <img src="contenuti/foto/placeholder-lavatrice-4.jpg" alt="Vista 4">
+                                <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Vista 1" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/placeholder-lavatrice-2.jpg" alt="Vista 2" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/placeholder-lavatrice-3.jpg" alt="Vista 3" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/placeholder-lavatrice-4.jpg" alt="Vista 4" loading="lazy" decoding="async">
                             </div>
                             <div class="product-description-full">
                                 <h4>Descrizione completa</h4>
@@ -121,7 +133,7 @@
                 <div class="product-card" data-product="3">
                     <div class="product-card-content">
                         <div class="product-image">
-                            <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Lavatrice" class="product-main-img">
+                            <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Lavatrice" class="product-main-img" loading="lazy" decoding="async">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Lavatrice Usato Garantito 15kg</h3>
@@ -130,10 +142,10 @@
                         </div>
                         <div class="product-details-expanded">
                             <div class="product-gallery">
-                                <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Vista 1">
-                                <img src="contenuti/foto/placeholder-lavatrice-2.jpg" alt="Vista 2">
-                                <img src="contenuti/foto/placeholder-lavatrice-3.jpg" alt="Vista 3">
-                                <img src="contenuti/foto/placeholder-lavatrice-4.jpg" alt="Vista 4">
+                                <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Vista 1" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/placeholder-lavatrice-2.jpg" alt="Vista 2" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/placeholder-lavatrice-3.jpg" alt="Vista 3" loading="lazy" decoding="async">
+                                <img src="contenuti/foto/placeholder-lavatrice-4.jpg" alt="Vista 4" loading="lazy" decoding="async">
                             </div>
                             <div class="product-description-full">
                                 <h4>Descrizione completa</h4>
@@ -158,7 +170,7 @@
                 <div class="product-card" data-product="4">
                     <div class="product-card-content">
                         <div class="product-image">
-                            <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Lavatrice" class="product-main-img">
+                            <img src="contenuti/foto/placeholder-lavatrice.jpg" alt="Lavatrice" class="product-main-img" loading="lazy" decoding="async">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Lavatrice Compatta 10kg</h3>
