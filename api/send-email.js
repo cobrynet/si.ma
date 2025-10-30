@@ -52,7 +52,7 @@ export default async function handler(req, res) {
         const departmentEmails = {
             'amministrazione@assistenzialavanderie.it': 'amministrazione@assistenzialavanderie.it',
             'commerciale@assistenzialavanderie.it': 'commerciale@assistenzialavanderie.it',
-            'supporto@assistenzialavanderie.it': 'supporto@assistenzialavanderie.it'
+            'manutenzione@assistenzialavanderie.it': 'manutenzione@assistenzialavanderie.it'
         };
         
         const toEmail = departmentEmails[department] || 'info@assistenzialavanderie.it';
