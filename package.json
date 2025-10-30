@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Sito web Si.ma SRL con funzionalità email via Resend",
-  "main": "index.html",
-  "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build",
-    "deploy": "vercel --prod"
-  },
   "dependencies": {
     "resend": "^3.0.0"
   },
