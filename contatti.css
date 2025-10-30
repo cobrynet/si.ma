@@ -379,3 +379,18 @@
         font-size: 13px;
     }
 }
+
+/* Safari Desktop Responsive Fix */
+@supports (-webkit-touch-callout: none) or (-webkit-backdrop-filter: blur(1px)) {
+    @media (min-width: 1025px) {
+        .pagina-contatti {
+            max-width: 1728px;
+            transform-origin: top center;
+            transform: scale(calc(100vw / 1728));
+        }
+        
+        .main-container-contatti {
+            overflow-x: hidden;
+        }
+    }
+}

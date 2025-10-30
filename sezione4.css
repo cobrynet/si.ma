@@ -205,4 +205,20 @@
     margin: 0;
 }
 
+/* Safari Desktop Responsive Fix */
+@supports (-webkit-touch-callout: none) or (-webkit-backdrop-filter: blur(1px)) {
+    @media (min-width: 1025px) {
+        .main-container-sezione4,
+        .pagina-4 {
+            max-width: 1728px;
+            transform-origin: top center;
+            transform: scale(calc(100vw / 1728));
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+    }
+}
+
 /* Footer per sezione 4 */
