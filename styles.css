@@ -2725,11 +2725,28 @@ body {
 /* Fix specifico solo per Safari su macOS/iOS */
 @supports (-webkit-touch-callout: none) or (-webkit-backdrop-filter: blur(1px)) {
     @media (min-width: 1025px) {
-        /* Scaling più aggressivo per Safari Desktop */
+        /* Scaling generale per Safari Desktop */
         body {
-            font-size: 95%; /* Riduci di 5% il font base */
+            font-size: 95%;
+            -webkit-font-smoothing: antialiased;
         }
         
+        /* Hero Section */
+        .hero-title {
+            font-size: clamp(40px, 4.5vw, 70px);
+            line-height: 1.15;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(18px, 1.8vw, 28px);
+        }
+        
+        .hero-cta {
+            font-size: clamp(16px, 1.4vw, 20px);
+            padding: clamp(14px, 1.2vw, 18px) clamp(30px, 2.5vw, 40px);
+        }
+        
+        /* Sezione 1 */
         .h2-sezione-1 {
             font-size: clamp(34px, 4vw, 68px);
         }
@@ -2741,9 +2758,53 @@ body {
         
         .testo-sezione-1 {
             font-size: clamp(15px, 1.6vw, 28px);
+            line-height: 1.6;
         }
         
-        /* Sezione 5 - Fix per Safari Desktop */
+        /* Sezione 2 */
+        .h2-sezione-2 {
+            font-size: clamp(34px, 4vw, 68px);
+        }
+        
+        .card-sezione-2 {
+            padding: clamp(25px, 2vw, 35px);
+        }
+        
+        .card-title-sezione-2 {
+            font-size: clamp(20px, 1.8vw, 28px);
+        }
+        
+        .card-text-sezione-2 {
+            font-size: clamp(14px, 1.2vw, 18px);
+        }
+        
+        /* Sezione 3 */
+        .h2-sezione-3 {
+            font-size: clamp(34px, 4vw, 68px);
+        }
+        
+        .box-sezione-3 {
+            padding: clamp(25px, 2vw, 35px);
+        }
+        
+        .testo-box-sezione-3 {
+            font-size: clamp(16px, 1.4vw, 22px);
+        }
+        
+        /* Sezione 4 */
+        .h2-sezione-4 {
+            font-size: clamp(34px, 4vw, 68px);
+        }
+        
+        .card-title-sezione-4 {
+            font-size: clamp(18px, 1.6vw, 24px);
+        }
+        
+        .card-price-sezione-4 {
+            font-size: clamp(20px, 1.8vw, 28px);
+        }
+        
+        /* Sezione 5 - Chi Siamo */
         .h2-sezione-5 {
             font-size: clamp(26px, 2vw, 34px);
         }
@@ -2763,6 +2824,24 @@ body {
         .rettangolo-sezione-5 {
             width: clamp(200px, 16vw, 280px);
             height: clamp(200px, 16vw, 280px);
+        }
+        
+        /* Footer */
+        .footer-info-line {
+            font-size: clamp(12px, 0.85vw, 15px);
+        }
+        
+        .footer-column-title {
+            font-size: clamp(15px, 1.05vw, 18px);
+        }
+        
+        .footer-link {
+            font-size: clamp(13px, 0.95vw, 16px);
+        }
+        
+        /* Menu */
+        .testo-menu1, .testo-menu3, .testo-menu4, .testo-menu6 {
+            font-size: clamp(15px, 1.3vw, 19px);
         }
     }
 }
