@@ -2742,19 +2742,17 @@ body {
             overflow-x: hidden !important;
         }
         
-        /* SOLUZIONE: Scala tutto il contenuto .home per farlo entrare nel viewport */
+        /* SOLUZIONE: Usa zoom CSS per scalare tutto proporzionalmente */
         .home {
             width: 1728px;
-            transform-origin: top center;
-            transform: scale(calc(100vw / 1728));
-            margin: 0 auto;
+            zoom: calc(100vw / 1728);
+            -moz-transform: scale(calc(100vw / 1728));
+            -moz-transform-origin: 0 0;
         }
         
-        /* Aggiusta l'altezza minima in base allo scale */
-        @media (max-width: 1728px) {
-            .home {
-                min-height: calc(3400px * (100vw / 1728));
-            }
+        /* Previeni overflow orizzontale su tutti gli elementi */
+        * {
+            max-width: 100% !important;
         }
         
         /* Scaling generale per Safari Desktop */

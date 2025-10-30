@@ -385,13 +385,19 @@
     @media (min-width: 1025px) {
         body {
             overflow-x: hidden !important;
+            max-width: 100vw !important;
         }
         
         .main-container-contatti {
             width: 100%;
-            max-width: 100vw;
-            transform-origin: top center;
-            transform: scale(calc(100vw / 1728));
+            max-width: 100vw !important;
+            zoom: calc(100vw / 1728);
+            -moz-transform: scale(calc(100vw / 1728));
+            -moz-transform-origin: 0 0;
+        }
+        
+        * {
+            max-width: 100% !important;
         }
     }
 }
