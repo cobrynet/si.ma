@@ -265,7 +265,7 @@ body.body-sezione2 main {
 }
 
 .product-card.expanded .product-image {
-    display: none;
+    height: 300px; /* Aumenta l'altezza quando espansa */
 }
 
 .product-main-img {

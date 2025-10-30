@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=1730203410">
-    <link rel="stylesheet" href="sezione2.css?v=1730203000">
+    <link rel="stylesheet" href="sezione2.css?v=1730278800">
 </head>
 <body class="body-sezione2">
     <div class="main-container-sezione2">
@@ -441,6 +441,15 @@
                     originalParent = card.parentNode;
                     originalNextSibling = card.nextSibling;
                     
+                    // Crea un placeholder per mantenere lo spazio e l'immagine nella griglia
+                    const placeholder = card.cloneNode(true);
+                    placeholder.classList.add('product-card-placeholder');
+                    placeholder.style.pointerEvents = 'none';
+                    placeholder.style.opacity = '0.3';
+                    
+                    // Inserisci il placeholder al posto della card originale
+                    originalParent.insertBefore(placeholder, card);
+                    
                     // Sposta la card nel body per evitare conflitti con transform del parent
                     document.body.appendChild(card);
                     
@@ -455,6 +464,12 @@
                 // Funzione per chiudere la card
                 function closeCard() {
                     if (!card.classList.contains('expanded')) return;
+                    
+                    // Rimuovi il placeholder
+                    const placeholder = originalParent.querySelector('.product-card-placeholder');
+                    if (placeholder) {
+                        placeholder.remove();
+                    }
                     
                     // Rimuovi classe expanded
                     card.classList.remove('expanded');
