@@ -1,9 +1,1 @@
-﻿{
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    { "source": "/", "destination": "/home" },
-    { "source": "/index", "destination": "/home" },
-    { "source": "/sezione4", "destination": "/nuovo-usato" }
-  ]
-}
+{"cleanUrls":true,"trailingSlash":false}
