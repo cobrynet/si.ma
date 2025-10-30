@@ -63,7 +63,8 @@ Dopo il deploy su Vercel:
 
 ## Note Importanti
 
-- Le email vengono inviate ai 3 dipartimenti: amministrazione, commerciale, supporto @assistenzialavanderie.it
+- Le email vengono inviate ai 3 dipartimenti: amministrazione, commerciale, supporto @assistenzalavanderie.it
 - Il form include validazione lato client e server
 - CORS è già configurato
 - Il Reply-To è impostato sull'email dell'utente per rispondere facilmente
+

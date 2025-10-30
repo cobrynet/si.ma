@@ -50,12 +50,12 @@ export default async function handler(req, res) {
         
         // Determina destinatario
         const departmentEmails = {
-            'amministrazione@assistenzialavanderie.it': 'amministrazione@assistenzialavanderie.it',
-            'commerciale@assistenzialavanderie.it': 'commerciale@assistenzialavanderie.it',
-            'manutenzione@assistenzialavanderie.it': 'manutenzione@assistenzialavanderie.it'
+            'amministrazione@assistenzalavanderie.it': 'amministrazione@assistenzalavanderie.it',
+            'commerciale@assistenzalavanderie.it': 'commerciale@assistenzalavanderie.it',
+            'manutenzione@assistenzalavanderie.it': 'manutenzione@assistenzalavanderie.it'
         };
         
-        const toEmail = departmentEmails[department] || 'info@assistenzialavanderie.it';
+        const toEmail = departmentEmails[department] || 'info@assistenzalavanderie.it';
         
         // Verifica se è una richiesta prodotto
         const isProductRequest = organization && organization.includes('€');
@@ -194,7 +194,7 @@ export default async function handler(req, res) {
             <p><strong>Si.ma SRL</strong></p>
             <p>Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
             <p>Tel. <a href="tel:0557327456">055 7327456</a></p>
-            <p>Email: <a href="mailto:commerciale@assistenzialavanderie.it">commerciale@assistenzialavanderie.it</a></p>
+            <p>Email: <a href="mailto:commerciale@assistenzalavanderie.it">commerciale@assistenzalavanderie.it</a></p>
             <p><a href="${siteUrl}" target="_blank">www.assistenzalavanderie.it</a></p>
             <div class="footer-links">
                 <a href="${siteUrl}" target="_blank">Home</a> | 
@@ -250,7 +250,7 @@ export default async function handler(req, res) {
         // Email conferma al cliente (solo per richieste prodotto)
         if (customerEmailBody) {
             await resend.emails.send({
-                from: 'Si.ma SRL <commerciale@assistenzialavanderie.it>',
+                from: 'Si.ma SRL <commerciale@assistenzalavanderie.it>',
                 to: cleanEmail,
                 subject: `Grazie per averci contattato - ${productName}`,
                 html: customerEmailBody
@@ -272,3 +272,4 @@ export default async function handler(req, res) {
         });
     }
 }
+

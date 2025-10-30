@@ -2725,7 +2725,7 @@ body {
 /* Fix specifico solo per Safari su macOS/iOS */
 @supports (-webkit-touch-callout: none) or (-webkit-backdrop-filter: blur(1px)) {
     @media (min-width: 1025px) {
-        /* Scaling più aggressivo per Safari */
+        /* Scaling più aggressivo per Safari Desktop */
         body {
             font-size: 95%; /* Riduci di 5% il font base */
         }
@@ -2742,7 +2742,91 @@ body {
         .testo-sezione-1 {
             font-size: clamp(15px, 1.6vw, 28px);
         }
+        
+        /* Sezione 5 - Fix per Safari Desktop */
+        .h2-sezione-5 {
+            font-size: clamp(26px, 2vw, 34px);
+        }
+        
+        .testo-sezione-5 {
+            width: clamp(500px, 35vw, 650px);
+            font-size: clamp(22px, 1.8vw, 30px);
+            line-height: clamp(30px, 2.3vw, 38px);
+        }
+        
+        .testo-sezione-5-right {
+            width: clamp(500px, 35vw, 650px);
+            font-size: clamp(28px, 2.3vw, 40px);
+            line-height: clamp(38px, 2.9vw, 52px);
+        }
+        
+        .rettangolo-sezione-5 {
+            width: clamp(200px, 16vw, 280px);
+            height: clamp(200px, 16vw, 280px);
+        }
     }
 }
+
+/* ===== MOBILE & SMALL TABLETS (max-width: 768px) ===== */
+@media (max-width: 768px) {
+    /* Sezione 5 - Stack verticale su mobile */
+    .sezione-5 {
+        height: auto;
+        padding: 30px 20px;
+    }
+    
+    .h2-sezione-5 {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        text-align: center;
+        font-size: 28px;
+        line-height: 36px;
+        margin-bottom: 20px;
+    }
+    
+    .rettangolo-sezione-5 {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;
+        width: 180px;
+        height: 180px;
+        margin-bottom: 30px;
+    }
+    
+    .testo-sezione-5 {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        float: none;
+        font-size: 18px;
+        line-height: 26px;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    
+    .testo-sezione-5-right {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        float: none;
+        font-size: 22px;
+        line-height: 32px;
+        padding: 0;
+    }
+    
+    .footer {
+        position: relative;
+        top: auto;
+        margin-top: 50px !important;
+        transform: none;
+        left: 0;
+    }
+}
+
 
 
