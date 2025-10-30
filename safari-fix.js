@@ -16,16 +16,23 @@
         
         containers.forEach(container => {
             if (container) {
+                // Applica zoom
                 container.style.zoom = scaleFactor;
                 container.style.width = '1728px';
+                
+                // Aggiusta l'altezza del container per compensare lo zoom
+                const originalHeight = container.scrollHeight;
+                container.style.minHeight = (originalHeight / scaleFactor) + 'px';
             }
         });
         
-        // Nascondi overflow orizzontale
+        // Nascondi overflow orizzontale ma permetti scroll verticale
         document.documentElement.style.overflowX = 'hidden';
+        document.documentElement.style.overflowY = 'auto';
         document.body.style.overflowX = 'hidden';
-        document.body.style.width = '100vw';
+        document.body.style.overflowY = 'auto';
+        document.body.style.maxWidth = '100vw';
         
-        console.log('Safari fix applicato - scale:', scaleFactor);
+        console.log('Safari fix applicato - scale:', scaleFactor.toFixed(3));
     }
 })();
