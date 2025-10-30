@@ -939,3 +939,19 @@ body.body-sezione2 .footer::before {
         font-size: 13px;
     }
 }
+
+/* Safari Desktop Responsive Fix */
+@supports (-webkit-touch-callout: none) or (-webkit-backdrop-filter: blur(1px)) {
+    @media (min-width: 1025px) {
+        body {
+            overflow-x: hidden !important;
+        }
+        
+        .main-container-sezione2 {
+            width: 100%;
+            max-width: 100vw;
+            transform-origin: top center;
+            transform: scale(calc(100vw / 1728));
+        }
+    }
+}
