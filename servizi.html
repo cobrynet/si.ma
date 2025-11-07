@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SI-MA SRL - Servizi</title>
     <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
     
@@ -12,12 +12,12 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Preload CSS critici -->
-    <link rel="preload" href="styles.css?v=1730203410" as="style">
+    <link rel="preload" href="styles.css?v=20251103163230" as="style">
     <link rel="preload" href="servizi.css?v=1730203000" as="style">
-    <link rel="stylesheet" href="styles.css?v=1730203410">
+    <link rel="stylesheet" href="styles.css?v=20251103163230">
     <link rel="stylesheet" href="servizi.css?v=1730203000">
-        <link rel="stylesheet" href="mobile.css?v=20251031" media="screen and (max-width:820px)">
     <link rel="stylesheet" href="servizi-override.css?v=1730145500">
+    <link rel="stylesheet" href="mobile.css?v=20251104104911">
     
     <!-- Cookie Consent (LegalBlink) -->
     <script type="text/javascript" src="https://app.legalblink.it/api/scripts/lb_cs.js"></script>
@@ -31,19 +31,25 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 </head>
 <body>
-    <div class="main-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="sfondo-header"></div>
-            <div class="logo"></div>
-            <nav class="menu">
-             <a href="home" class="testo-menu1">Home</a>
-             <a href="servizi" class="testo-menu3">Servizi</a>
-             <a href="nuovo-usato" class="testo-menu4">Nuovo usato</a>
-             <a href="contatti" class="testo-menu6">Contatti</a>
-            </nav>
-        </header>
-    <!-- Main Content -->
+    <!-- Header -->
+    <header class="header">
+        <div class="sfondo-header"></div>
+        <div class="logo"></div>
+        <!-- Hamburger Menu Icon (solo mobile) -->
+        <div class="hamburger-menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu">
+         <a href="index.html" class="testo-menu1">Home</a>
+         <a href="servizi.html" class="testo-menu3">Servizi</a>
+         <a href="nuovo-usato.html" class="testo-menu4">Nuovo usato</a>
+         <a href="contatti.html" class="testo-menu6">Contatti</a>
+        </nav>
+    </header>
+
+    <div class="main-container">    <!-- Main Content -->
     <main class="home">
         <!-- Hero Section -->
         <section class="hero-section">
@@ -58,12 +64,12 @@
         <p class="hero-tagline">Risposta e presa in carico delle richieste <span class="tagline-bold">entro 24h</span></p>
         
         <!-- CTA Buttons - fuori dalla hero section per evitare che seguano il testo -->
-        <a href="contatti" class="hero-cta">
+        <a href="contatti.html" class="hero-cta">
             <div class="hero-cta-button">
                 <span class="hero-cta-text">Richiedi assistenza</span>
             </div>
         </a>
-        <a href="nuovo-usato" class="hero-cta-text-only">Scopri le lavatrici disponibili</a>
+        <a href="nuovo-usato.html" class="hero-cta-text-only">Scopri le lavatrici disponibili</a>
 
         <!-- Sezione 1 -->
         <section class="sezione-1">
@@ -210,5 +216,36 @@
     
     <!-- Safari Desktop Responsive Fix -->
     <script src="safari-fix.js"></script>
+    
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.menu');
+            const hamburger = document.querySelector('.hamburger-menu');
+            const body = document.body;
+            
+            // Semplice toggle della classe active
+            hamburger.classList.toggle('active');
+            menu.classList.toggle('active');
+            
+            // Blocca/sblocca scroll del body
+            body.classList.toggle('menu-open');
+        }
+        
+        // Chiudi menu quando si clicca su un link
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.menu a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const menu = document.querySelector('.menu');
+                    const hamburger = document.querySelector('.hamburger-menu');
+                    const body = document.body;
+                    menu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    body.classList.remove('menu-open');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

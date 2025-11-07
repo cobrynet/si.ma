@@ -32,6 +32,12 @@
             } catch(e) {}
         }
 
+        // Disattiva totalmente su mobile/tablet: non applicare scaling
+        if (vpw <= 1024) {
+            console.log(`${msgPrefix} skip on mobile/tablet viewport (<=1024px)`);
+            return;
+        }
+
         if (!((isSafari && vpw >= 1025) || forcedFlag)) {
             console.log(`${msgPrefix} skip (non-Safari o viewport < 1025). Usa ?forceSafariFix=1 o SafariFix.forceOn()`);
             return;

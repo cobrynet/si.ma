@@ -213,6 +213,13 @@ document.addEventListener('DOMContentLoaded', function() {
 // Effetto scroll per il titolo hero
 console.log('Script hero caricato');
 document.addEventListener('DOMContentLoaded', function() {
+    // Disabilita su mobile per evitare sballamenti di font e CTA
+    try {
+        if (window.matchMedia && window.matchMedia('(max-width: 1024px)').matches) {
+            console.log('Hero scroll effect disabled on mobile');
+            return;
+        }
+    } catch(e) {}
     console.log('DOMContentLoaded - Cerco hero-line-2');
     const heroLine2 = document.querySelector('.hero-line-2');
     const heroCta = document.querySelector('.hero-cta');

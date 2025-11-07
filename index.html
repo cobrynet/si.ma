@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it" id="top">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>SI-MA SRL - Home</title>
     <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
     
@@ -12,8 +15,9 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Preload CSS critico -->
-    <link rel="preload" href="styles.css?v=1730203410" as="style">
-    <link rel="stylesheet" href="styles.css?v=1730203410">
+    <link rel="preload" href="styles.css?v=1762448289" as="style">
+    <link rel="stylesheet" href="styles.css?v=1762448289">
+    <link rel="stylesheet" href="mobile.css?v=1762510297" media="(max-width: 820px)">
     
     <!-- Cookie Consent (LegalBlink) -->
     <script type="text/javascript" src="https://app.legalblink.it/api/scripts/lb_cs.js"></script>
@@ -33,10 +37,10 @@
             <div class="sfondo-header"></div>
             <div class="logo"></div>
             <nav class="menu">
-             <a href="home" class="testo-menu1">Home</a>
-             <a href="servizi" class="testo-menu3">Servizi</a>
-             <a href="nuovo-usato" class="testo-menu4">Nuovo usato</a>
-             <a href="contatti" class="testo-menu6">Contatti</a>
+             <a href="index.html" class="testo-menu1">Home</a>
+             <a href="servizi.html" class="testo-menu3">Servizi</a>
+             <a href="nuovo-usato.html" class="testo-menu4">Nuovo usato</a>
+             <a href="contatti.html" class="testo-menu6">Contatti</a>
             </nav>
         </header>
 
@@ -49,6 +53,14 @@
                 <span class="hero-line-1">Assistenza e vendita</span>
                 <span class="hero-line-2">lavatrici <span class="industriali-highlight">industriali</span></span>
             </h1>
+            <!-- Tagline spostata dentro la hero per stare a 2px dal titolo su mobile -->
+            <p class="hero-tagline">Risposta e presa in carico delle richieste <span class="tagline-bold">entro 24h</span></p>
+            
+            <!-- Pulsante mobile-only sotto la tagline -->
+            <a href="contatti.html" class="hero-cta-mobile">Richiedi assistenza</a>
+            
+            <!-- Titolo spostato sotto il pulsante su mobile -->
+            <h2 class="h2-sezione-1">SI.MA. Il tuo partner per il lavaggio industriale.</h2>
             
             <!-- Video lavatrice animata -->
             <div class="hero-video-container">
@@ -59,23 +71,20 @@
             </div>
         </section>
         
-        <!-- Tagline emergenza -->
-        <p class="hero-tagline">Risposta e presa in carico delle richieste <span class="tagline-bold">entro 24h</span></p>
-        
         <!-- CTA Buttons - fuori dalla hero section per evitare che seguano il testo -->
-        <a href="contatti" class="hero-cta">
+        <a href="contatti.html" class="hero-cta">
             <div class="hero-cta-button">
                 <span class="hero-cta-text">Richiedi assistenza</span>
             </div>
         </a>
-        <a href="nuovo-usato" class="hero-cta-text-only">Scopri le lavatrici disponibili</a>
+        <a href="nuovo-usato.html" class="hero-cta-text-only">Scopri le lavatrici disponibili</a>
 
         <!-- Sezione 1 -->
         <section class="sezione-1">
             <h2 class="h2-sezione-1">SI.MA. Il tuo partner per il lavaggio industriale.</h2>
             <div class="rettangolo-sezione-1">
             </div>
-            <p class="testo-sezione-1">Da oltre vent'anni supportiamo lavanderie, hotel, industrie e comunità nella gestione efficiente dei loro impianti di lavaggio. Offriamo assistenza tecnica specializzata, fornitura di macchinari nuovi e rigenerati, e un servizio rapido e affidabile per garantire la continuità operativa della tua attività.</p>
+            <p class="testo-sezione-1">Da oltre vent'anni supportiamo lavanderie, hotel, industrie e comunit&agrave; nella gestione efficiente dei loro impianti di lavaggio. Offriamo assistenza tecnica specializzata, fornitura di macchinari nuovi e rigenerati, e un servizio rapido e affidabile per garantire la continuit&agrave; operativa della tua attivit&agrave;.</p>
             <img src="contenuti/foto/FURGONE-trasparente.png" alt="Furgone SI.MA" class="furgone-animato" id="furgoneSezione1" loading="lazy" decoding="async">
         </section>
 
@@ -88,16 +97,19 @@
                 <div class="icona-wrapper">
                     <img src="contenuti/Icone/gear-solid-full.svg" alt="Assistenza" class="icona-base" width="56" height="56">
                     <img src="contenuti/Icone/gear-solid-full-bucato.svg" alt="Assistenza" class="icona-hover" width="56" height="56">
+                    <img src="contenuti/Icone/icone per mobile/assistenza-bucato.svg" alt="Assistenza" class="icona-mobile" width="56" height="56">
                     <p class="icona-testo">Assistenza lavanderie industriali</p>
                 </div>
                 <div class="icona-wrapper">
                     <img src="contenuti/Icone/lavatrice-icona.svg" alt="Macchinari" class="icona-base" width="56" height="56">
                     <img src="contenuti/Icone/lavatrice-icona-bucato.svg" alt="Macchinari" class="icona-hover" width="56" height="56">
+                    <img src="contenuti/Icone/icone per mobile/lavatrice-bucato.svg" alt="Macchinari" class="icona-mobile" width="56" height="56">
                     <p class="icona-testo">Macchinari nuovi e rigenerati</p>
                 </div>
                 <div class="icona-wrapper">
                     <img src="contenuti/Icone/mobile-vibrate-solid-full.svg" alt="Supporto 24/7" class="icona-base" width="56" height="56">
                     <img src="contenuti/Icone/mobile-vibrate-solid-full-bucato.svg" alt="Supporto 24/7" class="icona-hover" width="56" height="56">
+                    <img src="contenuti/Icone/icone per mobile/smartphone-bucato.svg" alt="Supporto 24/7" class="icona-mobile" width="56" height="56">
                     <p class="icona-testo">Presa in carico delle richieste entro 24h</p>
                 </div>
             </div>
@@ -105,84 +117,123 @@
 
         <!-- Sezione 5 -->
         <section class="sezione-5">
-            <h2 class="h2-sezione-5">Una storia di competenza e continuità.</h2>
+            <h2 class="h2-sezione-5">Una storia di competenza e continuit??.</h2>
             <div class="rettangolo-sezione-5">
                 <div class="cta-sezione-5">
                     <div class="sezione-cta-5"></div>
                     <span class="testo-cta-5">Scopri chi siamo</span>
                 </div>
             </div>
-            <p class="testo-sezione-5">Siamo Matteo e Simone, cresciuti tra officine e macchinari. Da nostro padre, tecnico instancabile con oltre quarant'anni di esperienza nel settore delle lavanderie professionali, abbiamo imparato passione, serietà e rispetto per il lavoro ben fatto.<br>Nel 2001 abbiamo fondato SIMA srl per dare continuità a quei valori.</p>
-            <p class="testo-sezione-5-right">Oggi, con oltre vent'anni di esperienza e una presenza che va oltre i confini della Toscana, offriamo soluzioni complete per le lavanderie professionali, garantendo affidabilità, <span class="tight-fit">competenza e continuità.</span></p>
+            <p class="testo-sezione-5">Siamo Matteo e Simone, cresciuti tra officine e macchinari. Da nostro padre, tecnico instancabile con oltre quarant'anni di esperienza nel settore delle lavanderie professionali, abbiamo imparato passione, seriet&agrave; e rispetto per il lavoro ben fatto.<br>Nel 2001 abbiamo fondato SIMA srl per dare continuit&agrave; a quei valori.</p>
+            <p class="testo-sezione-5-right">Oggi, con oltre vent'anni di esperienza e una presenza che va oltre i confini della Toscana, offriamo soluzioni complete per le lavanderie professionali, garantendo affidabilit&agrave;, <span class="tight-fit">competenza e continuit&agrave;.</span></p>
         </section>
 
         <!-- Footer Content (separato dal footer grigio) -->
 
 
-        <!-- Footer (solo sfondo grigio) -->
+        <!-- Footer (due colonne: sinistra logo+contatti+cookie, destra orari+social+recensioni) -->
         <footer class="footer">
-            <!-- Logo Footer -->
-            <a href="#top" class="logo-footer-link">
-                <div class="logo-footer-rect">
-                    <video autoplay loop muted playsinline class="logo-footer-video">
-                        <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
-                        <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </a>
-            
-            <!-- Dati Aziendali -->
-            <div class="footer-info">
-                <h3 class="footer-column-title">Contatti</h3>
-                <p class="footer-info-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
-                <p class="footer-info-line">Tel. 055 7327456</p>
-                <p class="footer-info-line"><a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a></p>
-                <p class="footer-info-line"><a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a></p>
-                <p class="footer-info-line">P.IVA 01867350975</p>
-            </div>
-            
-            <!-- Orari -->
-            <div class="footer-hours">
-                <h3 class="footer-column-title">Orari</h3>
-                <p class="footer-info-line"><strong>Lun-Ven</strong></p>
-                <p class="footer-info-line">9:00 – 18:00</p>
-                <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
-                <p class="footer-info-line">H24/7</p>
-            </div>
-            
-            <!-- Social Media nel Footer -->
-            <div class="social-footer">
-                <a href="#" class="social-link-footer facebook" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" class="social-link-footer instagram" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link-footer linkedin" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-            
-            <!-- Google Recensioni nel Footer - separato -->
-            <div class="google-reviews-footer-container">
-                <a href="https://www.google.com/search?sca_esv=289e7c278657c79e&hl=it&sxsrf=AE3TifP-K25LbtxPo-CpA7CVdEmhmptRtQ:1761326424581&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiuqfuerL2QAxWMnf0HHSFOLUMQ0bkNegQISxAE&biw=3440&bih=1305&dpr=1" target="_blank" rel="noopener" class="google-reviews-footer">
-                    <div class="reviews-stars-footer">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <span class="rating-number-footer">4.8</span>
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <!-- Logo Footer -->
+                    <a href="#top" class="logo-footer-link">
+                        <div class="logo-footer-rect">
+                            <video autoplay loop muted playsinline class="logo-footer-video">
+                                <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
+                                <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </a>
+
+                    <!-- Nuova sezione mobile con due colonne -->
+                    <div class="footer-mobile-content">
+                        <div class="footer-mobile-col-1">
+                            <h3 class="footer-mobile-title">Contatti</h3>
+                            <p class="footer-mobile-text">Via Stefano Ussi 22<br>Scandicci (FI) 50018</p>
+                            <p class="footer-mobile-text">Tel. 055 7327456</p>
+                            <p class="footer-mobile-text">info@assistenzalavanderie.it</p>
+                            <p class="footer-mobile-text">P.IVA 01867350975</p>
+                            <a href="privacy-policy" class="footer-mobile-link">Privacy Policy</a>
+                            <a href="cookie-policy" class="footer-mobile-link footer-mobile-link-middle">Cookie Policy</a>
+                            <a href="#" class="footer-mobile-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                            <p class="footer-mobile-design">Design by Cobrynet</p>
+                        </div>
+                        <div class="footer-mobile-col-2">
+                            <h3 class="footer-mobile-title">Orari</h3>
+                            <p class="footer-mobile-text">Lun-Ven</p>
+                            <p class="footer-mobile-text">9:00 - 18:00</p>
+                            <p class="footer-mobile-text">Emergenze</p>
+                            <p class="footer-mobile-text">H24/7</p>
+                        </div>
                     </div>
-                </a>
-            </div>
-            
-            <!-- Links Privacy e Cookie -->
-            <div class="footer-links">
-                <a href="privacy-policy" class="footer-link">Privacy Policy</a>
-                <a href="cookie-policy" class="footer-link">Cookie Policy</a>
-                <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
-                <p class="design-credit">Design by Cobrynet</p>
+
+                    <!-- Dati Aziendali -->
+                    <div class="footer-info">
+                        <h3 class="footer-column-title">Contatti</h3>
+                        <p class="footer-info-line">
+                            <span class="address-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</span><br>
+                            Tel. 055 7327456<br>
+                            <a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a><br>
+                            <a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a><br>
+                            P.IVA 01867350975
+                        </p>
+                        
+                        <!-- Links Privacy e Cookie sotto P.IVA (solo mobile) -->
+                        <div class="footer-links-inline">
+                            <a href="privacy-policy" class="footer-link">Privacy Policy</a>
+                            <a href="cookie-policy" class="footer-link">Cookie Policy</a>
+                            <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                            <p class="design-credit">Design by Cobrynet</p>
+                        </div>
+                    </div>
+
+                    <!-- Links Privacy e Cookie (desktop) -->
+                    <div class="footer-links">
+                        <a href="privacy-policy" class="footer-link">Privacy Policy</a>
+                        <a href="cookie-policy" class="footer-link">Cookie Policy</a>
+                        <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                        <p class="design-credit">Design by Cobrynet</p>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <!-- Orari -->
+                    <div class="footer-hours">
+                        <h3 class="footer-column-title">Orari</h3>
+                        <p class="footer-info-line"><strong>Lun-Ven</strong></p>
+                        <p class="footer-info-line">9:00 ? 18:00</p>
+                        <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
+                        <p class="footer-info-line">H24/7</p>
+                    </div>
+
+                    <!-- Social + Recensioni -->
+                    <div class="footer-social-reviews">
+                        <div class="social-footer">
+                            <a href="#" class="social-link-footer facebook" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link-footer instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link-footer linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+
+                        <div class="google-reviews-footer-container">
+                            <a href="#" target="_blank" rel="noopener" class="google-reviews-footer">
+                                <div class="reviews-text-footer">Recensioni</div>
+                                <div class="reviews-stars-footer">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </footer>
     </main>

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=1730203410">
     <link rel="stylesheet" href="sezione2.css?v=1730278800">
-    <link rel="stylesheet" href="mobile.css?v=20251031" media="screen and (max-width:820px)">
+    <link rel="stylesheet" href="mobile.css?v=20251104104911">
     
     <!-- Cookie Consent (LegalBlink) -->
     <script type="text/javascript" src="https://app.legalblink.it/api/scripts/lb_cs.js"></script>
@@ -27,8 +27,14 @@
         <header class="header">
             <div class="sfondo-header"></div>
             <div class="logo"></div>
+            <!-- Hamburger Menu Icon (solo mobile) -->
+            <div class="hamburger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav class="menu">
-             <a href="home" class="testo-menu1">Home</a>
+             <a href="/" class="testo-menu1">Home</a>
              <a href="servizi" class="testo-menu3">Servizi</a>
              <a href="nuovo-usato" class="testo-menu4">Nuovo usato</a>
              <a href="contatti" class="testo-menu6">Contatti</a>
@@ -124,5 +130,30 @@
                             window.addEventListener('scroll', applyScrollEffect, { passive: true });
                         });
                     </script>
+    
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.menu');
+            const hamburger = document.querySelector('.hamburger-menu');
+            
+            // Semplice toggle della classe active
+            hamburger.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+        
+        // Chiudi menu quando si clicca su un link
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.menu a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const menu = document.querySelector('.menu');
+                    const hamburger = document.querySelector('.hamburger-menu');
+                    menu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

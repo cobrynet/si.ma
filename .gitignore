@@ -1,0 +1,25 @@
+# Ignora file con dati sensibili
+.env
+.env.local
+.env.production
+
+# Ignora dipendenze Node
+node_modules/
+
+# Ignora file di build/cache
+.vercel/
+.next/
+dist/
+.cache/
+
+# Ignora file sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignora file IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

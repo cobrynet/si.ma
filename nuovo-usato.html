@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SI-MA SRL - Nuovo/Usato</title>
     <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
     
@@ -16,7 +16,7 @@
     <link rel="preload" href="sezione2.css?v=1730278800" as="style">
     <link rel="stylesheet" href="styles.css?v=1730203410">
     <link rel="stylesheet" href="sezione2.css?v=1730278800">
-    <link rel="stylesheet" href="mobile.css?v=20251031" media="screen and (max-width:820px)">
+    <link rel="stylesheet" href="mobile.css?v=20251104104911">
     
     <!-- Font con display=swap -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -35,11 +35,17 @@
         <header class="header">
             <div class="sfondo-header"></div>
             <div class="logo"></div>
+            <!-- Hamburger Menu Icon (solo mobile) -->
+            <div class="hamburger-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav class="menu">
-                <a href="home" class="testo-menu1">Home</a>
-                <a href="servizi" class="testo-menu3">Servizi</a>
-                <a href="nuovo-usato" class="testo-menu4">Nuovo usato</a>
-                <a href="contatti" class="testo-menu6">Contatti</a>
+                <a href="index.html" class="testo-menu1">Home</a>
+                <a href="servizi.html" class="testo-menu3">Servizi</a>
+                <a href="nuovo-usato.html" class="testo-menu4">Nuovo usato</a>
+                <a href="contatti.html" class="testo-menu6">Contatti</a>
             </nav>
         </header>
 
@@ -648,5 +654,30 @@
     
     <!-- Safari Desktop Responsive Fix -->
     <script src="safari-fix.js"></script>
+    
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.menu');
+            const hamburger = document.querySelector('.hamburger-menu');
+            
+            // Semplice toggle della classe active
+            hamburger.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+        
+        // Chiudi menu quando si clicca su un link
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.menu a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const menu = document.querySelector('.menu');
+                    const hamburger = document.querySelector('.hamburger-menu');
+                    menu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
