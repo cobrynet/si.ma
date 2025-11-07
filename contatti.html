@@ -16,7 +16,7 @@
     <link rel="preload" href="contatti.css?v=1730203000" as="style">
     <link rel="stylesheet" href="styles.css?v=1730203410">
     <link rel="stylesheet" href="contatti.css?v=1730203000">
-    <link rel="stylesheet" href="mobile.css?v=20251104104911">
+    <link rel="stylesheet" href="mobile.css?v=1762536158">
     
     <!-- Font con display=swap -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,9 +25,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     
-    <!-- Cookie Consent (LegalBlink) -->
-    <script type="text/javascript" src="https://app.legalblink.it/api/scripts/lb_cs.js"></script>
-    <script id="lb_cs" type="text/javascript">lb_cs("67d443ca2508c800228b34da");</script>
+    <!-- Cookie Consent (LegalBlink) solo per viewport desktop -->
+    <script>
+        (function () {
+            var legalBlinkId = "67d443ca2508c800228b34da";
+            var minWidthQuery = window.matchMedia('(min-width: 821px)');
+
+            function loadLegalBlink() {
+                if (window.__legalBlinkLoaded) {
+                    return;
+                }
+                window.__legalBlinkLoaded = true;
+
+                var script = document.createElement('script');
+                script.src = 'https://app.legalblink.it/api/scripts/lb_cs.js';
+                script.async = true;
+                script.onload = function () {
+                    if (typeof lb_cs === 'function') {
+                        lb_cs(legalBlinkId);
+                    }
+                };
+                document.head.appendChild(script);
+            }
+
+            if (minWidthQuery.matches) {
+                loadLegalBlink();
+            } else if (minWidthQuery.addEventListener) {
+                minWidthQuery.addEventListener('change', function (event) {
+                    if (event.matches) {
+                        loadLegalBlink();
+                    }
+                });
+            } else if (minWidthQuery.addListener) {
+                minWidthQuery.addListener(function (event) {
+                    if (event.matches) {
+                        loadLegalBlink();
+                    }
+                });
+            }
+        })();
+    </script>
 </head>
 <body>
     <div class="main-container-contatti">

@@ -15,9 +15,46 @@
     .btn.secondary { background:#5A7A95; }
     .frame { width:100%; min-height:80vh; border:none; border-radius:12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
   </style>
-  <!-- Cookie Consent (LegalBlink) -->
-  <script type="text/javascript" src="https://app.legalblink.it/api/scripts/lb_cs.js"></script>
-  <script id="lb_cs" type="text/javascript">lb_cs("67d443ca2508c800228b34da");</script>
+  <!-- Cookie Consent (LegalBlink) solo per viewport desktop -->
+  <script>
+    (function () {
+      var legalBlinkId = "67d443ca2508c800228b34da";
+      var minWidthQuery = window.matchMedia('(min-width: 821px)');
+
+      function loadLegalBlink() {
+        if (window.__legalBlinkLoaded) {
+          return;
+        }
+        window.__legalBlinkLoaded = true;
+
+        var script = document.createElement('script');
+        script.src = 'https://app.legalblink.it/api/scripts/lb_cs.js';
+        script.async = true;
+        script.onload = function () {
+          if (typeof lb_cs === 'function') {
+            lb_cs(legalBlinkId);
+          }
+        };
+        document.head.appendChild(script);
+      }
+
+      if (minWidthQuery.matches) {
+        loadLegalBlink();
+      } else if (minWidthQuery.addEventListener) {
+        minWidthQuery.addEventListener('change', function (event) {
+          if (event.matches) {
+            loadLegalBlink();
+          }
+        });
+      } else if (minWidthQuery.addListener) {
+        minWidthQuery.addListener(function (event) {
+          if (event.matches) {
+            loadLegalBlink();
+          }
+        });
+      }
+    })();
+  </script>
 </head>
 <body>
   <div class="wrap">
