@@ -650,10 +650,12 @@ body.body-sezione2 .footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.75);
     z-index: 20000;
-    align-items: center;
+    /* display set on .contact-modal.active */
+    align-items: flex-start;
     justify-content: center;
+    padding: 6vh 12px 4vh 12px;
 }
 
 .contact-modal.active {
@@ -662,45 +664,53 @@ body.body-sezione2 .footer::before {
 
 .contact-modal-content {
     position: relative;
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 40px;
-    width: 90%;
-    max-width: 600px;
-    max-height: 90vh;
+    background: #0F2438; /* blu scuro */
+    border-radius: 24px;
+    padding: 40px 34px 42px 34px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 82vh;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    color: #ffffff; /* testo di base bianco */
+    backdrop-filter: saturate(120%) contrast(105%);
 }
 
 .contact-modal-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    right: 18px;
     background: transparent;
     border: none;
-    font-size: 28px;
-    color: var(--sima-text-secondary);
+    font-size: 30px;
+    color: #82ADE1; /* celeste brand */
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: auto !important; /* sempre cliccabile */
+    z-index: 20001; /* sopra tutto nella modale */
 }
 
 .contact-modal-close:hover {
-    color: var(--sima-primary);
-    transform: rotate(90deg);
+    opacity: 0.7;
+    transform: scale(1.08);
 }
 
 .contact-modal-title {
     font-family: 'Outfit';
     font-weight: 600;
-    font-size: 28px;
-    color: var(--sima-primary);
-    margin: 0 0 30px 0;
+    font-size: 30px;
+    background: linear-gradient(90deg, #82ADE1, #c9e6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* gradient text */
+    margin: 0 0 32px 0;
     text-align: center;
+    letter-spacing: 0.5px;
 }
 
 .contact-modal-form {
@@ -718,30 +728,37 @@ body.body-sezione2 .footer::before {
 .form-group label {
     font-family: 'Outfit';
     font-weight: 500;
-    font-size: 15px;
-    color: var(--sima-primary);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #E0ECF5;
 }
 
 .form-group input,
 .form-group textarea {
     font-family: 'Outfit';
     font-size: 15px;
-    padding: 12px 16px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    padding: 14px 18px;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    color: #ffffff;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--sima-primary);
+    border-color: #82ADE1;
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 3px rgba(130,173,225,0.25);
 }
 
 .form-group input[readonly] {
-    background: #f5f5f5;
-    color: var(--sima-text-secondary);
-    cursor: not-allowed;
+    background: rgba(255,255,255,0.10);
+    color: #d0dbe5;
+    cursor: default;
+    border-style: dashed;
 }
 
 .form-group textarea {
@@ -753,21 +770,76 @@ body.body-sezione2 .footer::before {
     font-family: 'Outfit';
     font-weight: 600;
     font-size: 16px;
-    color: #ffffff;
-    background: var(--sima-primary);
+    color: #0F2438;
+    background: linear-gradient(135deg, #82ADE1 0%, #b8dcf7 100%);
     border: none;
-    border-radius: 30px;
-    padding: 14px 40px;
+    border-radius: 34px;
+    padding: 15px 42px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    margin-top: 6px;
+    letter-spacing: 0.4px;
 }
 
 .contact-modal-submit:hover {
-    background: var(--sima-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(24, 32, 45, 0.3);
+        filter: brightness(1.05);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(130,173,225,0.35);
 }
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+    .contact-modal {
+        padding: 2.5vh 10px 3.5vh 10px; /* alza il form riducendo il top */
+    }
+    .contact-modal-content {
+        padding: 30px 24px 34px 24px;
+        border-radius: 20px;
+        max-height: 78vh; /* leggermente meno alta per stare più su */
+    }
+    .contact-modal-title {
+        font-size: 26px;
+        margin-bottom: 26px;
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    .contact-modal-close {
+        top: 14px;
+        right: 14px;
+        font-size: 28px;
+    }
+    .contact-modal-submit {
+        padding: 13px 34px;
+        font-size: 15px;
+    }
+}
+
+@media (max-height: 560px) {
+    .contact-modal {
+        padding: 1.5vh 8px 1.5vh 8px; /* ancora più su sugli schermi bassi */
+    }
+    .contact-modal-content {
+        max-height: 74vh;
+        padding: 26px 20px 28px 20px;
+    }
+    .contact-modal-title { font-size: 24px; }
+    .form-group textarea { min-height: 90px; }
+}
+
+/* Placeholder styling per campi scuri */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.55);
+}
+
+/* Scrollbar sottile dentro modale (webkit) */
+.contact-modal-content::-webkit-scrollbar { width: 8px; }
+.contact-modal-content::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+.contact-modal-content::-webkit-scrollbar-thumb { background: rgba(130,173,225,0.55); border-radius: 4px; }
+.contact-modal-content::-webkit-scrollbar-thumb:hover { background: rgba(130,173,225,0.75); }
 
 /* Lightbox galleria immagini prodotti */
 .lightbox-overlay {

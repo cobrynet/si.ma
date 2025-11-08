@@ -1,4 +1,17 @@
 /* Override solo per la pagina servizi */
+/* Ripristino titolo sezione 1 (rimuovo forzature dimensioni/margini) */
+.h2-sezione-1 {
+    margin-top: 0 !important;
+    font-size: clamp(40px, 4.63vw, 80px) !important;
+    line-height: 1.125 !important;
+    width: clamp(800px, 69%, 1200px) !important;
+    text-align: left !important;
+    white-space: normal !important;
+}
+/* Ripristino paragrafo sezione 1 (nessun offset verticale) */
+.testo-sezione-1 {
+    margin-top: 0 !important;
+}
 .h2-sezione-4 {
     top: 1800px !important; /* abbassato di ulteriori 100px */
 }
@@ -71,6 +84,36 @@ body .hero-video-container {
 
 body .hero-video {
     object-fit: cover !important;
+}
+
+/* H1 servizi: forza stessa dimensione del home H1 e mantiene minuscolo */
+/* Desktop H1 Servizi: aumenta leggermente mantenendo una riga */
+/* Titolo hero Servizi (desktop) - colore brand e spazio sotto */
+.h2-hero-servizi {
+    /* NASCONDI su desktop */
+    display: none !important;
+}
+.h1-hero {
+    font-size: 92px !important; /* +2px rispetto a 90 */
+    line-height: 104px !important; /* più respiro verticale */
+    text-transform: none !important;
+}
+.h1-hero .hero-line-1,
+.h1-hero .hero-line-2 {
+    font-size: 92px !important;
+    line-height: 104px !important;
+    text-transform: none !important;
+}
+
+/* Prima riga dell'H1 leggermente più grande ma sempre su una riga */
+/* Prima riga leggermente più grande e compatta */
+.h1-hero .hero-line-1 {
+    font-size: 98px !important; /* era 96px */
+    line-height: 104px !important;
+    letter-spacing: -0.018em !important; /* meno compressione visiva ma ancora evita il wrap */
+    white-space: nowrap !important;
+    position: relative !important;
+    left: -4px !important; /* sposta 4px a sinistra */
 }
 
 

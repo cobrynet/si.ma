@@ -16,7 +16,7 @@
     <link rel="preload" href="contatti.css?v=1730203000" as="style">
     <link rel="stylesheet" href="styles.css?v=1730203410">
     <link rel="stylesheet" href="contatti.css?v=1730203000">
-    <link rel="stylesheet" href="mobile.css?v=1762536158">
+    <link rel="stylesheet" href="mobile.css?v=1762595819">
     
     <!-- Font con display=swap -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -72,12 +72,6 @@
         <header class="header">
             <div class="sfondo-header"></div>
             <div class="logo"></div>
-            <!-- Hamburger Menu Icon (solo mobile) -->
-            <div class="hamburger-menu" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <nav class="menu">
                 <a href="index.html" class="testo-menu1">Home</a>
                 <a href="servizi.html" class="testo-menu3">Servizi</a>
@@ -170,70 +164,109 @@
             </div>
         </main>
 
-        <!-- Footer -->
+        <!-- Footer (due colonne: sinistra logo+contatti+cookie, destra orari+social+recensioni) -->
         <footer class="footer">
-            <!-- Logo Footer -->
-            <a href="index.html#top" class="logo-footer-link">
-                <div class="logo-footer-rect">
-                    <video autoplay loop muted playsinline class="logo-footer-video">
-                        <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
-                        <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </a>
-            
-            <!-- Dati Aziendali -->
-            <div class="footer-info">
-                <h3 class="footer-column-title">Contatti</h3>
-                <p class="footer-info-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
-                <p class="footer-info-line">Tel. 055 7327456</p>
-                <p class="footer-info-line"><a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a></p>
-                <p class="footer-info-line"><a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a></p>
-                <p class="footer-info-line">P.IVA 01867350975</p>
-            </div>
-            
-            <!-- Orari -->
-            <div class="footer-hours">
-                <h3 class="footer-column-title">Orari</h3>
-                <p class="footer-info-line"><strong>Lun-Ven</strong></p>
-                <p class="footer-info-line">9:00 – 18:00</p>
-                <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
-                <p class="footer-info-line">H24/7</p>
-            </div>
-            
-            <!-- Social Media nel Footer -->
-            <div class="social-footer">
-                <a href="#" class="social-link-footer facebook" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" class="social-link-footer instagram" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link-footer linkedin" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-            
-            <!-- Google Recensioni nel Footer - separato -->
-            <div class="google-reviews-footer-container">
-                <a href="https://www.google.com/search?sca_esv=289e7c278657c79e&hl=it&sxsrf=AE3TifP-K25LbtxPo-CpA7CVdEmhmptRtQ:1761326424581&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiuqfuerL2QAxWMnf0HHSFOLUMQ0bkNegQISxAE&biw=3440&bih=1305&dpr=1" target="_blank" rel="noopener" class="google-reviews-footer">
-                    <div class="reviews-stars-footer">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
-                        <span class="rating-number-footer">4.8</span>
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <!-- Logo Footer -->
+                    <a href="#top" class="logo-footer-link">
+                        <div class="logo-footer-rect">
+                            <video autoplay loop muted playsinline class="logo-footer-video">
+                                <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
+                                <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </a>
+
+                    <!-- Nuova sezione mobile con due colonne -->
+                    <div class="footer-mobile-content">
+                        <div class="footer-mobile-col-1">
+                            <h3 class="footer-mobile-title">Contatti</h3>
+                            <p class="footer-mobile-text">Via Stefano Ussi 22<br>Scandicci (FI) 50018</p>
+                            <p class="footer-mobile-text">Tel. 055 7327456</p>
+                            <p class="footer-mobile-text">info@assistenzalavanderie.it</p>
+                            <p class="footer-mobile-text">P.IVA 01867350975</p>
+                            <a href="privacy-policy" class="footer-mobile-link">Privacy Policy</a>
+                            <a href="cookie-policy" class="footer-mobile-link footer-mobile-link-middle">Cookie Policy</a>
+                            <a href="#" class="footer-mobile-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                            <p class="footer-mobile-design">Design by Cobrynet</p>
+                        </div>
+                        <div class="footer-mobile-col-2">
+                            <h3 class="footer-mobile-title">Orari</h3>
+                            <p class="footer-mobile-text">Lun-Ven</p>
+                            <p class="footer-mobile-text">9:00 - 18:00</p>
+                            <p class="footer-mobile-text">Emergenze</p>
+                            <p class="footer-mobile-text">H24/7</p>
+                        </div>
                     </div>
-                </a>
-            </div>
-            
-            <!-- Links Privacy e Cookie -->
-            <div class="footer-links">
-                <a href="privacy-policy" class="footer-link">Privacy Policy</a>
-                <a href="cookie-policy" class="footer-link">Cookie Policy</a>
-                <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
-                <p class="design-credit">Design by Cobrynet</p>
+
+                    <!-- Dati Aziendali -->
+                    <div class="footer-info">
+                        <h3 class="footer-column-title">Contatti</h3>
+                        <p class="footer-info-line">
+                            <span class="address-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</span><br>
+                            Tel. 055 7327456<br>
+                            <a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a><br>
+                            <a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a><br>
+                            P.IVA 01867350975
+                        </p>
+                        
+                        <!-- Links Privacy e Cookie sotto P.IVA (solo mobile) -->
+                        <div class="footer-links-inline">
+                            <a href="privacy-policy" class="footer-link">Privacy Policy</a>
+                            <a href="cookie-policy" class="footer-link">Cookie Policy</a>
+                            <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                            <p class="design-credit">Design by Cobrynet</p>
+                        </div>
+                    </div>
+
+                    <!-- Links Privacy e Cookie (desktop) -->
+                    <div class="footer-links">
+                        <a href="privacy-policy" class="footer-link">Privacy Policy</a>
+                        <a href="cookie-policy" class="footer-link">Cookie Policy</a>
+                        <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                        <p class="design-credit">Design by Cobrynet</p>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <!-- Orari -->
+                    <div class="footer-hours">
+                        <h3 class="footer-column-title">Orari</h3>
+                        <p class="footer-info-line"><strong>Lun-Ven</strong></p>
+                        <p class="footer-info-line">9:00 – 18:00</p>
+                        <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
+                        <p class="footer-info-line">H24/7</p>
+                    </div>
+
+                    <!-- Social + Recensioni -->
+                    <div class="footer-social-reviews">
+                        <div class="social-footer">
+                            <a href="#" class="social-link-footer facebook" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link-footer instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link-footer linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+
+                        <div class="google-reviews-footer-container">
+                            <a href="#" target="_blank" rel="noopener" class="google-reviews-footer">
+                                <div class="reviews-text-footer">Recensioni</div>
+                                <div class="reviews-stars-footer">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
@@ -313,30 +346,7 @@
     <!-- Safari Desktop Responsive Fix -->
     <script src="safari-fix.js"></script>
     
-    <!-- Mobile Menu Toggle Script -->
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.querySelector('.menu');
-            const hamburger = document.querySelector('.hamburger-menu');
-            
-            // Semplice toggle della classe active
-            hamburger.classList.toggle('active');
-            menu.classList.toggle('active');
-        }
-        
-        // Chiudi menu quando si clicca su un link
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuLinks = document.querySelectorAll('.menu a');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    const menu = document.querySelector('.menu');
-                    const hamburger = document.querySelector('.hamburger-menu');
-                    menu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                });
-            });
-        });
-    </script>
+    <script src="hamburger-menu.js"></script>
 </body>
 </html>
 

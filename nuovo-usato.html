@@ -15,8 +15,8 @@
     <link rel="preload" href="styles.css?v=1730203410" as="style">
     <link rel="preload" href="sezione2.css?v=1730278800" as="style">
     <link rel="stylesheet" href="styles.css?v=1730203410">
-    <link rel="stylesheet" href="sezione2.css?v=1730278800">
-    <link rel="stylesheet" href="mobile.css?v=1762536158">
+    <link rel="stylesheet" href="sezione2.css?v=1730282400">
+    <link rel="stylesheet" href="mobile.css?v=1767996000">
     
     <!-- Font con display=swap -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -94,7 +94,13 @@
 
         <!-- Main Content -->
         <main class="pagina-1">
-            <!-- H1 Pagina 1 - split in due parti -->
+            <!-- H1 Pagina 1 - MOBILE: titolo in due righe -->
+            <h1 class="h1-nuovo-usato-mobile" style="display:none;">
+                <span class="hero-line-1">IL VALORE DEL NUOVO</span>
+                <span class="hero-line-2 hero-celeste">LA FIDUCIA DELL'USATO</span>
+            </h1>
+
+            <!-- H1 Pagina 1 - DESKTOP: split in due parti -->
             <h1 class="h1-nuovo-usato-left">IL VALORE<br>DEL NUOVO</h1>
             <h1 class="h1-nuovo-usato-right">LA FIDUCIA<br>DELL'USATO</h1>
             
@@ -327,70 +333,109 @@
             </div>
         </main>
 
-        <!-- Footer -->
+        <!-- Footer (due colonne: sinistra logo+contatti+cookie, destra orari+social+recensioni) -->
         <footer class="footer">
-            <!-- Logo Footer -->
-            <a href="index.html#top" class="logo-footer-link">
-                <div class="logo-footer-rect">
-                    <video autoplay loop muted playsinline class="logo-footer-video">
-                        <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
-                        <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </a>
-            
-            <!-- Dati Aziendali -->
-            <div class="footer-info">
-                <h3 class="footer-column-title">Contatti</h3>
-                <p class="footer-info-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</p>
-                <p class="footer-info-line">Tel. 055 7327456</p>
-                <p class="footer-info-line"><a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a></p>
-                <p class="footer-info-line"><a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a></p>
-                <p class="footer-info-line">P.IVA 01867350975</p>
-            </div>
-            
-            <!-- Orari -->
-            <div class="footer-hours">
-                <h3 class="footer-column-title">Orari</h3>
-                <p class="footer-info-line"><strong>Lun-Ven</strong></p>
-                <p class="footer-info-line">9:00 – 18:00</p>
-                <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
-                <p class="footer-info-line">H24/7</p>
-            </div>
-            
-            <!-- Social Media nel Footer -->
-            <div class="social-footer">
-                <a href="#" class="social-link-footer facebook" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#" class="social-link-footer instagram" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link-footer linkedin" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-            
-            <!-- Google Recensioni nel Footer - separato -->
-            <div class="google-reviews-footer-container">
-                <a href="https://www.google.com/search?sca_esv=289e7c278657c79e&hl=it&sxsrf=AE3TifP-K25LbtxPo-CpA7CVdEmhmptRtQ:1761326424581&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiuqfuerL2QAxWMnf0HHSFOLUMQ0bkNegQISxAE&biw=3440&bih=1305&dpr=1" target="_blank" rel="noopener" class="google-reviews-footer">
-                    <div class="reviews-stars-footer">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
-                        <span class="rating-number-footer">4.8</span>
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <!-- Logo Footer -->
+                    <a href="#top" class="logo-footer-link">
+                        <div class="logo-footer-rect">
+                            <video autoplay loop muted playsinline class="logo-footer-video">
+                                <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
+                                <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </a>
+
+                    <!-- Nuova sezione mobile con due colonne -->
+                    <div class="footer-mobile-content">
+                        <div class="footer-mobile-col-1">
+                            <h3 class="footer-mobile-title">Contatti</h3>
+                            <p class="footer-mobile-text">Via Stefano Ussi 22<br>Scandicci (FI) 50018</p>
+                            <p class="footer-mobile-text">Tel. 055 7327456</p>
+                            <p class="footer-mobile-text">info@assistenzalavanderie.it</p>
+                            <p class="footer-mobile-text">P.IVA 01867350975</p>
+                            <a href="privacy-policy" class="footer-mobile-link">Privacy Policy</a>
+                            <a href="cookie-policy" class="footer-mobile-link footer-mobile-link-middle">Cookie Policy</a>
+                            <a href="#" class="footer-mobile-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                            <p class="footer-mobile-design">Design by Cobrynet</p>
+                        </div>
+                        <div class="footer-mobile-col-2">
+                            <h3 class="footer-mobile-title">Orari</h3>
+                            <p class="footer-mobile-text">Lun-Ven</p>
+                            <p class="footer-mobile-text">9:00 - 18:00</p>
+                            <p class="footer-mobile-text">Emergenze</p>
+                            <p class="footer-mobile-text">H24/7</p>
+                        </div>
                     </div>
-                </a>
-            </div>
-            
-            <!-- Links Privacy e Cookie -->
-            <div class="footer-links">
-                <a href="privacy-policy" class="footer-link">Privacy Policy</a>
-                <a href="cookie-policy" class="footer-link">Cookie Policy</a>
-                <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
-                <p class="design-credit">Design by Cobrynet</p>
+
+                    <!-- Dati Aziendali -->
+                    <div class="footer-info">
+                        <h3 class="footer-column-title">Contatti</h3>
+                        <p class="footer-info-line">
+                            <span class="address-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</span><br>
+                            Tel. 055 7327456<br>
+                            <a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a><br>
+                            <a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a><br>
+                            P.IVA 01867350975
+                        </p>
+                        
+                        <!-- Links Privacy e Cookie sotto P.IVA (solo mobile) -->
+                        <div class="footer-links-inline">
+                            <a href="privacy-policy" class="footer-link">Privacy Policy</a>
+                            <a href="cookie-policy" class="footer-link">Cookie Policy</a>
+                            <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                            <p class="design-credit">Design by Cobrynet</p>
+                        </div>
+                    </div>
+
+                    <!-- Links Privacy e Cookie (desktop) -->
+                    <div class="footer-links">
+                        <a href="privacy-policy" class="footer-link">Privacy Policy</a>
+                        <a href="cookie-policy" class="footer-link">Cookie Policy</a>
+                        <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                        <p class="design-credit">Design by Cobrynet</p>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <!-- Orari -->
+                    <div class="footer-hours">
+                        <h3 class="footer-column-title">Orari</h3>
+                        <p class="footer-info-line"><strong>Lun-Ven</strong></p>
+                        <p class="footer-info-line">9:00 – 18:00</p>
+                        <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
+                        <p class="footer-info-line">H24/7</p>
+                    </div>
+
+                    <!-- Social + Recensioni -->
+                    <div class="footer-social-reviews">
+                        <div class="social-footer">
+                            <a href="#" class="social-link-footer facebook" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link-footer instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link-footer linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+
+                        <div class="google-reviews-footer-container">
+                            <a href="#" target="_blank" rel="noopener" class="google-reviews-footer">
+                                <div class="reviews-text-footer">Recensioni</div>
+                                <div class="reviews-stars-footer">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
@@ -433,6 +478,7 @@
         <div class="lightbox-content">
             <img class="lightbox-img" alt="Anteprima immagine prodotto">
         </div>
+        <div class="lightbox-indicators"></div>
         <button class="lightbox-next" aria-label="Immagine successiva">›</button>
     </div>
     
@@ -448,8 +494,21 @@
             const lightboxPrev = lightbox.querySelector('.lightbox-prev');
             const lightboxNext = lightbox.querySelector('.lightbox-next');
             const lightboxClose = lightbox.querySelector('.lightbox-close');
+            const lightboxIndicators = lightbox.querySelector('.lightbox-indicators');
             let currentGallery = [];
             let currentIndex = 0;
+            
+            function updateIndicators() {
+                // Aggiorna lo stato attivo dei pallini
+                const indicators = lightboxIndicators.querySelectorAll('.lightbox-indicator');
+                indicators.forEach((indicator, idx) => {
+                    if (idx === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
             
             function showLightboxImage(index) {
                 if (!currentGallery.length) return;
@@ -460,19 +519,41 @@
                 const img = currentGallery[currentIndex];
                 lightboxImg.src = img.src;
                 lightboxImg.alt = img.alt || 'Immagine prodotto';
+                updateIndicators();
             }
             
             function openLightbox(images, startIndex) {
                 currentGallery = images;
+                
+                // Crea i pallini indicatori
+                lightboxIndicators.innerHTML = '';
+                images.forEach((img, idx) => {
+                    const indicator = document.createElement('div');
+                    indicator.className = 'lightbox-indicator';
+                    if (idx === startIndex) indicator.classList.add('active');
+                    indicator.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        showLightboxImage(idx);
+                    });
+                    lightboxIndicators.appendChild(indicator);
+                });
+                
                 showLightboxImage(startIndex);
                 lightbox.classList.add('active');
                 lightbox.setAttribute('aria-hidden', 'false');
+                
+                // Blocca lo scroll del body quando il lightbox è aperto
+                document.body.style.overflow = 'hidden';
             }
             
             function closeLightbox() {
                 lightbox.classList.remove('active');
                 lightbox.setAttribute('aria-hidden', 'true');
                 lightboxImg.removeAttribute('src');
+                lightboxIndicators.innerHTML = '';
+                
+                // Ripristina lo scroll del body
+                document.body.style.overflow = '';
             }
             
             // Controlli lightbox
@@ -480,6 +561,88 @@
             lightboxNext.addEventListener('click', function(e) { e.stopPropagation(); showLightboxImage(currentIndex + 1); });
             lightboxClose.addEventListener('click', function(e) { e.stopPropagation(); closeLightbox(); });
             lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+            
+            // Supporto swipe per mobile su lightbox
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            // Variabili per pinch-to-zoom
+            let initialDistance = 0;
+            let currentScale = 1;
+            let maxScale = 3;
+            let minScale = 1;
+            
+            lightbox.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                
+                // Rileva pinch (due dita)
+                if (e.touches.length === 2) {
+                    initialDistance = getDistance(e.touches[0], e.touches[1]);
+                }
+            }, false);
+            
+            lightbox.addEventListener('touchmove', function(e) {
+                // Gestione pinch zoom
+                if (e.touches.length === 2) {
+                    e.preventDefault(); // Previeni comportamento default
+                    const currentDistance = getDistance(e.touches[0], e.touches[1]);
+                    const scale = currentDistance / initialDistance;
+                    currentScale = Math.min(Math.max(minScale, currentScale * scale), maxScale);
+                    lightboxImg.style.transform = `scale(${currentScale})`;
+                    initialDistance = currentDistance;
+                }
+            }, { passive: false });
+            
+            lightbox.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                
+                // Se non è un pinch (una sola ditа), gestisci swipe
+                if (e.touches.length === 0 && currentScale === 1) {
+                    handleSwipe();
+                }
+                
+                // Reset zoom se sotto soglia minima
+                if (currentScale < 1.1) {
+                    currentScale = 1;
+                    lightboxImg.style.transform = 'scale(1)';
+                }
+            }, false);
+            
+            function getDistance(touch1, touch2) {
+                const dx = touch2.clientX - touch1.clientX;
+                const dy = touch2.clientY - touch1.clientY;
+                return Math.sqrt(dx * dx + dy * dy);
+            }
+            
+            function handleSwipe() {
+                const swipeThreshold = 50; // pixel minimi per rilevare swipe
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swipe a sinistra: foto successiva
+                    showLightboxImage(currentIndex + 1);
+                }
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swipe a destra: foto precedente
+                    showLightboxImage(currentIndex - 1);
+                }
+            }
+            
+            // Reset zoom quando si cambia foto
+            function showLightboxImage(index) {
+                if (!currentGallery.length) return;
+                // Wrap-around
+                if (index < 0) index = currentGallery.length - 1;
+                if (index >= currentGallery.length) index = 0;
+                currentIndex = index;
+                const img = currentGallery[currentIndex];
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt || 'Immagine prodotto';
+                
+                // Reset zoom
+                currentScale = 1;
+                lightboxImg.style.transform = 'scale(1)';
+                
+                updateIndicators();
+            }
             
             productCards.forEach(card => {
                 const closeBtn = card.querySelector('.product-close-btn');
@@ -616,21 +779,22 @@
                     
                     // Mostra il modale
                     modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    // Blocca lo scroll del sito sotto
+                    document.body.classList.add('contact-modal-open');
                 });
             });
             
             // Chiudi modale
             modalClose.addEventListener('click', function() {
                 modal.classList.remove('active');
-                document.body.style.overflow = '';
+                document.body.classList.remove('contact-modal-open');
             });
             
             // Chiudi modale cliccando fuori
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     modal.classList.remove('active');
-                    document.body.style.overflow = '';
+                    document.body.classList.remove('contact-modal-open');
                 }
             });
             
@@ -672,7 +836,7 @@
                         
                         // Chiudi modale e resetta form
                         modal.classList.remove('active');
-                        document.body.style.overflow = '';
+                        document.body.classList.remove('contact-modal-open');
                         contactForm.reset();
                     } else {
                         alert('❌ Errore: ' + result.message);
