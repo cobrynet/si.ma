@@ -1,0 +1,208 @@
+/* Palette Colori SI-MA SRL */
+:root {
+    --sima-primary: #18202d;          /* Blu antracite scuro - brand/CTA */
+    --sima-secondary: #9ea7b9;        /* Blu grigio chiaro - hover/link secondari */
+    --sima-accent: #a4adbc;           /* Grigio freddo neutro - bordi/linee */
+    --sima-bg-main: #ffffff;          /* Bianco puro - background principale */
+    --sima-bg-alt: #f6f9fd;           /* Azzurro chiarissimo - sezioni alternate */
+    --sima-text-main: #101722;        /* Blu notte profondo - titoli/testi scuri */
+    --sima-text-secondary: #7c808f;   /* Grigio grafite - testi lunghi */
+    --sima-borders: #a4adbc;          /* Grigio tecnico chiaro - bordi/ombre */
+    --sima-footer: #101722;           /* Blu notte - footer/background scuro */
+    --sima-hover: #003b73;            /* Blu industriale - hover/microaccenti */
+}
+
+.main-container-sezione4 .footer {
+    position: absolute;
+    top: 3250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 450px;
+    margin: 0;
+    padding: 0;
+    background: var(--sima-footer);
+    z-index: 10;
+}
+/* Footer tortora in fondo */
+/* Stili specifici per Sezione 4 */
+
+.main-container-sezione4 {
+    width: 1728px;
+    height: 3700px;
+    position: relative;
+    background: var(--sima-bg-main);
+    margin: 0;
+    padding: 0;
+}
+
+.pagina-4 {
+    position: relative;
+    width: 1728px;
+    height: 3700px;
+    background: var(--sima-bg-main);
+}
+
+.h1-pagina-2 {
+    position: absolute;
+    width: 684px;
+    height: 120px;
+    left: 267px;
+    top: 302px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 60px;
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+.didascalia-pagina-1 {
+    position: absolute;
+    width: 683px;
+    height: 189px;
+    left: 268px;
+    top: 467px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    color: var(--sima-text-secondary);
+    margin: 0;
+}
+
+.rettangolo-header-1 {
+    position: absolute;
+    width: 378px;
+    height: 330px;
+    left: 267px;
+    top: 720px;
+    background: var(--sima-bg-alt);
+    border-radius: 25px;
+}
+
+.rettangolo-header-2 {
+    position: absolute;
+    width: 786px;
+    height: 330px;
+    left: 675px;
+    top: 720px;
+    background: var(--sima-bg-alt);
+    border-radius: 25px;
+}
+
+.h2-sezione-1 {
+    position: absolute;
+    width: 1194px;
+    height: 50px;
+    left: calc(50% - 1194px/2 + 1px);
+    top: 1215px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+.testo-pagina-1 {
+    position: absolute;
+    width: 1194px;
+    height: 319px;
+    left: 268px;
+    top: 1291px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--sima-text-secondary);
+    margin: 0;
+}
+
+.rettangolo-sezione-4 {
+    position: absolute;
+    width: 1193px;
+    height: 650px;
+    left: 269px;
+    top: 1696px;
+    background: var(--sima-bg-alt);
+    border-radius: 25px;
+}
+
+.h2-sezione-2 {
+    position: absolute;
+    width: 276px;
+    height: 50px;
+    left: 341px;
+    top: 1859px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+.testo-sezione-2 {
+    position: absolute;
+    width: 683px;
+    height: 319px;
+    left: 342px;
+    top: 1935px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    color: var(--sima-text-secondary);
+    margin: 0;
+}
+
+.h2-sezione-3 {
+    position: absolute;
+    width: 276px;
+    height: 50px;
+    left: 267px;
+    top: 2653px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+.rettangolo-sezione-5 {
+    position: absolute;
+    width: 480px;
+    height: 550px;
+    left: 981px;
+    top: 2653px;
+    background: var(--sima-bg-alt);
+    border-radius: 25px;
+}
+
+.testo-sezione-3 {
+    position: absolute;
+    width: 683px;
+    height: 474px;
+    left: 268px;
+    top: 2729px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    color: var(--sima-text-secondary);
+    margin: 0;
+}
+
+/* Footer per sezione 4 */

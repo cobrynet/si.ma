@@ -1,0 +1,382 @@
+/* Palette Colori SI-MA SRL */
+:root {
+    --sima-primary: #18202d;          /* Blu antracite scuro - brand/CTA */
+    --sima-secondary: #9ea7b9;        /* Blu grigio chiaro - hover/link secondari */
+    --sima-accent: #a4adbc;           /* Grigio freddo neutro - bordi/linee */
+    --sima-bg-main: #ffffff;          /* Bianco puro - background principale */
+    --sima-bg-alt: #f6f9fd;           /* Azzurro chiarissimo - sezioni alternate */
+    --sima-text-main: #101722;        /* Blu notte profondo - titoli/testi scuri */
+    --sima-text-secondary: #7c808f;   /* Grigio grafite - testi lunghi */
+    --sima-borders: #a4adbc;          /* Grigio tecnico chiaro - bordi/ombre */
+    --sima-footer: #101722;           /* Blu notte - footer/background scuro */
+    --sima-hover: #003b73;            /* Blu industriale - hover/microaccenti */
+}
+
+/* Stili specifici per Contatti */
+
+.main-container-contatti {
+    width: 100%;
+    min-height: 1600px;
+    position: relative;
+    background: #e6ebf1;
+    padding-top: 100px;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+/* Fix per menu allineato correttamente */
+.main-container-contatti .menu {
+    position: absolute;
+    right: calc((100vw - 1410px) / 2);
+}
+
+.pagina-contatti {
+    position: relative;
+    max-width: 1728px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 3vw, 60px);
+    height: auto;
+    min-height: 100vh;
+    background: transparent;
+    margin: 0 auto; /* centra il contenuto */
+}
+
+/* h1-contatti */
+.h1-contatti {
+    position: absolute;
+    width: 700px;
+    height: 60px;
+    left: 159px;
+    top: 150px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 90px;
+    line-height: 105px;
+    text-align: left;
+    color: var(--sima-primary);
+    margin: 0;
+}
+
+/* Container principale per form e info */
+.contatti-container {
+    position: absolute;
+    top: 280px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1400px;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Sezione form a sinistra */
+.form-section {
+    flex: 1;
+    max-width: 700px;
+}
+
+/* Form di contatto */
+.contact-form {
+    width: 100%;
+    background: transparent;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Outfit';
+    font-weight: 400;
+    font-size: 14px;
+    color: #7c808f;
+    margin-bottom: 8px;
+}
+
+/* Bottoni dipartimento */
+.department-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dept-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 16px;
+    background: #e6ebf1;
+    color: #1e2a3a;
+    border: 2px solid var(--sima-primary);
+    border-radius: 8px;
+    font-family: 'Outfit';
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dept-btn:hover {
+    background: #d4dce6;
+    border-color: var(--sima-primary);
+}
+
+.dept-btn.active {
+    background: var(--sima-primary);
+    color: #ffffff;
+    border-color: var(--sima-primary);
+}
+
+/* Input fields */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    border: 1px solid var(--sima-primary);
+    border-radius: 8px;
+    font-family: 'Outfit';
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--sima-text-main);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ea7b9;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--sima-primary);
+    background: transparent;
+}
+
+/* Form row per email e telefono */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group.half {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Textarea */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Submit button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--sima-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #0d1419;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 32, 45, 0.3);
+}
+
+/* Sezione info a destra */
+.info-section {
+    flex: 1;
+    max-width: 600px;
+    margin-top: 19px; /* Allineato con i bottoni dipartimento */
+}
+
+/* Info contatti laterali */
+.contact-info-side {
+    background: transparent;
+    padding: 0 0 30px 0;
+    margin-bottom: 30px;
+}
+
+.contact-info-side h3 {
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--sima-text-main);
+    margin: 0 0 20px 0;
+}
+
+.contact-info-side .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-family: 'Outfit';
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--sima-text-main);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.contact-info-side .info-item i {
+    font-size: 20px;
+    color: #82ADE1;
+    margin-top: 2px;
+    min-width: 20px;
+}
+
+/* Container mappa */
+.map-container {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: -60px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Footer per contatti: usa lo stile globale del sito (nessun override) */
+
+/* ===== MEDIA QUERIES RESPONSIVE CONTATTI ===== */
+
+/* Desktop (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .pagina-contatti {
+        padding: 0 clamp(30px, 3vw, 60px);
+    }
+}
+
+/* Tablet (769px - 1024px) */
+@media (max-width: 1024px) {
+    .pagina-contatti {
+        padding: 0 clamp(20px, 3vw, 40px);
+    }
+    
+    .contatti-form {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .mappa-container {
+        height: 400px;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .main-container-contatti {
+        padding-top: 80px;
+        min-height: auto;
+    }
+    
+    .pagina-contatti {
+        padding: 0 15px;
+    }
+    
+    .contatti-header {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
+    .contatti-form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .form-input,
+    .form-textarea {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .form-button {
+        padding: 14px 30px;
+        font-size: 15px;
+    }
+    
+    .mappa-container {
+        height: 300px;
+        margin-top: 30px;
+    }
+    
+    .dipartimenti-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .dipartimento-btn {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+    
+    .main-container-contatti .footer {
+        position: relative;
+        top: auto;
+        margin-top: 50px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .pagina-contatti {
+        padding: 0 10px;
+    }
+    
+    .contatti-header {
+        font-size: 28px;
+    }
+    
+    .contatti-form {
+        padding: 15px;
+    }
+    
+    .form-input,
+    .form-textarea {
+        font-size: 13px;
+        padding: 10px;
+    }
+    
+    .mappa-container {
+        height: 250px;
+    }
+    
+    .dipartimento-btn {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+}
+
+/* Safari Desktop Responsive Fix */
+@supports (-webkit-touch-callout: none) or (-webkit-backdrop-filter: blur(1px)) {
+    @media (min-width: 1025px) and (max-width: 1727px) {
+        body {
+            overflow-x: clip !important;
+            width: 100vw !important;
+        }
+        
+        .main-container-contatti {
+            zoom: calc(100vw / 1728) !important;
+        }
+    }
+}

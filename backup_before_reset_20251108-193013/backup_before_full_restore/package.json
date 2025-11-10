@@ -1,0 +1,15 @@
+{
+  "name": "sima-srl-website",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sito web Si.ma SRL con funzionalità email via Resend",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "resend": "^3.0.0"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .test-image {
+            width: 500px;
+            height: 300px;
+            background: url('contenuti/foto/lavatrici-renzucci.JPG') center/cover no-repeat;
+            margin: 20px;
+            transition: filter 1s ease;
+        }
+        
+        .test-image:hover {
+            filter: grayscale(100%) brightness(0.5);
+        }
+        
+        .test-direct {
+            filter: grayscale(100%) brightness(0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Filtro Immagine</h1>
+    <div class="test-image"></div>
+    <p>Passa il mouse sopra l'immagine per testare l'effetto</p>
+    
+    <div class="test-image test-direct"></div>
+    <p>Questa immagine ha il filtro sempre applicato</p>
+    
+    <button onclick="toggleFilter()">Toggle Filtro</button>
+    
+    <script>
+        function toggleFilter() {
+            const img = document.querySelector('.test-image');
+            if (img.style.filter) {
+                img.style.filter = '';
+            } else {
+                img.style.filter = 'grayscale(100%) brightness(0.5)';
+            }
+        }
+    </script>
+</body>
+</html>

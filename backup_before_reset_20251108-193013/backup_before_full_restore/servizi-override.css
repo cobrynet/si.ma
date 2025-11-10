@@ -1,0 +1,76 @@
+/* Override solo per la pagina servizi */
+.h2-sezione-4 {
+    top: 1800px !important; /* abbassato di ulteriori 100px */
+}
+.testo-sezione-4 {
+    /* Posizionato sotto al titolo, altezza fluida e testo leggibile */
+    left: 117px !important; /* allineato con testo sezione 1 */
+    top: 1985px !important; /* 185px sotto il titolo a 1800px */
+    width: 683px !important; /* stessa larghezza sezione 1 */
+    height: auto !important;
+    font-family: 'Outfit' !important;
+    font-weight: 300 !important; /* stesso peso sezione 1 */
+    font-size: 32px !important; /* stessa dimensione sezione 1 */
+    line-height: 40px !important; /* stesso line-height sezione 1 */
+    color: var(--sima-text-main) !important;
+    text-align: left !important;
+    z-index: 2;
+}
+.icone-container {
+    top: 2691px !important; /* abbassato di ulteriori 200px */
+}
+.sezione-5 {
+    padding-top: 600px !important;
+}
+.testo-blu {
+    color: var(--sima-text-main) !important;
+    font-family: 'Outfit' !important;
+    font-weight: 300 !important; /* peso normale come il resto del testo */
+    font-size: 32px !important; /* stesso size esplicito */
+    line-height: 40px !important; /* stesso line-height esplicito */
+    margin-top: -20px !important;
+}
+
+/* Posizionamento icona assistenza (solo pagina Servizi) */
+.icona-assistenza-animata {
+    right: 340px !important; /* ulteriori 100px a sinistra */
+    top: 1100px !important;  /* abbassata di 200px */
+    width: 500px !important; /* dimensione forzata per questa pagina */
+    pointer-events: none;     /* evita interazioni involontarie */
+}
+
+/* Video progettazione lavanderia a destra del testo sezione 4 */
+.video-sezione-4-container {
+    position: absolute;
+    width: 600px; /* ridotto da 700px */
+    height: 565px; /* ridotto da 660px */
+    right: 85px; /* ricentrato */
+    top: 2015px !important; /* aggiustato */
+    background: transparent;
+    border-radius: 25px;
+    overflow: hidden;
+    z-index: 2;
+    transition: transform 0.3s ease-out;
+}
+
+.video-sezione-4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    transform: scale(1); /* rimosso lo zoom, video a dimensione naturale */
+}
+
+/* Zoom sul video lavatrice hero nella pagina servizi */
+body .hero-video-container {
+    width: 800px !important;
+    height: 800px !important;
+    right: 20px !important;
+    top: 20px !important;
+}
+
+body .hero-video {
+    object-fit: cover !important;
+}
+
+

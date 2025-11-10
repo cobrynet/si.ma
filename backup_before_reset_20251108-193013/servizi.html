@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SI-MA SRL - Servizi</title>
+    <link rel="icon" type="image/png" href="contenuti/loghi/SIMA-LOGO-FAVICOIN.png">
+    
+    <!-- Preconnect per font esterni -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload CSS critici -->
+    <link rel="preload" href="styles.css?v=20251103163230" as="style">
+    <link rel="preload" href="servizi.css?v=1730203000" as="style">
+    <link rel="stylesheet" href="styles.css?v=20251103163230">
+    <link rel="stylesheet" href="servizi.css?v=1730203000">
+    <link rel="stylesheet" href="servizi-override.css?v=1762595616">
+    <!-- Carica mobile.css solo in viewport mobile -->
+    <link rel="stylesheet" href="mobile.css?v=1762608900" media="(max-width: 820px)">
+            <style>
+                /* Override mobile solo per pagina Servizi: H1 più grande possibile ma sempre su una riga */
+                @media screen and (max-width: 820px) {
+                    .h1-hero,
+                    .h1-hero .hero-line-1,
+                    .h1-hero .hero-line-2 {
+                        font-size: clamp(24px, 6vw, 36px) !important;
+                        line-height: 1.16 !important;
+                    }
+                    /* Prima riga: evita a capo e compattala leggermente per guadagnare spazio */
+                    .h1-hero .hero-line-1 {
+                                white-space: nowrap !important;
+                                letter-spacing: -0.01em !important;
+                                position: relative !important;
+                                left: -4px !important; /* sposta 4px a sinistra anche su mobile */
+                    }
+                }
+            </style>
+    
+    <!-- Cookie Consent (LegalBlink) solo per viewport desktop -->
+    <script>
+        (function () {
+            var legalBlinkId = "67d443ca2508c800228b34da";
+            var minWidthQuery = window.matchMedia('(min-width: 821px)');
+
+            function loadLegalBlink() {
+                if (window.__legalBlinkLoaded) {
+                    return;
+                }
+                window.__legalBlinkLoaded = true;
+
+                var script = document.createElement('script');
+                script.src = 'https://app.legalblink.it/api/scripts/lb_cs.js';
+                script.async = true;
+                script.onload = function () {
+                    if (typeof lb_cs === 'function') {
+                        lb_cs(legalBlinkId);
+                    }
+                };
+                document.head.appendChild(script);
+            }
+
+            if (minWidthQuery.matches) {
+                loadLegalBlink();
+            } else if (minWidthQuery.addEventListener) {
+                minWidthQuery.addEventListener('change', function (event) {
+                    if (event.matches) {
+                        loadLegalBlink();
+                    }
+                });
+            } else if (minWidthQuery.addListener) {
+                minWidthQuery.addListener(function (event) {
+                    if (event.matches) {
+                        loadLegalBlink();
+                    }
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Font con display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome con async loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="sfondo-header"></div>
+            <div class="logo"></div>
+            <nav class="menu">
+             <a href="index.html" class="testo-menu1">Home</a>
+             <a href="servizi.html" class="testo-menu3">Servizi</a>
+             <a href="nuovo-usato.html" class="testo-menu4">Nuovo usato</a>
+             <a href="contatti.html" class="testo-menu6">Contatti</a>
+            </nav>
+        </header>
+
+    <!-- Main Content -->
+    <main class="home">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="foto-header"></div>
+            <h1 class="h1-hero">
+                <span class="hero-line-1">MANUTENZIONE,ASSISTENZA</span>
+                <span class="hero-line-2"><span class="industriali-highlight">PROGETTAZIONE</span></span>
+            </h1>
+        </section>
+        
+        <!-- Tagline emergenza -->
+        <p class="hero-tagline">Risposta e presa in carico delle richieste <span class="tagline-bold">entro 24h</span></p>
+
+    <!-- Pulsante mobile come nella HOME -->
+    <a href="contatti.html" class="hero-cta-mobile">Richiedi assistenza</a>
+
+    <!-- Titolo aggiunto sotto il pulsante (versione hero per Servizi) -->
+    <h2 class="h2-hero-servizi">Affidabilità significa macchinari sempre operativi.</h2>
+        
+        <!-- CTA Buttons - fuori dalla hero section per evitare che seguano il testo -->
+        <a href="contatti.html" class="hero-cta">
+            <div class="hero-cta-button">
+                <span class="hero-cta-text">Richiedi assistenza</span>
+            </div>
+        </a>
+        <a href="nuovo-usato.html" class="hero-cta-text-only">Scopri le lavatrici disponibili</a>
+
+        <!-- Sezione 1 -->
+        <section class="sezione-1">
+            <h2 class="h2-sezione-1">Affidabilità significa macchinari sempre operativi.</h2>
+            <div class="rettangolo-sezione-1">
+            </div>
+            <p class="testo-sezione-1">Da oltre 20 anni ci occupiamo di manutenzione e assistenza tecnica specializzata su lavatrici e impianti industriali di qualsiasi marca e modello, garantendo continuit&agrave; e zero imprevisti. Interventi rapidi su guasti e anomalie, manutenzione programmata per prevenire fermi macchina, riparazioni su componenti meccanici, elettrici ed elettronici, assistenza a domicilio in Toscana e regioni limitrofe e servizi su scala internazionale disponibili su richiesta.</p>
+            <!-- Icona assistenza animata (sostituisce il furgone) -->
+            <img src="contenuti/Icone/assistenza png/ICONA-ASSISTENZA-1.png" alt="Icona assistenza" class="icona-assistenza-animata" id="iconaAssistenza" loading="lazy" decoding="async">
+        </section>
+        <!-- Sezione 4 -->
+        <section class="sezione-4">
+            <h2 class="h2-sezione-4">Progettazione e avviamento lavanderie industriali</h2>
+            <!-- Sottotesto dinamico sotto il titolo della sezione 4 -->
+            <p class="testo-sezione-4">
+                <strong>Dall'idea alla realtà: la tua lavanderia chiavi in mano.</strong><br><br>
+                <span class="testo-desktop">
+                    <span style="color: #82ADE1;">Noi di SI.MA ti affianchiamo in ogni fase del progetto: dalla pianificazione iniziale alla scelta dei macchinari, 
+                    fino all'installazione e all'avviamento operativo.</span><br><br>
+                    Analisi degli spazi e progettazione del layout operativo<br>
+                    Consulenza tecnica sulla scelta delle attrezzature<br>
+                    Coordinamento dei lavori e supervisione dell'installazione<br>
+                    Formazione del personale e avviamento dei cicli produttivi
+                </span>
+                <span class="testo-mobile-unico" style="display:none;">
+                    <span style="color:#82ADE1;">Noi di SI.MA ti affianchiamo in ogni fase del progetto: dalla pianificazione iniziale alla scelta dei macchinari, fino all'installazione e all'avviamento operativo.</span> Analisi degli spazi e progettazione del layout operativo. Consulenza tecnica sulla scelta delle attrezzature. Coordinamento dei lavori e supervisione dell'installazione. Formazione del personale e avviamento dei cicli produttivi.
+                </span>
+            </p>
+            
+            <!-- Video progettazione lavanderia -->
+            <div class="video-sezione-4-container">
+                <video class="video-sezione-4" autoplay muted loop playsinline preload="auto">
+                    <source src="contenuti/video/video-pregettazione-lavanderia.mp4" type="video/mp4">
+                    Il tuo browser non supporta il tag video.
+                </video>
+            </div>
+        </section>
+
+        <!-- Footer Content (separato dal footer grigio) -->
+
+
+        <!-- Footer (solo sfondo grigio) -->
+        <!-- Footer (due colonne: sinistra logo+contatti+cookie, destra orari+social+recensioni) -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <!-- Logo Footer -->
+                    <a href="index.html#top" class="logo-footer-link">
+                        <div class="logo-footer-rect">
+                            <video autoplay loop muted playsinline class="logo-footer-video">
+                                <source src="contenuti/video/logo-animato-trasparente.webm" type="video/webm">
+                                <source src="contenuti/video/animazione-logo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </a>
+
+                    <!-- Nuova sezione mobile con due colonne -->
+                    <div class="footer-mobile-content">
+                        <div class="footer-mobile-col-1">
+                            <h3 class="footer-mobile-title">Contatti</h3>
+                            <p class="footer-mobile-text">Via Stefano Ussi 22<br>Scandicci (FI) 50018</p>
+                            <p class="footer-mobile-text">Tel. 055 7327456</p>
+                            <p class="footer-mobile-text">info@assistenzalavanderie.it</p>
+                            <p class="footer-mobile-text">P.IVA 01867350975</p>
+                            <a href="privacy-policy" class="footer-mobile-link">Privacy Policy</a>
+                            <a href="cookie-policy" class="footer-mobile-link footer-mobile-link-middle">Cookie Policy</a>
+                            <a href="#" class="footer-mobile-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                            <p class="footer-mobile-design">Design by Cobrynet</p>
+                        </div>
+                        <div class="footer-mobile-col-2">
+                            <h3 class="footer-mobile-title">Orari</h3>
+                            <p class="footer-mobile-text">Lun-Ven</p>
+                            <p class="footer-mobile-text">9:00 - 18:00</p>
+                            <p class="footer-mobile-text">Emergenze</p>
+                            <p class="footer-mobile-text">H24/7</p>
+                        </div>
+                    </div>
+
+                    <!-- Dati Aziendali -->
+                    <div class="footer-info">
+                        <h3 class="footer-column-title">Contatti</h3>
+                        <p class="footer-info-line">
+                            <span class="address-line">Via Stefano Ussi 22 - Scandicci (FI) 50018</span><br>
+                            Tel. 055 7327456<br>
+                            <a href="mailto:info@assistenzalavanderie.it" class="footer-website">info@assistenzalavanderie.it</a><br>
+                            <a href="https://www.assistenzalavanderie.it" target="_blank" class="footer-website">www.assistenzalavanderie.it</a><br>
+                            P.IVA 01867350975
+                        </p>
+                        
+                        <!-- Links Privacy e Cookie sotto P.IVA (solo mobile) -->
+                        <div class="footer-links-inline">
+                            <a href="privacy-policy" class="footer-link">Privacy Policy</a>
+                            <a href="cookie-policy" class="footer-link">Cookie Policy</a>
+                            <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                            <p class="design-credit">Design by Cobrynet</p>
+                        </div>
+                    </div>
+
+                    <!-- Links Privacy e Cookie (desktop) -->
+                    <div class="footer-links">
+                        <a href="privacy-policy" class="footer-link">Privacy Policy</a>
+                        <a href="cookie-policy" class="footer-link">Cookie Policy</a>
+                        <a href="#" class="footer-link lb-cs-settings-link">Aggiorna preferenze cookie</a>
+                        <p class="design-credit">Design by Cobrynet</p>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <!-- Orari -->
+                    <div class="footer-hours">
+                        <h3 class="footer-column-title">Orari</h3>
+                        <p class="footer-info-line"><strong>Lun-Ven</strong></p>
+                        <p class="footer-info-line">9:00 – 18:00</p>
+                        <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
+                        <p class="footer-info-line">H24/7</p>
+                    </div>
+
+                    <!-- Social + Recensioni -->
+                    <div class="footer-social-reviews">
+                        <div class="social-footer">
+                            <a href="#" class="social-link-footer facebook" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link-footer instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link-footer linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+
+                        <div class="google-reviews-footer-container">
+                            <a href="#" target="_blank" rel="noopener" class="google-reviews-footer">
+                                <div class="reviews-text-footer">Recensioni</div>
+                                <div class="reviews-stars-footer">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                    <img src="contenuti/Icone/star.svg" alt="Star" class="star-icon-footer" width="20" height="20" loading="lazy" decoding="async">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    </div> <!-- Fine main-container -->
+
+    <script src="script-simple.js?v=100000026"></script>
+    <script>
+        // Try to programmatically play all videos on the page.
+        // If the browser blocks autoplay, retry after setting muted=true.
+        (function(){
+            function tryPlay(video){
+                if(!video) return;
+                // first attempt
+                var p = video.play();
+                if(p !== undefined){
+                    p.catch(function(){
+                        // if blocked, ensure muted and try again
+                        try{
+                            video.muted = true;
+                            video.play().catch(function(){
+                                // final fallback: show poster (handled by browser)
+                            });
+                        }catch(e){}
+                    });
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function(){
+                var vids = document.querySelectorAll('video.video-element');
+                vids.forEach(function(v){
+                    // ensure attributes are set
+                    v.setAttribute('muted','');
+                    v.setAttribute('playsinline','');
+                    v.setAttribute('preload','auto');
+                    v.setAttribute('loop','');
+                    v.muted = true;
+                    v.loop = true;
+                    tryPlay(v);
+                });
+            });
+        })();
+    </script>
+    
+    <!-- Safari Desktop Responsive Fix -->
+    <script src="safari-fix.js"></script>
+    
+    <script src="hamburger-menu.js"></script>
+</body>
+</html>

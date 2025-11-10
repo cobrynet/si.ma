@@ -1187,6 +1187,11 @@ body.lb-cs-modal-open {
     padding: 0;
 }
 
+/* CTA "Le nostre lavatrici" - nascosto su desktop, visibile solo su mobile */
+.mobile-only-cta {
+    display: none !important;
+}
+
 /* Sezione 5 */
 .sezione-5 {
     margin-bottom: 20px;
@@ -1542,7 +1547,12 @@ body.lb-cs-modal-open {
 /* Nascondi links inline e sezione mobile nel desktop */
 .footer-links-inline,
 .footer-mobile-content {
-    display: none;
+    display: none !important;
+}
+
+.footer-mobile-col-1,
+.footer-mobile-col-2 {
+    display: none !important;
 }
 
 .footer-link {
@@ -2883,5 +2893,30 @@ body.lb-cs-modal-open {
     }
 }
 
+/* ========== NASCONDI ELEMENTI MOBILE SU DESKTOP ========== */
+/* Nascondi footer mobile a due colonne su desktop */
+.footer-mobile-content {
+    display: none !important;
+}
+
+/* Nascondi sezioni footer-info e footer-hours su desktop per pagine sezione4 e contatti */
+.footer .footer-info,
+.footer .footer-hours {
+    display: none !important;
+}
+
+@media screen and (min-width: 821px) {
+    .footer-mobile-content {
+        display: none !important;
+    }
+    
+    .footer .footer-info {
+        display: none !important;
+    }
+    
+    .footer .footer-hours {
+        display: none !important;
+    }
+}
 
 

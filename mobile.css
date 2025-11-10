@@ -28,6 +28,19 @@
     position: relative !important;
   }
   
+  /* Spostamento solo per la HOME (tramite classe home-page) */
+  body.home-page {
+    transform: translateY(-155px) !important; /* Alzato di altri 15px (era -140px, ora -155px) */
+  }
+  
+  body.servizi-page {
+    transform: translateY(-155px) !important; /* Stessa altezza della home */
+  }
+  
+  body.contatti-page {
+    transform: translateY(-155px) !important; /* Stessa altezza della home e servizi */
+  }
+  
   /* FORZA: Il body termina subito dopo il footer */
   body::after {
     content: none !important;
@@ -96,7 +109,7 @@
   }
 
   .home {
-    padding-top: 100px !important;
+    padding-top: 0 !important; /* reset padding on mobile home so hero can move up */
   }
   
   /* Nuovo/Usato: lascia spazio sotto l'header fisso per non coprire il titolo */
@@ -138,6 +151,19 @@
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
+  }
+  
+  /* Compensazione header solo per la HOME (tramite classe home-page) */
+  body.home-page .header {
+    transform: translateY(155px) !important; /* Compensazione aggiornata (era 140px, ora 155px) */
+  }
+  
+  body.servizi-page .header {
+    transform: translateY(155px) !important; /* Compensazione header per servizi */
+  }
+  
+  body.contatti-page .header {
+    transform: translateY(155px) !important; /* Compensazione header per contatti */
   }
 
   .sfondo-header {
@@ -300,7 +326,8 @@
     position: relative !important;
     width: 100% !important;
     min-height: auto !important;
-    padding: 5px 0 0 0 !important; /* niente padding sotto: evita spazio extra prima della tagline */
+    padding: 0 !important; /* RIMOSSO PADDING per permettere al titolo di salire */
+    margin-top: -50px !important; /* Alza tutta la sezione */
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -340,15 +367,14 @@
   /* Hero titoli responsive - MASSIMA PRIORITÀ */
   .h1-hero,
   h1.h1-hero,
-  .hero-section .h1-hero,
-  .home .h1-hero {
+  .hero-section .h1-hero {
     position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
-  font-size: clamp(28px, 7.2vw, 40px) !important; /* H1 più grande su mobile */
+  font-size: clamp(28px, 7vw, 38px) !important; /* H1 ottimizzato per mobile */
     line-height: 1.2 !important;
     text-align: center !important;
-    margin: 15px 0 0 0 !important;
+    margin: 305px 0 0 0 !important; /* Alzato per home e servizi */
     padding: 3px !important;
     left: auto !important;
     right: auto !important;
@@ -365,19 +391,15 @@
     background: none !important;
     border: none !important;
     box-shadow: none !important;
-    text-transform: none !important; /* mostra il testo così come scritto, senza MAIUSCOLE forzate */
+    text-transform: uppercase !important; /* tutto maiuscolo su mobile */
   }
   
   .hero-line-1, 
-  .hero-line-2, 
-  .hero-line-3,
-  .h1-hero .hero-line-1,
-  .h1-hero .hero-line-2,
-  .h1-hero .hero-line-3 {
+  .h1-hero .hero-line-1 {
     position: relative !important;
     width: 100% !important;
     display: block !important;
-  font-size: clamp(28px, 7.2vw, 40px) !important; /* Mantieni grandezza coerente con H1 */
+    font-size: clamp(28px, 7vw, 38px) !important;
     line-height: 1.2 !important;
     text-align: center !important;
     margin: 2px 0 !important;
@@ -389,30 +411,32 @@
     right: auto !important;
     top: auto !important;
     transform: none !important;
-    text-transform: none !important; /* mantieni il casing originale su mobile */
+    text-transform: uppercase !important;
   }
 
-  /* Video e immagini hero responsive */
-  .hero-video-container,
-  .foto-header {
+  .hero-line-2,
+  .hero-line-3,
+  .h1-hero .hero-line-2,
+  .h1-hero .hero-line-3 {
     position: relative !important;
     width: 100% !important;
-    max-width: clamp(300px, 85vw, 500px) !important;
-    height: auto !important;
-    margin: clamp(12px, 3vw, 20px) auto !important;
-    left: 0 !important;
-    top: 0 !important;
+    display: block !important;
+    font-size: clamp(28px, 7vw, 38px) !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    margin: 2px 0 !important;
+    padding: 0 !important;
+    color: #18202d !important; /* BLU SCURO per "lavatrici" */
+    opacity: 1 !important;
+    visibility: visible !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
     transform: none !important;
+    text-transform: uppercase !important;
   }
 
-  .hero-video {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16/9 !important;
-    object-fit: cover !important;
-  }
-
-  /* Tagline responsive - PIÙ PICCOLA E SU UNA RIGA */
+  /* Tagline responsive - CELESTE, sotto l'H1 */
   .hero-tagline,
   p.hero-tagline,
   .hero-section .hero-tagline,
@@ -420,23 +444,24 @@
     position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
-    font-size: clamp(11px, 3.2vw, 14px) !important;
-    line-height: 1.3 !important;
+    font-size: clamp(11px, 3vw, 14px) !important; /* Ridotto per permettere il wrap */
+    line-height: 1.4 !important;
     text-align: center !important;
-    margin: 2px 0 15px 0 !important;
-    padding: 0 3px !important;
-    left: -2px !important;
+    margin: 5px auto 20px auto !important; /* 5px dall'H1 */
+    padding: 0 5% !important; /* Aumentato padding laterale */
+    left: 0 !important;
     right: auto !important;
     top: auto !important;
     bottom: auto !important;
     transform: none !important;
-    color: #18202d !important;
+    color: #82ADE1 !important; /* CELESTE */
+    font-weight: 600 !important;
     opacity: 1 !important;
     visibility: visible !important;
     display: block !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important; /* Permette il wrap del testo */
+    overflow: visible !important; /* Mostra tutto il testo */
+    text-overflow: clip !important;
     background: none !important;
     border: none !important;
     box-shadow: none !important;
@@ -445,9 +470,9 @@
   .tagline-bold,
   .hero-tagline .tagline-bold {
     font-weight: 700 !important;
-    color: #82ADE1 !important;
-    white-space: nowrap !important;
-    font-size: clamp(13px, 3.2vw, 16px) !important;
+    color: #18202d !important; /* BLU SCURO per "entro 24h" */
+    white-space: normal !important;
+    font-size: inherit !important; /* Eredita la dimensione dalla tagline */
   }
 
   /* Pulsante mobile-only nuovo - sotto la tagline */
@@ -460,8 +485,8 @@
     padding: 12px 28px !important;
     font-size: clamp(13px, 3.2vw, 15px) !important;
     font-weight: 600 !important;
-    margin-top: 20px !important;
-    margin-bottom: 10px !important;
+    margin-top: 5px !important; /* Ridotto per stare più vicino alla tagline */
+    margin-bottom: 10px !important; /* Ridotto a 10px per avvicinare l'H2 sotto */
     width: fit-content !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -477,8 +502,14 @@
 
   /* Titolo sezione-1 nella hero-section (mobile only) */
   .home .hero-section .h2-sezione-1 {
-    margin-top: -200px !important;
+    margin-top: -140px !important; /* Alzato di altri 50px (era -90px, ora -140px) */
     order: 1 !important;
+  }
+  
+  /* Sezione-1 con spazio sopra per l'H2 che viene dalla hero */
+  .home .sezione-1 {
+    margin-top: -90px !important; /* Compensazione per l'H2 sopra */
+    padding-top: 120px !important; /* Spazio per l'H2 dall'hero-section */
   }
   
   /* Nascondi il titolo nella sezione-1 su mobile (viene mostrato nella hero) */
@@ -492,7 +523,7 @@
     line-height: 1.5 !important;
     width: 95% !important;
     max-width: 95% !important;
-    margin: -13px auto 20px auto !important; /* alzato di altri 5px rispetto a -8px (ora -13px) */
+    margin: -40px auto 20px auto !important; /* Abbassato di altri 10px (era -50px, ora -40px) */
     padding: 0 2.5% !important;
     text-align: center !important;
     letter-spacing: normal !important;
@@ -641,7 +672,7 @@
     left: 0 !important;
     top: auto !important;
     transform: none !important;
-    color: #18202d !important;
+    color: #82ADE1 !important; /* Celeste brand */
     opacity: 1 !important;
     visibility: visible !important;
     display: block !important;
@@ -1103,17 +1134,6 @@
   }
 
   /* ========== FORZA VISIBILITA' DEGLI ELEMENTI CHIAVE ========== */
-  .h1-hero,
-  .hero-line-1,
-  .hero-line-2,
-  .hero-line-3,
-  .hero-tagline,
-  .h2-sezione-1 {
-    opacity: 1 !important;
-    visibility: visible !important;
-    filter: none !important;
-    color: #18202d !important;
-  }
   
   /* Visibilità pulsanti CTA - stili generici senza interferire con .home */
   .hero-cta:not(.home .hero-cta),
@@ -1130,14 +1150,6 @@
   }
 
   /* ========== TITOLI BEN VISIBILI ========== */
-  .h1-hero,
-  .hero-line-1,
-  .hero-line-2,
-  .hero-line-3,
-  .hero-tagline {
-    position: relative !important;
-    z-index: 5 !important;
-  }
 
   /* Mantieni la foto sotto i testi */
   .foto-header {
@@ -1337,52 +1349,37 @@
 
   /* Garantire wrapping e visibilità dei testi */
   .h1-hero,
-  .hero-line-1,
-  .hero-line-2,
-  .hero-line-3,
-  .h2-sezione-1,
-  .h2-sezione-4,
-  .h2-sezione-5,
-  .testo-sezione-1,
-  .testo-sezione-2,
-  .testo-sezione-3,
-  .testo-sezione-4,
-  .testo-sezione-5,
-  .testo-sezione-5-right,
-  .hero-tagline {
+  h1.h1-hero,
+  .hero-section .h1-hero,
+  .home .h1-hero {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(28px, 7vw, 38px) !important; /* H1 ottimizzato per mobile */
+    line-height: 1.2 !important;
+    text-align: center !important;
+    margin: 135px 0 0 0 !important; /* Sposta h1 su di 120px (alza di altri 60px) */
+    padding: 3px !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    word-wrap: break-word !important;
+    display: block !important;
+    color: #18202d !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+    height: auto !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-transform: uppercase !important; /* tutto maiuscolo su mobile home */
     white-space: normal !important;
     overflow: visible !important;
-    height: auto !important;
+    filter: none !important;
   }
-
-  /* Titoli home (eccetto H1): celeste brand */
-  .h2-sezione-1,
-  .h2-sezione-4,
-  .h2-sezione-5 {
-    color: #82ADE1 !important; /* applica colore brand a tutti i titoli sezione su mobile */
-  }
-
-  /* Paragrafi principali delle sezioni: uniforma dimensioni su tutte le pagine */
-  .testo-sezione-1,
-  .testo-sezione-2,
-  .testo-sezione-3,
-  .testo-sezione-4,
-  .testo-sezione-5,
-  .testo-sezione-5-right,
-  .testo-nuovo-usato {
-    font-size: clamp(15px, 3.6vw, 18px) !important;
-    line-height: 1.5 !important;
-    width: 95% !important;
-    max-width: 95% !important;
-    margin: 12px auto 20px auto !important;
-    padding: 0 2.5% !important;
-    text-align: center !important;
-  }
-
-  /* H1 delle altre pagine (nuovo-usato, contatti) allineati allo stile hero */
-  .h1-nuovo-usato-left,
-  .h1-nuovo-usato-right,
-  .h1-contatti {
     position: relative !important;
     width: 100% !important;
     font-size: clamp(28px, 7.2vw, 40px) !important; /* stesso clamp dell'H1 principale */
@@ -1437,6 +1434,11 @@
   .home .h2-sezione-4 .h2s4-line1 {
     white-space: nowrap !important;
     display: inline-block !important;
+  }
+
+  /* CTA "Le nostre lavatrici" - visibile solo su mobile */
+  .mobile-only-cta {
+    display: block !important;
   }
 
   /* Titolo hero Servizi (nuovo): colore brand e più spazio sotto */
@@ -2194,6 +2196,109 @@
   .testo-sezione-5,
   .testo-sezione-5-right {
     font-size: 17px !important;
+  }
+}
+
+/* ========== PAGINA CONTATTI MOBILE ========== */
+@media screen and (max-width: 820px) {
+  /* Layout mobile: tutto in colonna singola */
+  .contatti-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+    margin-top: -50px !important; /* Avvicina al titolo di 50px */
+  }
+  
+  /* Info section prima (contatti + mappa) */
+  .info-section {
+    order: 1 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+  
+  /* Form dopo */
+  .form-section {
+    order: 2 !important;
+    width: 100% !important;
+  }
+  
+  /* Mostra i contatti diretti ma centrali */
+  .contact-info-side {
+    display: block !important;
+    text-align: center !important;
+    padding: 20px !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+  }
+  
+  .contact-info-side h3 {
+    display: none !important; /* Nascondi il titolo "Contatti diretti" */
+  }
+  
+  .contact-info-side .info-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 12px 0 !important;
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+  }
+  
+  .contact-info-side .info-item i {
+    font-size: 20px !important;
+    color: #82ADE1 !important;
+  }
+  
+  /* Mappa rettangolare più piccola */
+  .map-container {
+    width: 100% !important;
+    height: 180px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+  }
+  
+  .map-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+  }
+  
+  /* H1 Contatti: maiuscolo, centrato, molto più grande e celeste */
+  .h1-contatti {
+    position: relative !important; /* Sovrascrivi absolute */
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    font-size: clamp(40px, 10vw, 60px) !important; /* Molto più grande */
+    margin: 175px auto 20px auto !important;
+    padding: 3px !important;
+    color: #82ADE1 !important; /* Celeste brand */
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Pulsanti dipartimenti tutti affiancati */
+  .department-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 5px !important;
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .dept-btn {
+    flex: 1 !important;
+    font-size: clamp(12px, 3.5vw, 17px) !important; /* Font ancora più grande */
+    padding: 12px 6px !important; /* Padding aumentato */
+    white-space: nowrap !important;
+    min-width: 0 !important;
   }
 }
 
