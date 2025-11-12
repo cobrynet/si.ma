@@ -1,0 +1,119 @@
+/* Override solo per la pagina servizi */
+/* Ripristino titolo sezione 1 (rimuovo forzature dimensioni/margini) */
+.h2-sezione-1 {
+    margin-top: 0 !important;
+    font-size: clamp(40px, 4.63vw, 80px) !important;
+    line-height: 1.125 !important;
+    width: clamp(800px, 69%, 1200px) !important;
+    text-align: left !important;
+    white-space: normal !important;
+}
+/* Ripristino paragrafo sezione 1 (nessun offset verticale) */
+.testo-sezione-1 {
+    margin-top: 0 !important;
+}
+.h2-sezione-4 {
+    top: 1800px !important; /* abbassato di ulteriori 100px */
+}
+.testo-sezione-4 {
+    /* Posizionato sotto al titolo, altezza fluida e testo leggibile */
+    left: 117px !important; /* allineato con testo sezione 1 */
+    top: 1985px !important; /* 185px sotto il titolo a 1800px */
+    width: 683px !important; /* stessa larghezza sezione 1 */
+    height: auto !important;
+    font-family: 'Outfit' !important;
+    font-weight: 300 !important; /* stesso peso sezione 1 */
+    font-size: 32px !important; /* stessa dimensione sezione 1 */
+    line-height: 40px !important; /* stesso line-height sezione 1 */
+    color: var(--sima-text-main) !important;
+    text-align: left !important;
+    z-index: 2;
+}
+.icone-container {
+    top: 2691px !important; /* abbassato di ulteriori 200px */
+}
+.sezione-5 {
+    padding-top: 600px !important;
+}
+.testo-blu {
+    color: var(--sima-text-main) !important;
+    font-family: 'Outfit' !important;
+    font-weight: 300 !important; /* peso normale come il resto del testo */
+    font-size: 32px !important; /* stesso size esplicito */
+    line-height: 40px !important; /* stesso line-height esplicito */
+    margin-top: -20px !important;
+}
+
+/* Posizionamento icona assistenza (solo pagina Servizi) */
+.icona-assistenza-animata {
+    right: 340px !important; /* ulteriori 100px a sinistra */
+    top: 1100px !important;  /* abbassata di 200px */
+    width: 500px !important; /* dimensione forzata per questa pagina */
+    pointer-events: none;     /* evita interazioni involontarie */
+}
+
+/* Video progettazione lavanderia a destra del testo sezione 4 */
+.video-sezione-4-container {
+    position: absolute;
+    width: 600px; /* ridotto da 700px */
+    height: 565px; /* ridotto da 660px */
+    right: 85px; /* ricentrato */
+    top: 2015px !important; /* aggiustato */
+    background: transparent;
+    border-radius: 25px;
+    overflow: hidden;
+    z-index: 2;
+    transition: transform 0.3s ease-out;
+}
+
+.video-sezione-4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    transform: scale(1); /* rimosso lo zoom, video a dimensione naturale */
+}
+
+/* Zoom sul video lavatrice hero nella pagina servizi */
+body .hero-video-container {
+    width: 800px !important;
+    height: 800px !important;
+    right: 20px !important;
+    top: 20px !important;
+}
+
+body .hero-video {
+    object-fit: cover !important;
+}
+
+/* H1 servizi: forza stessa dimensione del home H1 e mantiene minuscolo */
+/* Desktop H1 Servizi: aumenta leggermente mantenendo una riga */
+/* Titolo hero Servizi (desktop) - colore brand e spazio sotto */
+.h2-hero-servizi {
+    /* NASCONDI su desktop */
+    display: none !important;
+}
+.h1-hero {
+    font-size: 92px !important; /* +2px rispetto a 90 */
+    line-height: 104px !important; /* più respiro verticale */
+    text-transform: none !important;
+}
+.h1-hero .hero-line-1,
+.h1-hero .hero-line-2 {
+    font-size: 92px !important;
+    line-height: 104px !important;
+    text-transform: none !important;
+}
+
+/* Prima riga dell'H1 leggermente più grande ma sempre su una riga */
+/* Prima riga leggermente più grande e compatta */
+.h1-hero .hero-line-1 {
+    font-size: 98px !important; /* era 96px */
+    line-height: 104px !important;
+    letter-spacing: -0.018em !important; /* meno compressione visiva ma ancora evita il wrap */
+    white-space: nowrap !important;
+    position: relative !important;
+    left: -4px !important; /* sposta 4px a sinistra */
+}
+
+

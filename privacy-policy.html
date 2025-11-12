@@ -15,46 +15,9 @@
     .btn.secondary { background:#5A7A95; }
     .frame { width:100%; min-height:80vh; border:none; border-radius:12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
   </style>
-  <!-- Cookie Consent (LegalBlink) solo per viewport desktop -->
-  <script>
-    (function () {
-      var legalBlinkId = "67d443ca2508c800228b34da";
-      var minWidthQuery = window.matchMedia('(min-width: 821px)');
-
-      function loadLegalBlink() {
-        if (window.__legalBlinkLoaded) {
-          return;
-        }
-        window.__legalBlinkLoaded = true;
-
-        var script = document.createElement('script');
-        script.src = 'https://app.legalblink.it/api/scripts/lb_cs.js';
-        script.async = true;
-        script.onload = function () {
-          if (typeof lb_cs === 'function') {
-            lb_cs(legalBlinkId);
-          }
-        };
-        document.head.appendChild(script);
-      }
-
-      if (minWidthQuery.matches) {
-        loadLegalBlink();
-      } else if (minWidthQuery.addEventListener) {
-        minWidthQuery.addEventListener('change', function (event) {
-          if (event.matches) {
-            loadLegalBlink();
-          }
-        });
-      } else if (minWidthQuery.addListener) {
-        minWidthQuery.addListener(function (event) {
-          if (event.matches) {
-            loadLegalBlink();
-          }
-        });
-      }
-    })();
-  </script>
+  <!-- Cookie Consent (LegalBlink) -->
+  <script type="text/javascript" src="https://app.legalblink.it/api/scripts/lb_cs.js"></script>
+  <script id="lb_cs" type="text/javascript">lb_cs("67d443ca2508c800228b34da");</script>
 </head>
 <body>
   <div class="wrap">
@@ -63,11 +26,20 @@
       <h1 class="title">Privacy Policy</h1>
     </div>
     <div class="actions">
-      <a href="#" class="btn lb-cs-settings-link">Aggiorna preferenze cookie</a>
+      <a href="#" class="btn lb-cs-settings-link">Aggiorna le preferenze sui cookie</a>
       <a class="btn secondary" href="https://app.legalblink.it/api/documents/67d443ca2508c800228b34d7/privacy-policy-per-siti-web-o-e-commerce-it" target="_blank" rel="noopener">Apri il documento</a>
     </div>
     <p style="margin:16px 0 8px;color:#5A7A95">Versione ospitata da LegalBlink:</p>
     <iframe class="frame" src="https://app.legalblink.it/api/documents/67d443ca2508c800228b34d7/privacy-policy-per-siti-web-o-e-commerce-it"></iframe>
   </div>
+  <!-- Cookie Consent (LegalBlink) fallback init if needed -->
+  <script>
+    if (typeof lb_cs !== 'function') {
+      var s = document.createElement('script');
+      s.src = 'https://app.legalblink.it/api/scripts/lb_cs.js';
+      s.onload = function(){ try{ lb_cs('67d443ca2508c800228b34da'); }catch(e){} };
+      document.body.appendChild(s);
+    }
+  </script>
 </body>
 </html>

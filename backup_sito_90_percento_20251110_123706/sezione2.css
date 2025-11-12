@@ -1,0 +1,1027 @@
+/* Palette Colori SI-MA SRL */
+:root {
+    --sima-primary: #18202d;          /* Blu antracite scuro - brand/CTA */
+    --sima-secondary: #9ea7b9;        /* Blu grigio chiaro - hover/link secondari */
+    --sima-accent: #a4adbc;           /* Grigio freddo neutro - bordi/linee */
+    --sima-bg-main: #ffffff;          /* Bianco puro - background principale */
+    --sima-bg-alt: #f6f9fd;           /* Azzurro chiarissimo - sezioni alternate */
+    --sima-text-main: #101722;        /* Blu notte profondo - titoli/testi scuri */
+    --sima-text-secondary: #7c808f;   /* Grigio grafite - testi lunghi */
+    --sima-borders: #a4adbc;          /* Grigio tecnico chiaro - bordi/ombre */
+    --sima-footer: #101722;           /* Blu notte - footer/background scuro */
+        --sima-hover: #003b73;            /* Blu elettrico scuro per hover */
+}
+
+/* Hero Section Sezione 2 */
+/* Hero Section Sezione 2 */
+
+/* Stili specifici per Sezione 2 - Pagina 1 */
+
+/* Hero Video Oblò - per sezione Nuovo/Usato */
+.hero-video-oblo {
+    position: absolute;
+    width: 60%;
+    max-width: 1036px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 400px;
+    z-index: 1;
+    display: block;
+}
+
+/* H1 specifico per Nuovo/Usato - split in due lati */
+.h1-nuovo-usato-left {
+    position: absolute;
+    left: 50px;
+    top: 250px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 90px;
+    line-height: 105px;
+    color: var(--sima-primary);
+    margin: 0;
+    z-index: 2;
+    text-align: left;
+}
+
+.h1-nuovo-usato-right {
+    position: absolute;
+    right: 50px;
+    top: 750px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 90px;
+    line-height: 105px;
+    text-align: right;
+    color: #82ADE1;
+    margin: 0;
+    z-index: 2;
+}
+
+/* Container principale sezione 2 */
+.main-container-sezione2 {
+    max-width: 1728px;
+    width: 100%;
+    position: relative;
+    background: transparent;
+    margin: 0 auto;
+    padding: 100px clamp(20px, 3vw, 60px) 0;
+    min-height: 2750px; /* footer a 2300px + 400px altezza + 50px spazio finale */
+}
+
+.pagina-1 {
+    position: relative;
+    max-width: 1728px;
+    width: 100%;
+    height: auto; /* lascia che il contenuto determini l'altezza */
+    min-height: 100vh;
+    background: transparent;
+}
+
+/* foto-header-pagina-1 */
+.foto-header-pagina-1 {
+    position: absolute;
+    width: 1410px;
+    height: 850px;
+    left: 159px;
+    top: 50px;
+    /* Foto rimossa: eliminata immagine furgone-sima-tramonto */
+    background: none !important;
+    display: none !important; /* Forza l'eliminazione anche in caso di cache HTML */
+    border-radius: 25px;
+}
+
+/* h1-pagina-1 - allineato a sinistra come h2-sezione-1 della Home */
+.h1-pagina-1 {
+    position: absolute;
+    width: 1728px;
+    height: auto;
+    left: 0;
+    top: 320px; /* abbassato di 20px da 300px */
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 110px;
+    line-height: 120px;
+    text-align: center;
+    color: #18202d;
+    text-shadow: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.persone-highlight {
+    color: #82ADE1;
+}
+
+/* Seconda riga del titolo (Chi Siamo) che si ingrandisce con lo scroll - come Home */
+.h1-line-2 {
+    opacity: 1;
+    display: block;
+    margin-top: 10px;
+    font-size: 110px;
+    transform-origin: left center;
+    font-weight: 600;
+}
+
+/* didascalia-pagina-1 */
+.didascalia-pagina-1 {
+    position: absolute;
+    width: 683px;
+    height: 189px;
+    left: 268px;
+    top: 632px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    color: var(--sima-text-secondary);
+    margin: 0;
+}
+
+/* didascalia-pagina-1-centro */
+.didascalia-pagina-1-centro {
+    position: absolute;
+    width: 1194px;
+    height: 300px;
+    left: 268px;
+    top: 1146px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+/* testo-sopra-rettangoli */
+/* Testo descrittivo per Nuovo/Usato */
+.testo-nuovo-usato {
+    position: absolute;
+    width: 1194px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1100px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 38px;
+    text-align: center;
+    color: #18202d;
+    margin: 0;
+}
+
+/* Griglia Prodotti */
+.products-grid {
+    position: absolute;
+    top: 1250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    z-index: 5;
+    padding-bottom: 100px; /* Spazio prima del footer */
+}
+
+/* Main content per pagina prodotti */
+body.body-sezione2 main {
+    position: relative;
+}
+
+/* Product Card Espandibile */
+.product-card {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover:not(.expanded) {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.product-card.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 1000px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    cursor: default !important;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6) !important;
+    z-index: 10000 !important;
+    margin: 0 !important;
+}
+
+.product-card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Overlay scuro quando card espansa */
+/* Overlay scuro rimosso */
+.products-grid::after {
+    display: none;
+}
+
+.products-grid.has-expanded::after {
+    display: none;
+}
+
+.product-card-content {
+    position: relative;
+    padding: 0;
+}
+
+.product-image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    background: transparent;
+}
+
+.product-card.expanded .product-image {
+    height: 300px; /* Aumenta l'altezza quando espansa */
+}
+
+.product-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* mostra tutta l'immagine in anteprima */
+    object-position: center;
+    background: #ffffff; /* letterbox bianco per mantenere il brand */
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover:not(.expanded) .product-main-img {
+    transform: none; /* evita zoom per non tagliare l'immagine */
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-name {
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--sima-primary);
+    margin: 0 0 10px 0;
+    line-height: 26px;
+}
+
+.product-description-short {
+    font-family: 'Outfit';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--sima-text-secondary);
+    margin: 0 0 12px 0;
+}
+
+.product-price {
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 26px;
+    color: #82ADE1;
+    margin: 0;
+}
+
+/* Dettagli espansi - nascosti di default */
+.product-details-expanded {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    padding: 0 20px;
+}
+
+.product-card.expanded .product-details-expanded {
+    max-height: 2000px;
+    opacity: 1;
+    padding: 30px 20px 20px 20px;
+}
+
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+    background: transparent;
+}
+
+.product-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+}
+
+.product-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.product-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.product-description-full h4 {
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--sima-primary);
+    margin: 0 0 15px 0;
+}
+
+.product-description-full p {
+    font-family: 'Outfit';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--sima-text-secondary);
+    margin: 0 0 20px 0;
+}
+
+.product-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-specs li {
+    font-family: 'Outfit';
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--sima-text-main);
+    padding: 8px 0;
+    border-bottom: 1px solid #e6ebf1;
+}
+
+.product-specs li:last-child {
+    border-bottom: none;
+}
+
+/* Pulsante chiudi */
+.product-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    color: var(--sima-primary);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-card.expanded .product-close-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.product-close-btn:hover {
+    background: #ffffff;
+    transform: rotate(90deg);
+}
+
+.testo-sopra-rettangoli {
+    position: absolute;
+    width: 1194px;
+    height: 50px;
+    left: 117px; /* allineato come h2-sezione-1 della Home */
+    top: 851px; /* alzato di 300px (da 1151px a 851px) */
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: left; /* allineato a sinistra come Home */
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+/* Sottotesto storia aziendale - sotto "Siamo Matteo e Simone" */
+.sottotesto-storia {
+    position: absolute;
+    width: 1194px;
+    left: 117px; /* allineato come h2-sezione-1 della Home */
+    top: 950px; /* sotto il testo "Siamo Matteo e Simone" */
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: left;
+    color: #82ADE1; /* celeste chiaro del brand */
+    margin: 0;
+}
+
+.sottotesto-storia strong {
+    font-weight: 500;
+}
+
+
+/* rettangolo-1 */
+.rettangolo-1 {
+    position: absolute;
+    width: 378px;
+    height: 440px;
+    left: 267px;
+    top: 1800px; /* abbassato ulteriormente di 200px */
+    background: var(--sima-bg-alt);
+    border-radius: 25px;
+}
+
+/* rettangolo-2 */
+.rettangolo-2 {
+    position: absolute;
+    width: 378px;
+    height: 440px;
+    left: 675px;
+    top: 1800px; /* abbassato ulteriormente di 200px */
+    background: var(--sima-bg-alt);
+    border-radius: 25px;
+}
+
+/* rettangolo-3 */
+.rettangolo-3 {
+    position: absolute;
+    width: 378px;
+    height: 440px;
+    left: 1083px;
+    top: 1800px; /* abbassato ulteriormente di 200px */
+    background: var(--sima-bg-alt);
+    border-radius: 25px;
+}
+
+/* h2-sezione-2-pagina1 */
+.h2-sezione-2-pagina1 {
+    position: absolute;
+    width: 1194px;
+    height: 50px;
+    left: calc(50% - 1194px/2 + 1px);
+    top: 2177px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+/* testo-sotto-sezione2 */
+.testo-sotto-sezione2 {
+    position: absolute;
+    width: 1194px;
+    height: 100px;
+    left: calc(50% - 1194px/2 + 1px);
+    top: 2247px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 35px;
+    text-align: center;
+    color: var(--sima-text-secondary);
+    margin: 0;
+}
+
+/* testo-pagina-1 */
+.testo-pagina-1 {
+    position: absolute;
+    width: 1194px;
+    height: 319px;
+    left: 268px;
+    top: 2453px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--sima-text-secondary);
+    margin: 0;
+}
+
+/* rettangolo-testo */
+.rettangolo-testo {
+    position: absolute;
+    width: 100vw;
+    height: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2641px;
+    background: var(--sima-bg-alt);
+}
+
+/* h2-1-pagina1 */
+.h2-1-pagina1 {
+    position: absolute;
+    width: 276px;
+    height: 50px;
+    left: 268px;
+    top: 2688px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+    color: var(--sima-text-main);
+    margin: 0;
+}
+
+/* testo-h2-1 */
+.testo-h2-1 {
+    position: absolute;
+    width: 683px;
+    height: 500px;
+    left: 269px;
+    top: 2764px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    color: var(--sima-text-secondary);
+    margin: 0;
+}
+
+/* Footer per sezione 2 */
+body.body-sezione2 .footer {
+    position: absolute;
+    top: 2300px; /* posizionato fisso sotto le card */
+    margin-top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 400px;
+    padding: 0 0 50px 0;
+    background: #e6ebf1;
+    z-index: 5;
+}
+
+body.body-sezione2 .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1800px;
+    height: 1px;
+    background: var(--sima-text-main);
+}
+
+/* Sezione Contatto Prodotto */
+.product-contact-section {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.product-contact-text {
+    font-family: 'Outfit';
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--sima-primary);
+    margin: 0 0 15px 0;
+}
+
+.product-contact-btn {
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    background: var(--sima-primary);
+    border: none;
+    border-radius: 30px;
+    padding: 12px 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product-contact-btn:hover {
+    background: var(--sima-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 32, 45, 0.3);
+}
+
+/* Modale Contatto */
+.contact-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 20000;
+    /* display set on .contact-modal.active */
+    align-items: flex-start;
+    justify-content: center;
+    padding: 6vh 12px 4vh 12px;
+}
+
+.contact-modal.active {
+    display: flex;
+}
+
+.contact-modal-content {
+    position: relative;
+    background: #0F2438; /* blu scuro */
+    border-radius: 24px;
+    padding: 40px 34px 42px 34px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 82vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    color: #ffffff; /* testo di base bianco */
+    backdrop-filter: saturate(120%) contrast(105%);
+}
+
+.contact-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: #82ADE1; /* celeste brand */
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: auto !important; /* sempre cliccabile */
+    z-index: 20001; /* sopra tutto nella modale */
+}
+
+.contact-modal-close:hover {
+    opacity: 0.7;
+    transform: scale(1.08);
+}
+
+.contact-modal-title {
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 30px;
+    background: linear-gradient(90deg, #82ADE1, #c9e6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* gradient text */
+    margin: 0 0 32px 0;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.contact-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: 'Outfit';
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #E0ECF5;
+}
+
+.form-group input,
+.form-group textarea {
+    font-family: 'Outfit';
+    font-size: 15px;
+    padding: 14px 18px;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    color: #ffffff;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #82ADE1;
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 3px rgba(130,173,225,0.25);
+}
+
+.form-group input[readonly] {
+    background: rgba(255,255,255,0.10);
+    color: #d0dbe5;
+    cursor: default;
+    border-style: dashed;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-modal-submit {
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 16px;
+    color: #0F2438;
+    background: linear-gradient(135deg, #82ADE1 0%, #b8dcf7 100%);
+    border: none;
+    border-radius: 34px;
+    padding: 15px 42px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    margin-top: 6px;
+    letter-spacing: 0.4px;
+}
+
+.contact-modal-submit:hover {
+        filter: brightness(1.05);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(130,173,225,0.35);
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+    .contact-modal {
+        padding: 2.5vh 10px 3.5vh 10px; /* alza il form riducendo il top */
+    }
+    .contact-modal-content {
+        padding: 30px 24px 34px 24px;
+        border-radius: 20px;
+        max-height: 78vh; /* leggermente meno alta per stare più su */
+    }
+    .contact-modal-title {
+        font-size: 26px;
+        margin-bottom: 26px;
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    .contact-modal-close {
+        top: 14px;
+        right: 14px;
+        font-size: 28px;
+    }
+    .contact-modal-submit {
+        padding: 13px 34px;
+        font-size: 15px;
+    }
+}
+
+@media (max-height: 560px) {
+    .contact-modal {
+        padding: 1.5vh 8px 1.5vh 8px; /* ancora più su sugli schermi bassi */
+    }
+    .contact-modal-content {
+        max-height: 74vh;
+        padding: 26px 20px 28px 20px;
+    }
+    .contact-modal-title { font-size: 24px; }
+    .form-group textarea { min-height: 90px; }
+}
+
+/* Placeholder styling per campi scuri */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.55);
+}
+
+/* Scrollbar sottile dentro modale (webkit) */
+.contact-modal-content::-webkit-scrollbar { width: 8px; }
+.contact-modal-content::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+.contact-modal-content::-webkit-scrollbar-thumb { background: rgba(130,173,225,0.55); border-radius: 4px; }
+.contact-modal-content::-webkit-scrollbar-thumb:hover { background: rgba(130,173,225,0.75); }
+
+/* Lightbox galleria immagini prodotti */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 30000; /* sopra card espansa (10000) e modale contatti (20000) */
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    background: #0b0b0b;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: var(--sima-primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: #ffffff;
+    transform: scale(1.06);
+}
+
+.lightbox-close:hover {
+    transform: scale(1.06);
+}
+
+.lightbox-prev:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+.lightbox-next:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+.lightbox-close { top: 28px; right: 28px; }
+.lightbox-prev { left: 24px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 24px; top: 50%; transform: translateY(-50%); }
+
+/* ===== MEDIA QUERIES RESPONSIVE NUOVO/USATO ===== */
+
+/* Desktop (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .main-container-sezione2 {
+        padding: 100px clamp(30px, 3vw, 60px) 0;
+    }
+}
+
+/* Tablet (769px - 1024px) - 2 colonne */
+@media (max-width: 1024px) {
+    .main-container-sezione2 {
+        padding: 100px clamp(20px, 3vw, 40px) 0;
+        min-height: auto;
+    }
+    
+    .foto-header-pagina-1 {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: 30px;
+    }
+    
+    .prodotti-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .prodotto-card {
+        width: 100%;
+    }
+}
+
+/* Mobile (max-width: 768px) - 1 colonna */
+@media (max-width: 768px) {
+    .main-container-sezione2 {
+        padding: 80px 15px 0;
+        min-height: auto;
+    }
+    
+    .foto-header-pagina-1 {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .prodotti-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .prodotto-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .prodotto-immagine {
+        height: 250px;
+    }
+    
+    .prodotto-titolo {
+        font-size: 20px;
+    }
+    
+    .prodotto-descrizione {
+        font-size: 14px;
+    }
+    
+    body.body-sezione2 .footer {
+        position: relative;
+        top: auto;
+        margin-top: 50px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .main-container-sezione2 {
+        padding: 80px 10px 0;
+    }
+    
+    .prodotto-card {
+        max-width: 100%;
+    }
+    
+    .prodotto-immagine {
+        height: 200px;
+    }
+    
+    .prodotto-titolo {
+        font-size: 18px;
+    }
+    
+    .prodotto-descrizione {
+        font-size: 13px;
+    }
+}
+
+/* Safari Desktop Responsive Fix */
+@supports (-webkit-touch-callout: none) or (-webkit-backdrop-filter: blur(1px)) {
+    @media (min-width: 1025px) and (max-width: 1727px) {
+        body {
+            overflow-x: clip !important;
+            width: 100vw !important;
+        }
+        
+        .main-container-sezione2 {
+            zoom: calc(100vw / 1728) !important;
+        }
+    }
+}
