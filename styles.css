@@ -262,6 +262,33 @@ body.lb-cs-modal-open {
     display: none;
 }
 
+/* =============================
+   Desktop responsive scaling (canvas 1728px)
+   Ridimensiona il layout fisso per adattarlo a 1024–1727px
+   senza toccare il mobile (<821px) né gli schermi >1728px
+   ============================= */
+@media screen and (min-width: 1024px) and (max-width: 1727px) {
+    /* Home e Servizi: scala solo il main .home (header fisso resta pulito) */
+    body.home-page .home,
+    body.servizi-page .home {
+        width: 1728px;
+        margin-left: auto;
+        margin-right: auto;
+        transform-origin: top center;
+        transform: scale(calc(100vw / 1728));
+    }
+
+    /* Contatti: scala il contenuto principale e il footer */
+    body.contatti-page .pagina-contatti,
+    body.contatti-page .footer {
+        width: 1728px;
+        margin-left: auto;
+        margin-right: auto;
+        transform-origin: top center;
+        transform: scale(calc(100vw / 1728));
+    }
+}
+
 .h1-hero {
     position: absolute;
     width: 1728px;
@@ -2951,10 +2978,19 @@ body.lb-cs-modal-open {
             width: 100vw !important;
         }
         
-        /* SOLUZIONE: Scala usando zoom (proprietà WebKit nativa) */
-        .home {
+        /* SOLUZIONE: Scala usando zoom (proprietà WebKit nativa) e disattiva transform */
+        body.home-page .home,
+        body.servizi-page .home {
             width: 1728px !important;
             zoom: calc(100vw / 1728) !important;
+            transform: none !important;
+        }
+
+        body.contatti-page .pagina-contatti,
+        body.contatti-page .footer {
+            width: 1728px !important;
+            zoom: calc(100vw / 1728) !important;
+            transform: none !important;
         }
     }
 }
