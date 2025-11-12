@@ -1,8 +1,3 @@
-  /* Spazio extra tra il tasto Richiedi assistenza e il titolo SI.MA. Il tuo partner... solo su mobile */
-  /* Distanza robusta: seleziona il titolo nella hero-section dopo il tasto su mobile */
-  .hero-section .h2-sezione-1 {
-    padding-top: 120px !important;
-  }
 /* ============================================
    MOBILE.CSS - Ottimizzazione responsive per tutti gli schermi mobile
    ============================================ */
@@ -662,7 +657,9 @@
 
   /* Titolo sezione-1 nella hero-section (mobile only) */
   .home .hero-section .h2-sezione-1 {
-    margin-top: -220px !important; /* Alzato di 10px (era -210px, ora -220px) */
+    display: block !important; /* Forza la visualizzazione */
+    margin-top: -90px !important; /* Alzato ulteriormente di 30px */
+    margin-bottom: 20px !important;
     order: 1 !important;
   }
   
@@ -2025,6 +2022,11 @@
     padding: 0 !important;
     background: transparent !important;
     opacity: 1 !important;
+  }
+
+  /* Nascondi l'immagine fallback PNG */
+  .logo-footer-mobile-fallback {
+    display: none !important;
   }
 
   /* Fallback immagine nascosta di default */
