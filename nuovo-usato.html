@@ -86,9 +86,15 @@
             </nav>
         </header>
 
-        <!-- Hero Video - Lavatrice Oblò Animato -->
+        <!-- Hero Video - Lavatrice Oblò Animato (Desktop) -->
         <video class="hero-video-oblo" autoplay muted loop playsinline preload="metadata" webkit-playsinline>
             <source src="contenuti/video/LAVATRICE-OBLò-ANIMATO.webm" type="video/webm">
+            Il tuo browser non supporta il tag video.
+        </video>
+
+        <!-- Hero Video - Versione Mobile -->
+        <video class="hero-video-oblo-mobile" autoplay muted loop playsinline preload="metadata" webkit-playsinline>
+            <source src="contenuti/video/video per mobile/OBLò-BECKGROUND-SITO.mp4" type="video/mp4">
             Il tuo browser non supporta il tag video.
         </video>
 
@@ -365,8 +371,7 @@
                         <!-- Video logo animato per mobile -->
                         <div class="logo-footer-mobile-container">
                             <video autoplay loop muted playsinline class="logo-footer-mobile-video" poster="contenuti/loghi/SIMA-LOGO_BLU-SCURO.png">
-                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.webm" type="video/webm">
-                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.mp4" type="video/mp4">
+                                <source src="contenuti/video/beckground-video-logo.mp4" type="video/mp4">
                             </video>
                             <!-- Immagine PNG per iOS -->
                             <img src="contenuti/loghi/SIMA-LOGO_BLU-SCURO.png" alt="SI.MA Logo" class="logo-footer-mobile-fallback">
@@ -910,6 +915,23 @@
                     hamburger.classList.remove('active');
                 });
             });
+        });
+    </script>
+    
+    <!-- Assicura che il video footer sia sempre in loop -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerVideo = document.querySelector('.logo-footer-mobile-video');
+            if (footerVideo) {
+                footerVideo.loop = true;
+                footerVideo.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                });
+                footerVideo.play().catch(function(error) {
+                    console.log('Autoplay bloccato:', error);
+                });
+            }
         });
     </script>
     

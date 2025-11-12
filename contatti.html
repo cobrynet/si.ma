@@ -183,8 +183,7 @@
                         <!-- Video logo animato per mobile -->
                         <div class="logo-footer-mobile-container">
                             <video autoplay loop muted playsinline class="logo-footer-mobile-video" poster="contenuti/loghi/SIMA-LOGO_BLU-SCURO.png">
-                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.webm" type="video/webm">
-                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.mp4" type="video/mp4">
+                                <source src="contenuti/video/beckground-video-logo.mp4" type="video/mp4">
                             </video>
                             <!-- Immagine PNG per iOS -->
                             <img src="contenuti/loghi/SIMA-LOGO_BLU-SCURO.png" alt="SI.MA Logo" class="logo-footer-mobile-fallback">
@@ -363,6 +362,23 @@
     <script src="safari-fix.js"></script>
     
     <script src="hamburger-menu.js"></script>
+    
+    <!-- Assicura che il video footer sia sempre in loop -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerVideo = document.querySelector('.logo-footer-mobile-video');
+            if (footerVideo) {
+                footerVideo.loop = true;
+                footerVideo.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                });
+                footerVideo.play().catch(function(error) {
+                    console.log('Autoplay bloccato:', error);
+                });
+            }
+        });
+    </script>
     
     <!-- Cookie Consent (LegalBlink) - SOLO DESKTOP -->
     <script>

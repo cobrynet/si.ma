@@ -29,6 +29,11 @@
     display: block;
 }
 
+/* Nascondi la versione mobile del video su desktop */
+.hero-video-oblo-mobile {
+    display: none;
+}
+
 /* H1 specifico per Nuovo/Usato - split in due lati */
 .h1-nuovo-usato-left {
     position: absolute;
