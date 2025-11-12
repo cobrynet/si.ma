@@ -17,7 +17,7 @@
     <!-- Preload CSS critico -->
     <link rel="preload" href="styles.css?v=1762529904" as="style">
     <link rel="stylesheet" href="styles.css?v=1762529904">
-    <link rel="stylesheet" href="mobile.css?v=1762595819" media="(max-width: 820px)">
+    <link rel="stylesheet" href="mobile.css?v=1769000002" media="(max-width: 820px)">
     
     <!-- Cookie Consent (LegalBlink) solo per viewport desktop -->
     <script>
@@ -148,19 +148,33 @@
                     <img src="contenuti/Icone/mobile-vibrate-solid-full-bucato.svg" alt="Supporto 24/7" class="icona-hover" width="56" height="56">
                     <img src="contenuti/Icone/icone per mobile/smartphone-bucato.svg" alt="Supporto 24/7" class="icona-mobile" width="56" height="56">
                     <p class="icona-testo">Presa in carico delle richieste entro 24h</p>
-                    <!-- CTA sotto il testo: visibile solo su mobile -->
-                    <a href="nuovo-usato.html" class="hero-cta sezione4-cta mobile-only-cta">
-                        <div class="hero-cta-button">
-                            <span class="hero-cta-text">Le nostre lavatrici</span>
-                        </div>
-                    </a>
                 </div>
             </div>
+            
+            <!-- Pulsante "Scopri le lavatrici disponibili" sotto le icone - visibile solo su mobile -->
+            <a href="nuovo-usato.html" class="hero-cta-mobile cta-lavatrici-mobile">Scopri le lavatrici disponibili</a>
         </section>
 
         <!-- Sezione 5 -->
         <section class="sezione-5">
             <h2 class="h2-sezione-5">Una storia di competenza e continuit&agrave;.</h2>
+            
+            <!-- Card Slider Mobile - visibile solo su mobile -->
+            <div class="story-slider-mobile">
+                <div class="story-cards-container">
+                    <div class="story-card active">
+                        <p class="story-card-text">Siamo Matteo e Simone, cresciuti tra officine e macchinari. Da nostro padre, tecnico instancabile con oltre quarant'anni di esperienza nel settore delle lavanderie professionali, abbiamo imparato passione, seriet&agrave; e rispetto per il lavoro ben fatto. Nel 2001 abbiamo fondato SIMA srl per dare continuit&agrave; a quei valori.</p>
+                    </div>
+                    <div class="story-card">
+                        <p class="story-card-text">Oggi, con oltre vent'anni di esperienza e una presenza che va oltre i confini della Toscana, offriamo soluzioni complete per le lavanderie professionali, garantendo affidabilit&agrave;, competenza e continuit&agrave;.</p>
+                    </div>
+                </div>
+                <div class="story-dots">
+                    <span class="story-dot active" data-slide="0"></span>
+                    <span class="story-dot" data-slide="1"></span>
+                </div>
+            </div>
+            
             <div class="rettangolo-sezione-5">
                 <div class="cta-sezione-5">
                     <div class="sezione-cta-5"></div>
@@ -190,6 +204,23 @@
 
                     <!-- Footer Mobile - Struttura Indipendente -->
                     <div class="footer-mobile-only">
+                        <!-- Video logo animato per mobile -->
+                        <div class="logo-footer-mobile-container">
+                            <video autoplay loop muted playsinline class="logo-footer-mobile-video">
+                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.webm" type="video/webm">
+                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.mp4" type="video/mp4">
+                            </video>
+                            
+                        </div>
+                        
+                        <!-- Recensioni Google sopra le colonne -->
+                        <div class="footer-mobile-reviews-section">
+                            <a href="https://www.google.com/search?sca_esv=486c0866b8b04e5b&rlz=1C1VDKB_itIT1103IT1103&sxsrf=AE3TifO9zawXZCwHKkHu-hBQ5etNh0LICw:1762799865388&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiDmaWeneiQAxWQ9bsIHdHnDQYQ0bkNegQIORAE&biw=1920&bih=945&dpr=1" target="_blank" class="footer-mobile-review-text">La tua opinione<br>conta</a>
+                            <div class="footer-mobile-stars" aria-hidden="true">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                        
                         <div class="footer-mobile-grid">
                             <div class="footer-mobile-column-left">
                                 <h3 class="footer-mobile-heading">Contatti</h3>
@@ -213,11 +244,9 @@
                                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.google.com/search?sca_esv=486c0866b8b04e5b&rlz=1C1VDKB_itIT1103IT1103&sxsrf=AE3TifO9zawXZCwHKkHu-hBQ5etNh0LICw:1762799865388&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiDmaWeneiQAxWQ9bsIHdHnDQYQ0bkNegQIORAE&biw=1920&bih=945&dpr=1" target="_blank" class="footer-mobile-review-text">La tua opinione<br>conta</a>
-                                <div class="footer-mobile-stars">★★★★★</div>
                             </div>
                         </div>
-                        <p class="footer-mobile-credit">Design by Cobrynet</p>
+                        <p class="footer-mobile-credit"><a href="https://www.cobrynet.com/" target="_blank" rel="noopener noreferrer">Design by Cobrynet</a></p>
                     </div>
 
                     <!-- Dati Aziendali -->
@@ -243,7 +272,7 @@
                     <div class="footer-links">
                         <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
                         <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
-                        <p class="design-credit">Design by Cobrynet</p>
+                        <p class="design-credit"><a href="https://www.cobrynet.com/" target="_blank" rel="noopener noreferrer">Design by Cobrynet</a></p>
                     </div>
                 </div>
 
@@ -252,7 +281,7 @@
                     <div class="footer-hours">
                         <h3 class="footer-column-title">Orari</h3>
                         <p class="footer-info-line"><strong>Lun-Ven</strong></p>
-                        <p class="footer-info-line">9:00 ? 18:00</p>
+                        <p class="footer-info-line">9:00 - 18:00</p>
                         <p class="footer-info-line" style="margin-top: 16px;"><strong>Emergenze</strong></p>
                         <p class="footer-info-line">H24/7</p>
                     </div>
@@ -328,6 +357,9 @@
     
     <!-- Menu Hamburger Mobile -->
     <script src="hamburger-menu.js"></script>
+    
+    <!-- Story Slider Mobile -->
+    <script src="story-slider.js"></script>
     
     <!-- Cookie Consent (LegalBlink) - SOLO DESKTOP -->
     <script>

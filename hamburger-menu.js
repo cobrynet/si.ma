@@ -34,16 +34,29 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Pulsante hamburger già esistente');
         }
         
-        // Toggle menu al click dell'hamburger
+        // Toggle menu al click dell'hamburger + overlay blocco interazione
         hamburger.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             
             const isActive = hamburger.classList.toggle('active');
             menu.classList.toggle('active');
-            
-            // NON bloccare lo scroll del body, il menu è sopra
-            // document.body.style.overflow = isActive ? 'hidden' : '';
+
+            let overlay = document.querySelector('.menu-overlay');
+            if (isActive) {
+                if (!overlay) {
+                    overlay = document.createElement('div');
+                    overlay.className = 'menu-overlay';
+                    document.body.appendChild(overlay);
+                }
+                overlay.classList.add('visible');
+                document.body.classList.add('menu-open');
+            } else {
+                if (overlay) {
+                    overlay.classList.remove('visible');
+                }
+                document.body.classList.remove('menu-open');
+            }
             
             console.log('Menu toggled:', isActive ? 'aperto' : 'chiuso');
         });
@@ -57,7 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Click su voce menu');
                 hamburger.classList.remove('active');
                 menu.classList.remove('active');
-                // document.body.style.overflow = '';
+                document.body.classList.remove('menu-open');
+                const overlay = document.querySelector('.menu-overlay');
+                if (overlay) overlay.classList.remove('visible');
             });
         });
         
@@ -69,7 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Click fuori dal menu - chiusura');
                 hamburger.classList.remove('active');
                 menu.classList.remove('active');
-                // document.body.style.overflow = '';
+                document.body.classList.remove('menu-open');
+                const overlay = document.querySelector('.menu-overlay');
+                if (overlay) overlay.classList.remove('visible');
             }
         });
         
@@ -92,7 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (menu) {
                     menu.classList.remove('active');
                 }
-                document.body.style.overflow = '';
+                document.body.classList.remove('menu-open');
+                const overlay = document.querySelector('.menu-overlay');
+                if (overlay) overlay.remove();
             }
         }, 250);
     });

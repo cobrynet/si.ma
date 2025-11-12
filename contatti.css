@@ -393,3 +393,10 @@
         }
     }
 }
+
+/* Desktop: rendi il titolo CONTATTI in bold per uniformità con le altre pagine */
+@media screen and (min-width: 821px) {
+    .h1-contatti {
+        font-weight: 700;
+    }
+}

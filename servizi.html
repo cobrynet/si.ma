@@ -16,8 +16,8 @@
     <link rel="preload" href="servizi.css?v=1730203000" as="style">
     <link rel="stylesheet" href="styles.css?v=20251110001">
     <link rel="stylesheet" href="servizi.css?v=1730203000">
-    <link rel="stylesheet" href="servizi-override.css?v=1762595616">
-    <link rel="stylesheet" href="mobile.css?v=1762608900" media="(max-width: 820px)">
+    <link rel="stylesheet" href="servizi-override.css?v=1762595624">
+    <link rel="stylesheet" href="mobile.css?v=1769000005" media="(max-width: 820px)">
             <style>
                 /* Override mobile solo per pagina Servizi: H1 più grande possibile ma sempre su una riga */
                 @media screen and (max-width: 820px) {
@@ -33,6 +33,26 @@
                                 letter-spacing: -0.01em !important;
                                 position: relative !important;
                                 left: -4px !important; /* sposta 4px a sinistra anche su mobile */
+                    }
+                    
+                    /* Abbassa pulsante "Richiedi assistenza" mobile di 40px totali */
+                    body.servizi-page .hero-cta-mobile {
+                        margin: 58px auto 0 auto !important; /* Alzato di 10px */
+                        padding: 18px 0 !important; /* Padding verticale */
+                        display: block !important;
+                        width: 75% !important; /* Larghezza ridotta */
+                        max-width: 75% !important;
+                    }
+                    
+                    /* Modifica titolo "Affidabilità" - grassetto, più grande e abbassato */
+                    .h2-hero-servizi {
+                        font-weight: 500 !important;
+                        font-size: clamp(20px, 6vw, 28px) !important; /* Uguale a h2-sezione-4 */
+                        margin-top: 60px !important; /* Abbassato di altri 10px */
+                        padding-top: 0 !important;
+                        line-height: 1.25 !important;
+                        text-align: center !important;
+                        color: #82ADE1 !important;
                     }
                 }
             </style>
@@ -130,6 +150,23 @@
         <!-- Sezione 1 -->
         <section class="sezione-1">
             <h2 class="h2-sezione-1">Affidabilità significa macchinari sempre operativi.</h2>
+            
+            <!-- Card slider mobile per servizi -->
+            <div class="servizi-slider-mobile">
+                <div class="servizi-cards-container">
+                    <div class="servizi-card active">
+                        <p class="servizi-card-text">Da oltre 20 anni ci occupiamo di manutenzione e assistenza tecnica specializzata su lavatrici e impianti industriali di qualsiasi marca e modello, garantendo continuità e zero imprevisti.</p>
+                    </div>
+                    <div class="servizi-card">
+                        <p class="servizi-card-text">Interventi rapidi su guasti e anomalie, manutenzione programmata per prevenire fermi macchina, riparazioni su componenti meccanici, elettrici ed elettronici, assistenza a domicilio in Toscana e regioni limitrofe e servizi su scala internazionale disponibili su richiesta.</p>
+                    </div>
+                </div>
+                <div class="servizi-dots">
+                    <span class="servizi-dot active" data-slide="0"></span>
+                    <span class="servizi-dot" data-slide="1"></span>
+                </div>
+            </div>
+            
             <div class="rettangolo-sezione-1">
             </div>
             <p class="testo-sezione-1">Da oltre 20 anni ci occupiamo di manutenzione e assistenza tecnica specializzata su lavatrici e impianti industriali di qualsiasi marca e modello, garantendo continuit&agrave; e zero imprevisti. Interventi rapidi su guasti e anomalie, manutenzione programmata per prevenire fermi macchina, riparazioni su componenti meccanici, elettrici ed elettronici, assistenza a domicilio in Toscana e regioni limitrofe e servizi su scala internazionale disponibili su richiesta.</p>
@@ -184,6 +221,23 @@
 
                     <!-- Footer Mobile - Struttura Indipendente -->
                     <div class="footer-mobile-only">
+                        <!-- Video logo animato per mobile -->
+                        <div class="logo-footer-mobile-container">
+                            <video autoplay loop muted playsinline class="logo-footer-mobile-video">
+                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.webm" type="video/webm">
+                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.mp4" type="video/mp4">
+                            </video>
+                            
+                        </div>
+                        
+                        <!-- Recensioni Google sopra le colonne -->
+                        <div class="footer-mobile-reviews-section">
+                            <a href="https://www.google.com/search?sca_esv=486c0866b8b04e5b&rlz=1C1VDKB_itIT1103IT1103&sxsrf=AE3TifO9zawXZCwHKkHu-hBQ5etNh0LICw:1762799865388&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiDmaWeneiQAxWQ9bsIHdHnDQYQ0bkNegQIORAE&biw=1920&bih=945&dpr=1" target="_blank" class="footer-mobile-review-text">La tua opinione<br>conta</a>
+                            <div class="footer-mobile-stars" aria-hidden="true">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                        
                         <div class="footer-mobile-grid">
                             <div class="footer-mobile-column-left">
                                 <h3 class="footer-mobile-heading">Contatti</h3>
@@ -193,6 +247,8 @@
                                 <p class="footer-mobile-info">P.IVA 01867350975</p>
                                 <a href="privacy-policy.html" class="footer-mobile-linkitem">Privacy Policy</a>
                                 <a href="cookie-policy.html" class="footer-mobile-linkitem">Cookie Policy</a>
+                                <div class="footer-mobile-inline">
+                                </div>
                             </div>
                             <div class="footer-mobile-column-right">
                                 <h3 class="footer-mobile-heading">Orari</h3>
@@ -205,11 +261,9 @@
                                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.google.com/search?sca_esv=486c0866b8b04e5b&rlz=1C1VDKB_itIT1103IT1103&sxsrf=AE3TifO9zawXZCwHKkHu-hBQ5etNh0LICw:1762799865388&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiDmaWeneiQAxWQ9bsIHdHnDQYQ0bkNegQIORAE&biw=1920&bih=945&dpr=1" target="_blank" class="footer-mobile-review-text">La tua opinione<br>conta</a>
-                                <div class="footer-mobile-stars">★★★★★</div>
                             </div>
                         </div>
-                        <p class="footer-mobile-credit">Design by Cobrynet</p>
+                        <p class="footer-mobile-credit"><a href="https://www.cobrynet.com/" target="_blank" rel="noopener noreferrer">Design by Cobrynet</a></p>
                     </div>
 
                     <!-- Dati Aziendali -->
@@ -235,7 +289,7 @@
                     <div class="footer-links">
                         <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
                         <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
-                        <p class="design-credit">Design by Cobrynet</p>
+                        <p class="design-credit"><a href="https://www.cobrynet.com/" target="_blank" rel="noopener noreferrer">Design by Cobrynet</a></p>
                     </div>
                 </div>
 
@@ -319,6 +373,8 @@
     <script src="safari-fix.js"></script>
     
     <script src="hamburger-menu.js"></script>
+    
+    <script src="servizi-slider.js"></script>
     
     <!-- Cookie Consent (LegalBlink) - SOLO DESKTOP -->
     <script>

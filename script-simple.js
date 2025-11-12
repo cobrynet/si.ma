@@ -1,3 +1,4 @@
+// Rimosso: feature-detect e fallback per il video del footer mobile (su richiesta)
 // Gestione del carosello
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Carosello: Script inizializzato');
@@ -171,6 +172,34 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    // Sostituisco src con background-image per evitare repaint e flicker
+    icona.style.backgroundRepeat = 'no-repeat';
+    icona.style.backgroundSize = 'contain';
+    icona.style.backgroundPosition = 'center';
+    icona.style.objectFit = 'cover';
+    icona.style.opacity = '0'; // Nasconde il contenuto dell'img
+    // Creo un div overlay per visualizzare solo il background-image
+    let overlay = document.getElementById('iconaAssistenzaOverlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'iconaAssistenzaOverlay';
+        // Assicura che il parent abbia position: relative
+        if (icona.parentNode && icona.parentNode.style.position !== 'relative') {
+            icona.parentNode.style.position = 'relative';
+        }
+        overlay.style.position = 'absolute';
+        overlay.style.pointerEvents = 'none';
+        overlay.style.top = (icona.offsetTop) + 'px';
+        overlay.style.left = icona.offsetLeft + 'px';
+        overlay.style.width = icona.offsetWidth + 'px';
+        overlay.style.height = icona.offsetHeight + 'px';
+        overlay.style.transform = 'translateY(-40px)'; // Sposta l'overlay in alto di 40px
+        overlay.style.backgroundRepeat = 'no-repeat';
+        overlay.style.backgroundSize = 'contain';
+        overlay.style.backgroundPosition = 'center';
+        icona.parentNode.insertBefore(overlay, icona.nextSibling);
+    }
+
     // Elenco dei frame disponibili (0 inserito prima di 1)
     const frames = [
         'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-0.png',
@@ -182,8 +211,27 @@ document.addEventListener('DOMContentLoaded', function() {
         'contenuti/Icone/assistenza png/ICONA-ASSISTENZA-6.png'
     ];
     const lastIndex = frames.length - 1;
-
     function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
+
+    // Preload frames to avoid flicker when switching background-image
+    const _preloaded = frames.map(src => {
+        const img = new Image();
+        img.src = src;
+        return img;
+    });
+
+    let latestFrameIdx = -1;
+    let ticking = false;
+
+    function applyFrame() {
+        if (latestFrameIdx >= 0 && latestFrameIdx <= lastIndex) {
+            const newSrc = frames[latestFrameIdx];
+            if (overlay.style.backgroundImage !== `url("${newSrc}")`) {
+                overlay.style.backgroundImage = `url('${newSrc}')`;
+            }
+        }
+        ticking = false;
+    }
 
     function onScroll() {
         const rect = icona.getBoundingClientRect();
@@ -196,13 +244,17 @@ document.addEventListener('DOMContentLoaded', function() {
         let progress = (start - centerY) / (start - end);
         progress = clamp(progress, 0, 1);
 
-        // Nessuna rotazione CSS: effetto di rotazione simulato solo dai frame PNG
-        // Uso Math.round invece di Math.floor per transizioni più fluide
+        // Calcola frame target. Math.round è ok ma oscillazioni minime possono causare "tremolio";
+        // manteniamo round ma coalesciamo con rAF per ridurre jitter.
         const idx = Math.round(progress * lastIndex);
         const frameIdx = clamp(idx, 0, lastIndex);
-        
-        if (icona.getAttribute('src') !== frames[frameIdx]) {
-            icona.setAttribute('src', frames[frameIdx]);
+
+        if (frameIdx !== latestFrameIdx) {
+            latestFrameIdx = frameIdx;
+            if (!ticking) {
+                ticking = true;
+                window.requestAnimationFrame(applyFrame);
+            }
         }
     }
 

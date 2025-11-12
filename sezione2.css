@@ -36,7 +36,7 @@
     top: 250px;
     font-family: 'Outfit';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 90px;
     line-height: 105px;
     color: var(--sima-primary);
@@ -51,7 +51,7 @@
     top: 750px;
     font-family: 'Outfit';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 90px;
     line-height: 105px;
     text-align: right;
@@ -68,7 +68,7 @@
     background: transparent;
     margin: 0 auto;
     padding: 100px clamp(20px, 3vw, 60px) 0;
-    min-height: 2750px; /* footer a 2300px + 400px altezza + 50px spazio finale */
+    min-height: 2350px; /* footer a 1900px + spazio adeguato */
 }
 
 .pagina-1 {
@@ -585,13 +585,13 @@ body.body-sezione2 main {
 /* Footer per sezione 2 */
 body.body-sezione2 .footer {
     position: absolute;
-    top: 2300px; /* posizionato fisso sotto le card */
+    top: 1900px; /* Più vicino al testo "STIAMO COMPLETANDO..." */
     margin-top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 400px;
-    padding: 0 0 50px 0;
+    height: 280px;
+    padding: 0 0 20px 0;
     background: #e6ebf1;
     z-index: 5;
 }

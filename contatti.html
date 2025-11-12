@@ -16,7 +16,7 @@
     <link rel="preload" href="contatti.css?v=1730203000" as="style">
     <link rel="stylesheet" href="styles.css?v=20251110001">
     <link rel="stylesheet" href="contatti.css?v=1730203000">
-    <link rel="stylesheet" href="mobile.css?v=1762595819" media="(max-width: 820px)">
+    <link rel="stylesheet" href="mobile.css?v=1769000002" media="(max-width: 820px)">
     
     <!-- Font con display=swap -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -82,7 +82,7 @@
 
         <!-- Main Content -->
         <main class="pagina-contatti">
-            <h1 class="h1-contatti">Contatti</h1>
+            <h1 class="h1-contatti">CONTATTI</h1>
             
             <div class="contatti-container">
                 <!-- Form di contatto a sinistra -->
@@ -136,14 +136,14 @@
                 <!-- Info contatti e mappa a destra -->
                 <div class="info-section">
                     <div class="contact-info-side">
-                        <h3>Contatti diretti</h3>
+                        <h3 style="color: #82ADE1;">Contatti diretti</h3>
                         <div class="info-item">
                             <i class="fas fa-envelope"></i>
                             <span>info@assistenzalavanderie.it</span>
                         </div>
                         <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <span>055 7327456</span>
+                            <i class="fas fa-phone phone-anim" aria-hidden="true"></i>
+                            <a href="tel:+390557327456" class="phone-link" aria-label="Chiama 055 7327456">055 7327456</a>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -180,6 +180,22 @@
 
                     <!-- Footer Mobile - Struttura Indipendente -->
                     <div class="footer-mobile-only">
+                        <!-- Video logo animato per mobile -->
+                        <div class="logo-footer-mobile-container">
+                            <video autoplay loop muted playsinline class="logo-footer-mobile-video">
+                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.webm" type="video/webm">
+                                <source src="contenuti/video/video per mobile/logo-animato-trasparente-mobile.mp4" type="video/mp4">
+                            </video>
+                            
+                        </div>
+                        <!-- Sezione recensioni sopra le colonne (mobile) -->
+                        <div class="footer-mobile-reviews-section">
+                            <a href="https://www.google.com/search?sca_esv=486c0866b8b04e5b&rlz=1C1VDKB_itIT1103IT1103&sxsrf=AE3TifO9zawXZCwHKkHu-hBQ5etNh0LICw:1762799865388&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiDmaWeneiQAxWQ9bsIHdHnDQYQ0bkNegQIORAE&biw=1920&bih=945&dpr=1" target="_blank" class="footer-mobile-review-text">La tua opinione<br>conta</a>
+                            <div class="footer-mobile-stars" aria-hidden="true">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                        
                         <div class="footer-mobile-grid">
                             <div class="footer-mobile-column-left">
                                 <h3 class="footer-mobile-heading">Contatti</h3>
@@ -201,11 +217,10 @@
                                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.google.com/search?sca_esv=486c0866b8b04e5b&rlz=1C1VDKB_itIT1103IT1103&sxsrf=AE3TifO9zawXZCwHKkHu-hBQ5etNh0LICw:1762799865388&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_e2-UdExjSjcFOmL4okzEyqMuUEUeoMb_02sryz3R8FLng4Aeny_LOr6MURgwe35275cXdriT-vFP5pdAmsEKwe1m57&q=si.ma+srl+Recensioni&sa=X&ved=2ahUKEwiDmaWeneiQAxWQ9bsIHdHnDQYQ0bkNegQIORAE&biw=1920&bih=945&dpr=1" target="_blank" class="footer-mobile-review-text">La tua opinione<br>conta</a>
-                                <div class="footer-mobile-stars">★★★★★</div>
+                                <!-- Spostati sopra le colonne (sezione dedicata) -->
                             </div>
                         </div>
-                        <p class="footer-mobile-credit">Design by Cobrynet</p>
+                        <p class="footer-mobile-credit"><a href="https://www.cobrynet.com/" target="_blank" rel="noopener noreferrer">Design by Cobrynet</a></p>
                     </div>
 
                     <!-- Dati Aziendali -->
@@ -231,7 +246,7 @@
                     <div class="footer-links">
                         <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
                         <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
-                        <p class="design-credit">Design by Cobrynet</p>
+                        <p class="design-credit"><a href="https://www.cobrynet.com/" target="_blank" rel="noopener noreferrer">Design by Cobrynet</a></p>
                     </div>
                 </div>
 

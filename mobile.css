@@ -1,6 +1,21 @@
+  /* Spazio extra tra il tasto Richiedi assistenza e il titolo SI.MA. Il tuo partner... solo su mobile */
+  /* Distanza robusta: seleziona il titolo nella hero-section dopo il tasto su mobile */
+  .hero-section .h2-sezione-1 {
+    padding-top: 120px !important;
+  }
 /* ============================================
    MOBILE.CSS - Ottimizzazione responsive per tutti gli schermi mobile
    ============================================ */
+/* ========== ANIMAZIONI KEYFRAMES ========== */
+@keyframes button-shine {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(150%) skewX(-20deg);
+  }
+}
+
 
 /* ========== BASE E CONTAINER (Tutti i mobile) ========== */
 @media screen and (max-width: 820px) {
@@ -8,43 +23,116 @@
   html {
     position: static !important;
     height: 100% !important;
-    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
     width: 100% !important;
   }
 
   body {
-    height: 100% !important;
+    height: auto !important;
     min-height: 100vh !important;
     overflow-x: hidden !important;
-    overflow-y: auto !important;
+    overflow-y: visible !important;
     -webkit-overflow-scrolling: touch !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    padding-bottom: 0 !important;
     font-size: 16px !important;
     display: flex !important;
     flex-direction: column !important;
     position: relative !important;
   }
   
-  /* Spostamento solo per la HOME (tramite classe home-page) */
-  body.home-page {
-    transform: translateY(-155px) !important; /* Alzato di altri 15px (era -140px, ora -155px) */
-  }
-  
-  body.servizi-page {
-    transform: translateY(-155px) !important; /* Stessa altezza della home */
-  }
-  
+  /* Rimuovi spostamenti del body: manteniamo l'header veramente fixed */
+  body.home-page,
+  body.servizi-page,
   body.contatti-page {
-    transform: translateY(-155px) !important; /* Stessa altezza della home e servizi */
+    transform: none !important;
+  }
+
+  /* Rafforza header fixed su mobile e in cima a tutti */
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10000 !important;
+    backdrop-filter: saturate(120%) blur(2px);
+  }
+
+  /* Compensa lo spazio dell'header sul contenuto principale */
+  .main-container,
+  .home,
+  .main-container-sezione2 {
+    padding-top: 100px !important; /* allinea subito sotto l'header fisso */
   }
   
   /* FORZA: Il body termina subito dopo il footer */
   body::after {
     content: none !important;
     display: none !important;
+  }
+
+  /* Pulsante telefono mobile-only sulla pagina contatti */
+  .call-mobile-button {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #18202d !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    padding: 10px 20px !important;
+    border-radius: 40px !important;
+    font-size: clamp(14px, 3.6vw, 16px) !important;
+    font-weight: 600 !important;
+    width: fit-content !important;
+    margin: 6px auto 14px auto !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .call-mobile-button i {
+    font-size: clamp(16px, 4.5vw, 22px) !important;
+    color: #ffffff !important;
+  }
+  .call-mobile-button:active {
+    transform: scale(0.96) !important;
+  }
+  /* Effetto luce anche sul pulsante telefono */
+  .call-mobile-button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -20% !important;
+    bottom: -20% !important;
+    left: -50% !important;
+    width: 50% !important;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent) !important;
+    transform: translateX(-150%) skewX(-20deg) !important;
+    animation: button-shine 3.2s linear infinite !important;
+    pointer-events: none !important;
+    will-change: transform !important;
+  }
+  /* Animazione colore cornetta esistente nella pagina contatti */
+  @keyframes phone-color-shift {
+    0% { color: #003D82; }
+    50% { color: #00A3E0; }
+    100% { color: #003D82; }
+  }
+  .contatti-page .phone-anim {
+    animation: phone-color-shift 3s ease-in-out infinite !important;
+    transition: color 0.3s ease !important;
+  }
+  .contatti-page .phone-link {
+    color: #18202d !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+  }
+  .contatti-page .phone-link:active { opacity: 0.7 !important; }
+  /* Nascondi su desktop */
+  @media screen and (min-width: 821px) {
+    .call-mobile-button { display: none !important; }
   }
 
   main {
@@ -153,17 +241,11 @@
     align-items: center !important;
   }
   
-  /* Compensazione header solo per la HOME (tramite classe home-page) */
-  body.home-page .header {
-    transform: translateY(155px) !important; /* Compensazione aggiornata (era 140px, ora 155px) */
-  }
-  
-  body.servizi-page .header {
-    transform: translateY(155px) !important; /* Compensazione header per servizi */
-  }
-  
+  /* Nessuna compensazione: l'header resta a top fisso su tutte le pagine */
+  body.home-page .header,
+  body.servizi-page .header,
   body.contatti-page .header {
-    transform: translateY(155px) !important; /* Compensazione header per contatti */
+    transform: none !important;
   }
 
   .sfondo-header {
@@ -269,6 +351,27 @@
     transform: rotate(-45deg) translate(7px, -7px) !important;
   }
 
+  /* Overlay per bloccare interazioni sotto al menu aperto */
+  .menu-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+    z-index: 999 !important; /* sotto header (1000) sopra contenuto */
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s ease !important;
+  }
+  .menu-overlay.visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  body.menu-open {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
   /* Menu mobile - nascosto di default */
   .menu {
     position: fixed !important;
@@ -280,6 +383,7 @@
     background: rgba(16, 23, 34, 0.98) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
+    z-index: 1001 !important; /* sopra overlay (999) e header (1000) */
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -336,7 +440,7 @@
   }
 
   /* TUTTI GLI ELEMENTI DI TESTO IN COLONNA */
-  h1, h2, h3, h4, h5, h6, p, a, span, div {
+  h1, h2, h3, h4, h5, h6 {
     position: relative !important;
     left: 0 !important;
     right: 0 !important;
@@ -346,6 +450,12 @@
     max-width: 100% !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
+  margin-bottom: 60px !important;
+  }
+
+  /* Se vuoi anche più spazio tra le sezioni, puoi aggiungere: */
+  section, .sezione-1, .sezione-2, .sezione-3, .sezione-4, .sezione-5 {
+  margin-bottom: 60px !important;
   }
 
   /* OVERRIDE SPECIFICO PER MAIN E HOME */
@@ -371,14 +481,14 @@
     position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
-  font-size: clamp(28px, 7vw, 38px) !important; /* H1 ottimizzato per mobile */
+    font-size: clamp(28px, 7vw, 38px) !important; /* Riportato a dimensione originale per mantenere 2 righe */
     line-height: 1.2 !important;
     text-align: center !important;
-    margin: 305px 0 0 0 !important; /* Alzato per home e servizi */
+    margin: 0 0 0 0 !important; /* Nessun offset extra: già compensato dal padding-top del contenitore */
     padding: 3px !important;
     left: auto !important;
     right: auto !important;
-    top: auto !important;
+    margin-top: 10px !important; /* leggero respiro sotto l'header fisso */
     bottom: auto !important;
     transform: none !important;
     word-wrap: break-word !important;
@@ -399,10 +509,10 @@
     position: relative !important;
     width: 100% !important;
     display: block !important;
-    font-size: clamp(28px, 7vw, 38px) !important;
+    font-size: clamp(28px, 7vw, 38px) !important; /* Riportato a dimensione originale */
     line-height: 1.2 !important;
     text-align: center !important;
-    margin: 2px 0 !important;
+    margin: 2px 0 0 0 !important; /* margine minimo tra le righe */
     padding: 0 !important;
     color: #18202d !important;
     opacity: 1 !important;
@@ -421,7 +531,7 @@
     position: relative !important;
     width: 100% !important;
     display: block !important;
-    font-size: clamp(28px, 7vw, 38px) !important;
+    font-size: clamp(28px, 7vw, 38px) !important; /* Riportato a dimensione originale */
     line-height: 1.2 !important;
     text-align: center !important;
     margin: 2px 0 !important;
@@ -444,7 +554,7 @@
     position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
-    font-size: clamp(11px, 3vw, 14px) !important; /* Ridotto per permettere il wrap */
+    font-size: clamp(16px, 4.5vw, 20px) !important; /* Aumentato per migliore leggibilità */
     line-height: 1.4 !important;
     text-align: center !important;
     margin: 5px auto 20px auto !important; /* 5px dall'H1 */
@@ -479,15 +589,17 @@
   .home .hero-cta-mobile {
     display: block !important;
     background-color: #18202d !important;
+  position: relative !important;
+  overflow: hidden !important;
     color: #ffffff !important;
     text-decoration: none !important;
     border-radius: 50px !important;
     padding: 12px 28px !important;
     font-size: clamp(13px, 3.2vw, 15px) !important;
     font-weight: 600 !important;
-    margin-top: 5px !important; /* Ridotto per stare più vicino alla tagline */
+    margin-top: 25px !important; /* Riportato alla posizione precedente */
     margin-bottom: 10px !important; /* Ridotto a 10px per avvicinare l'H2 sotto */
-    width: fit-content !important;
+    width: 75% !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
@@ -500,16 +612,64 @@
     transform: translateY(-2px) !important;
   }
 
+  /* Pulsante "Scopri le lavatrici disponibili" sotto le icone - visibile solo su mobile */
+  .cta-lavatrici-mobile {
+    display: block !important;
+    background-color: transparent !important;
+    color: #18202d !important;
+    text-decoration: none !important;
+    border: 2px solid #18202d !important;
+    border-radius: 50px !important;
+    padding: 12px 28px !important;
+    font-size: clamp(13px, 3.2vw, 15px) !important;
+    font-weight: 600 !important;
+    margin: 40px auto 20px auto !important; /* abbassato di 10px base */
+    width: 75% !important;
+    text-align: center !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease !important;
+  }
+
+  /* Offset aggiuntivo SOLO nella home per abbassare di altri 10px */
+  .home .cta-lavatrici-mobile {
+    margin-top: 50px !important; /* totale 20px in più rispetto alla versione precedente */
+  }
+
+  .cta-lavatrici-mobile:hover {
+    background-color: #18202d !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Effetto luce - CTA mobile (tutte le pagine) */
+  .hero-cta-mobile {
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .hero-cta-mobile::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -20% !important;
+    bottom: -20% !important;
+    left: -50% !important;
+    width: 50% !important;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent) !important;
+    transform: translateX(-150%) skewX(-20deg) !important;
+    animation: button-shine 3s linear infinite !important;
+    pointer-events: none !important;
+    will-change: transform !important;
+  }
+
   /* Titolo sezione-1 nella hero-section (mobile only) */
   .home .hero-section .h2-sezione-1 {
-    margin-top: -140px !important; /* Alzato di altri 50px (era -90px, ora -140px) */
+    margin-top: -220px !important; /* Alzato di 10px (era -210px, ora -220px) */
     order: 1 !important;
   }
   
   /* Sezione-1 con spazio sopra per l'H2 che viene dalla hero */
   .home .sezione-1 {
     margin-top: -90px !important; /* Compensazione per l'H2 sopra */
-    padding-top: 120px !important; /* Spazio per l'H2 dall'hero-section */
+    padding-top: 150px !important; /* Aumentato spazio per permettere al titolo di salire più in alto */
   }
   
   /* Nascondi il titolo nella sezione-1 su mobile (viene mostrato nella hero) */
@@ -523,7 +683,7 @@
     line-height: 1.5 !important;
     width: 95% !important;
     max-width: 95% !important;
-    margin: -40px auto 20px auto !important; /* Abbassato di altri 10px (era -50px, ora -40px) */
+    margin: -60px auto 20px auto !important; /* Alzato di 10px (era -50px, ora -60px) */
     padding: 0 2.5% !important;
     text-align: center !important;
     letter-spacing: normal !important;
@@ -706,11 +866,27 @@
     overflow-wrap: break-word !important;
   }
 
+  /* Regole specifiche per sezione-5 - abbassa titolo "Una storia di competenza" */
+  .sezione-5 .h2-sezione-5 {
+    margin-top: 69px !important; /* Alzato di 10px (da 79px a 69px) */
+  }
+  
+  .sezione-5 .testo-sezione-5 {
+    margin-top: 26px !important; /* Alzato di 6px (da 32px a 26px) */
+  }
+
   /* Versione unica del testo sezione 4 (servizi) solo su mobile */
   .sezione-4 .testo-sezione-4 .testo-desktop { display: none !important; }
   .sezione-4 .testo-sezione-4 .testo-mobile-unico { 
     display: block !important; /* block invece di inline per applicare margin */
     margin-top: -25px !important; /* era -30px -> abbassato di 5px */
+  }
+
+  /* Nascondi i testi desktop della sezione-5 su mobile - usa slider cards invece */
+  .sezione-5 .testo-sezione-5,
+  .sezione-5 .testo-sezione-5-right,
+  .sezione-5 .rettangolo-sezione-5 {
+    display: none !important;
   }
 
   /* Alza l'intero paragrafo sezione-4 (incluso <strong>) su mobile */
@@ -810,35 +986,32 @@
   }
 
   /* Overlay informativo compatto dentro la card */
-  .product-info {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    background: rgba(255,255,255,0.85) !important;
-    backdrop-filter: blur(4px) !important;
-    -webkit-backdrop-filter: blur(4px) !important;
-    padding: 6px 8px 8px 8px !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  .product-name {
-    font-size: clamp(12px, 3.2vw, 14px) !important;
-    line-height: 1.15 !important;
-    margin: 0 0 4px 0 !important;
-  }
-
-  .product-description-short {
-    font-size: clamp(10px, 2.6vw, 12px) !important;
-    line-height: 1.2 !important;
-    margin: 0 0 4px 0 !important;
-  }
-
-  .product-price {
-    font-size: clamp(13px, 3.4vw, 15px) !important;
-    line-height: 1 !important;
-    margin: 0 !important;
+  .hero-tagline {
+    font-size: clamp(16px, 4vw, 22px) !important;
+    font-weight: 400 !important;
+    color: #18202d !important;
+    margin: 50px 0 0 0 !important; /* Abbassata di 50px */
+    padding: 0 !important;
+    text-align: center !important;
+    opacity: 1 !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0.01em !important;
+    display: block !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 10 !important;
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    height: auto !important;
+    visibility: visible !important;
   }
 
   /* Nasconde dettagli espansi nelle card compatte (si aprono comunque al click) */
@@ -930,41 +1103,33 @@
     pointer-events: none !important; /* BLOCCA TUTTO il body */
   }
 
-  .contact-modal {
-    backdrop-filter: blur(4px) !important; /* sfocatura dietro il form */
-    -webkit-backdrop-filter: blur(4px) !important;
-    background: rgba(0,0,0,0.9) !important; /* più scuro per oscurare il sito */
-    pointer-events: auto !important; /* la modale cattura i click */
-  }
-
-  /* Centratura perfetta del form su mobile */
-  @media (max-width: 820px) {
-    .contact-modal.active {
-      display: flex !important; /* assicurati che sia flex solo quando attivo */
-      align-items: center !important; /* centra verticalmente */
-      justify-content: center !important; /* centra orizzontalmente */
-      padding: 0.5vh 10px 1vh 10px !important; /* alza ulteriormente il form */
-    }
-    .contact-modal-content {
-      max-height: 88vh !important; /* leggero aumento per compensare padding ridotto */
-      margin: 0 !important;
-      transform: translateY(-3vh) !important; /* ALZO ANCORA DI PIÙ verso l'alto */
-      pointer-events: auto !important; /* il form e tutti i suoi elementi sono cliccabili */
-    }
-  }
-
-  /* Lightbox foto: contenitore ridotto come una card mobile (non fullscreen) */
-  .lightbox-overlay {
-    position: fixed !important;
-    inset: 0 !important;
-    background: rgba(0, 0, 0, 0.85) !important; /* sfondo scuro semi-trasparente per oscurare il sito */
-    display: none !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 30000 !important;
-    padding: 0 10px !important; /* spazio ai lati per i pulsanti esterni */
-    backdrop-filter: blur(4px) !important; /* sfoca leggermente il contenuto sotto */
-    -webkit-backdrop-filter: blur(4px) !important;
+  .hero-cta-mobile {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 68px auto 0 auto !important; /* Abbassato di 50px */
+    padding: 18px 0 !important;
+    font-size: clamp(18px, 5vw, 24px) !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    background: #003D82 !important;
+    border-radius: 40px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 10 !important;
+    transition: background 0.2s, color 0.2s !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto !important;
+    will-change: background, color !important;
   }
 
   .lightbox-overlay.active {
@@ -1135,12 +1300,12 @@
 
   /* ========== FORZA VISIBILITA' DEGLI ELEMENTI CHIAVE ========== */
   
-  /* Visibilità pulsanti CTA - stili generici senza interferire con .home */
-  .hero-cta:not(.home .hero-cta),
-  .hero-cta-text-only:not(.home .hero-cta-text-only) {
-    opacity: 1 !important;
-    visibility: visible !important;
-    filter: none !important;
+  /* NASCONDI pulsanti CTA desktop su mobile per tutte le pagine */
+  .hero-cta,
+  .hero-cta-text-only {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 
   /* ========== NASCONDI FURGONE SU MOBILE ========== */
@@ -1248,7 +1413,7 @@
     position: static !important; /* rimuove absolute del desktop */
     left: auto !important;
     top: auto !important;
-    margin: 4px auto 0 auto !important; /* centra orizzontalmente */
+    margin: 44px auto 0 auto !important; /* Abbassato di altri 20px (da 24px a 44px) */
     margin-left: auto !important;
     margin-right: auto !important;
     width: fit-content !important; /* come hero-cta-mobile */
@@ -1257,7 +1422,8 @@
     transform: none !important;
   }
   .home .sezione-4 .icona-wrapper .sezione4-cta .hero-cta-button {
-    position: static !important;
+    position: relative !important;
+    overflow: hidden !important;
     width: 100% !important;
     height: auto !important;
     border-radius: 50px !important;
@@ -1278,6 +1444,22 @@
     transform: translateY(-2px) !important;
   }
 
+  /* Effetto luce - CTA "Le nostre lavatrici" (mobile) */
+  .mobile-only-cta .hero-cta-button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -20% !important;
+    bottom: -20% !important;
+    left: -50% !important;
+    width: 50% !important;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent) !important;
+    transform: translateX(-150%) skewX(-20deg) !important;
+    animation: button-shine 3s linear infinite !important;
+    animation-delay: 0.5s !important;
+    pointer-events: none !important;
+    will-change: transform !important;
+  }
+
   /* Nascondi il terzo wrapper su mobile - ora mostriamo tutti e 3 */
 
   .home .icona-testo {
@@ -1290,8 +1472,7 @@
 
   /* ========== TIPOGRAFIA FLUIDA ========== */
   .h2-sezione-1,
-  .h2-sezione-4,
-  .h2-sezione-5 {
+  .h2-sezione-4 {
     position: relative !important;
     left: auto !important;
     top: auto !important;
@@ -1302,6 +1483,254 @@
     font-size: clamp(20px, 6vw, 28px) !important;
     line-height: 1.25 !important;
     text-align: center !important;
+  }
+
+  /* Regola specifica per h2-sezione-1 nella pagina servizi - rimuovi bold e abbassa di 30px */
+  .servizi-page .sezione-1 .h2-sezione-1 {
+    font-weight: 300 !important; /* Peso normale come h2-sezione-4 */
+    transform: translateY(30px) !important; /* Abbassa di 30px */
+  }
+
+  .h2-sezione-5 {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: translateY(-10px) !important; /* Sposta su di 10px */
+    width: 100% !important;
+    padding: 0 clamp(8px, 2.5vw, 16px) !important;
+    margin-top: 59px !important; /* Alzato di 20px rispetto agli 79px originali */
+    margin-bottom: 0 !important;
+    font-size: clamp(20px, 6vw, 28px) !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+  }
+
+  /* ========== STORY SLIDER MOBILE (Sezione 5) ========== */
+  .story-slider-mobile {
+    display: block !important;
+    width: 100% !important;
+    margin: 20px 0 !important;
+    padding: 0 clamp(12px, 3vw, 20px) !important;
+  }
+
+  .story-cards-container {
+    position: relative !important;
+    width: 92% !important; /* Più larga */
+    max-width: 380px !important; /* Dimensione massima aumentata */
+    aspect-ratio: 3 / 2.5 !important; /* Più alta per contenere tutto il testo */
+    overflow: hidden !important;
+    background: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    margin: 0 auto !important; /* Centra la card */
+  }
+
+  .story-card {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: clamp(18px, 4.5vw, 26px) !important; /* Padding ridotto */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    opacity: 0 !important;
+    transform: translateX(100%) !important;
+    transition: opacity 0.5s ease, transform 0.5s ease !important;
+    overflow-y: hidden !important; /* Nasconde scroll */
+  }
+
+  .story-card.active {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    z-index: 1 !important;
+  }
+
+  .story-card-text {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(12px, 3.5vw, 15px) !important; /* Ridotto ulteriormente */
+    line-height: 1.5 !important;
+    color: var(--sima-text-main) !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  /* Riduce lo spazio del <br> nella prima card */
+  .story-card-text br {
+    display: block !important;
+    content: "" !important;
+    margin-bottom: -8px !important; /* Riduce lo spazio tra i paragrafi */
+  }
+
+  /* ==================== SERVIZI: riallinea contenuti su mobile ==================== */
+  @media screen and (max-width: 820px) {
+    /* Centra i blocchi principali (senza toccare le card) */
+    body.servizi-page .h1-hero,
+    body.servizi-page .hero-tagline,
+    body.servizi-page .h2-hero-servizi,
+    body.servizi-page .sezione-1,
+    body.servizi-page .sezione-4,
+    body.servizi-page .sezione-5 {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    /* Rimuovi offset residuo sulla prima riga dell'H1 */
+    body.servizi-page .h1-hero .hero-line-1 {
+      left: 0 !important;
+    }
+
+    /* Garantisci padding simmetrico ai paragrafi principali */
+    body.servizi-page .testo-sezione-1,
+    body.servizi-page .testo-sezione-4,
+    body.servizi-page .hero-tagline {
+      padding-left: 4.5vw !important;
+      padding-right: 4.5vw !important;
+    }
+
+    /* Sposta leggermente a sinistra titoli e testi (escluso slider/card) */
+    body.servizi-page .h1-hero,
+    body.servizi-page .hero-tagline,
+    body.servizi-page .h2-hero-servizi,
+    body.servizi-page .hero-cta-mobile,
+    body.servizi-page .hero-cta,
+    body.servizi-page .hero-cta-text-only,
+    body.servizi-page .h2-sezione-4,
+    body.servizi-page .testo-sezione-4 {
+      transform: translateX(-7px) !important;
+    }
+  }
+
+  /* ==================== HOME: sposta i titoli a sinistra su mobile ==================== */
+  @media screen and (max-width: 820px) {
+    body.home-page .h1-hero,
+    body.home-page .h2-sezione-1,
+    body.home-page .h2-sezione-4,
+    body.home-page .h2-sezione-5 {
+      transform: translateX(-7px) !important;
+    }
+    /* Sezione 5 titolo ("Una storia di competenza..."): spostalo 2px più a destra rispetto alla regola generale */
+    body.home-page .sezione-5 .h2-sezione-5 {
+      transform: translateX(-5px) !important; /* -7px -> -5px (2px più a destra) */
+    }
+  }
+
+  .story-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin-top: 16px !important;
+  }
+
+  .story-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #D9D9D9 !important;
+    cursor: pointer !important;
+    transition: background 0.3s ease !important;
+  }
+
+  .story-dot.active {
+    background: var(--sima-primary) !important;
+  }
+
+  /* Nascondi slider su desktop */
+  @media screen and (min-width: 821px) {
+    .story-slider-mobile {
+      display: none !important;
+    }
+  }
+
+  /* ==================== SERVIZI SLIDER MOBILE ==================== */
+  .servizi-slider-mobile {
+    display: block !important;
+    margin: clamp(20px, 5vw, 30px) 0 !important;
+    margin-top: -50px !important;
+    padding: 0 clamp(10px, 4vw, 20px) !important;
+    width: 100% !important;
+  }
+
+  .servizi-cards-container {
+    position: relative !important;
+    width: 92% !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+    aspect-ratio: 3 / 2.5 !important;
+    background: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden !important;
+  }
+
+  .servizi-card {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: clamp(18px, 4.5vw, 26px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    transform: translateX(100%) !important;
+    transition: opacity 0.5s ease, transform 0.5s ease !important;
+    overflow-y: hidden !important;
+  }
+
+  .servizi-card.active {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+
+  .servizi-card-text {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(12px, 3.5vw, 15px) !important;
+    line-height: 1.5 !important;
+    color: var(--sima-text-main) !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  .servizi-card-text br {
+    margin-bottom: -8px !important;
+  }
+
+  .servizi-dots {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-top: 16px !important;
+  }
+
+  .servizi-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #D9D9D9 !important;
+    cursor: pointer !important;
+    transition: background 0.3s ease !important;
+  }
+
+  .servizi-dot.active {
+    background: var(--sima-primary) !important;
+  }
+
+  /* Nascondi slider servizi su desktop */
+  @media screen and (min-width: 821px) {
+    .servizi-slider-mobile {
+      display: none !important;
+    }
+  }
+
+  /* Nascondi elementi desktop della sezione-1 su mobile SOLO nella pagina Servizi */
+  .servizi-page .sezione-1 .rettangolo-sezione-1,
+  .servizi-page .sezione-1 .testo-sezione-1,
+  .servizi-page .sezione-1 .icona-assistenza-animata {
+    display: none !important;
   }
 
   .hero-tagline {
@@ -1358,7 +1787,7 @@
     font-size: clamp(28px, 7vw, 38px) !important; /* H1 ottimizzato per mobile */
     line-height: 1.2 !important;
     text-align: center !important;
-    margin: 135px 0 0 0 !important; /* Sposta h1 su di 120px (alza di altri 60px) */
+    margin: 10px 0 0 0 !important; /* nessun offset extra oltre il padding del contenitore */
     padding: 3px !important;
     left: auto !important;
     right: auto !important;
@@ -1380,16 +1809,7 @@
     overflow: visible !important;
     filter: none !important;
   }
-    position: relative !important;
-    width: 100% !important;
-    font-size: clamp(28px, 7.2vw, 40px) !important; /* stesso clamp dell'H1 principale */
-    line-height: 1.2 !important;
-    text-align: center !important;
-    margin: 18px 0 10px 0 !important;
-    padding: 3px !important;
-    color: #18202d !important; /* H1 mantiene colore scuro brand */
-    font-weight: 600 !important;
-  }
+  /* (RIMOSSO BLOCCO ERRATO DUPLICATO CHE CAUSAVA ERRORE DI SINTASSI) */
 
   /* Riduci spazio verticale tra i due H1 di nuovo-usato */
   .h1-nuovo-usato-left { margin-bottom: 6px !important; }
@@ -1484,11 +1904,32 @@
     height: auto !important;
   }
 
+  /* ========== BLOCCA SCRIPT LEGALBLINK SU MOBILE ========== */
+  /* Nasconde completamente qualsiasi elemento o overlay iniettato da LegalBlink */
+  [id*="lb"],
+  [id*="legal"],
+  [id*="cookie"],
+  [class*="lb-"],
+  [class*="legalblink"],
+  [class*="cookie-banner"],
+  [class*="cookie-consent"],
+  div[style*="z-index: 9999"],
+  div[style*="position: fixed"][style*="bottom: 0"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none !important;
+  }
+
   /* ========== FOOTER RESPONSIVE ========== */
   .footer {
     position: relative !important; /* NON absolute */
     width: 100% !important;
-  padding: clamp(15px, 3vw, 25px) clamp(20px, 5vw, 35px) 0 clamp(20px, 5vw, 35px) !important;
+    padding: 0 !important;
     margin: 0 !important;
     left: 0 !important; /* RESET left: 50% */
     top: 0 !important; /* RESET top: 1800-2951px - QUESTO ERA IL PROBLEMA! */
@@ -1496,13 +1937,14 @@
     bottom: auto !important;
     transform: none !important; /* RESET translateX(-50%) */
     display: block !important;
-    overflow: clip !important;
+    overflow: visible !important;
     max-width: 100vw !important;
     height: auto !important; /* RESET height: 350-400px */
     flex-shrink: 0 !important;
-    contain: layout paint !important;
+    contain: none !important;
     margin-bottom: 0 !important; /* Evita gap extra esterno */
-  padding-bottom: 5px !important; /* Termina il footer con 5px sotto il testo */
+    padding-bottom: 5px !important; /* Spazio finale di 5px dopo il testo */
+    min-height: 0 !important;
   }
   
   /* BLOCCA qualsiasi elemento dopo il footer */
@@ -1532,26 +1974,178 @@
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
-    padding: clamp(10px, 2.5vw, 20px) 0 0 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .footer-left,
   .footer-right {
     width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  /* Sposta il logo animato a destra nel mobile */
+  /* Nascondi il logo animato desktop nel footer mobile */
   .logo-footer-link {
+    display: none !important;
+  }
+
+  /* Logo video mobile nel footer */
+  .logo-footer-mobile-container {
     display: block !important;
-    width: auto !important;
-    margin-top: 0 !important;
-    margin-right: clamp(10px, 3vw, 18px) !important;
-    margin-bottom: clamp(18px, 5vw, 28px) !important;
-    margin-left: auto !important;
+    width: 100% !important;
+    max-width: 200px !important;
+    margin: 5px 0 30px 0 !important;
     padding: 0 !important;
-    line-height: 0 !important;
-    align-self: flex-end !important;
-    transform: translateX(-186px) !important; /* Sposta il logo di 186px a sinistra */
+    text-align: left !important;
+    margin-left: -34px !important; /* Default per contatti */
+    position: relative !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  /* Spostamenti specifici per ogni pagina */
+  .home-page .logo-footer-mobile-container {
+    margin-left: -70px !important;
+  }
+
+    .servizi-page .logo-footer-mobile-container {
+      margin-left: -61px !important;
+    }
+
+  .body-sezione2 .logo-footer-mobile-container {
+    margin-left: -48px !important;
+  }
+
+  .logo-footer-mobile-video {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    opacity: 1 !important;
+  }
+
+  /* Fallback immagine nascosta di default */
+
+  /* Forza trasparenza anche sul parent */
+  .footer-mobile-only {
+    background: transparent !important;
+  }
+
+  .footer-mobile-only::before,
+  .footer-mobile-only::after {
+    display: none !important; /* Rimuovi eventuali pseudo-elementi che creano sfondi */
+  }
+
+  /* Sezione recensioni Google sopra le colonne */
+  .footer-mobile-reviews-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 50px auto 30px auto !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+    position: relative !important;
+    top: -150px !important; /* Alza di 150px */
+    left: 105px !important; /* Sposta a destra di 105px (ulteriori +5px) */
+    width: auto !important; /* Permette calcolo dinamico e clipping delle stelle */
+    padding: 0 !important;
+  }
+
+  .footer-mobile-reviews-section .footer-mobile-review-text {
+    font-size: clamp(13.8px, 3.7vw, 16.6px) !important; /* leggera crescita */
+    color: #18202d !important;
+    text-decoration: none !important;
+    margin: 0 0 10px 0 !important;
+    font-weight: 500 !important;
+    line-height: 1.18 !important; /* ridotto per compattare le due righe */
+    display: inline-block !important;
+    text-align: left !important; /* "conta" sotto "La" */
+    position: relative !important;
+  }
+
+  .footer-mobile-reviews-section .footer-mobile-stars {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important; /* vincola dentro la stessa larghezza del parent inline-block */
+    max-width: 100% !important;
+    gap: clamp(3px, 1.5vw, 8px) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .footer-mobile-reviews-section .footer-mobile-stars span {
+    color: #FFD700 !important;
+    font-size: clamp(21px, 5.8vw, 27px) !important; /* leggero ajuste per non sbordare */
+    line-height: 1 !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex: 1 1 auto !important;
+    text-align: center !important;
+  }
+
+  /* Allineamenti per pagina: piccole differenze di misura e spazi */
+  .home-page .footer-mobile-reviews-section .footer-mobile-review-text { font-size: clamp(14px, 3.75vw, 16.8px) !important; }
+  .home-page .footer-mobile-reviews-section { width: max-content !important; }
+  .home-page .footer-mobile-reviews-section .footer-mobile-stars { gap: clamp(2px, 0.9vw, 5px) !important; }
+  .home-page .footer-mobile-reviews-section .footer-mobile-stars span { font-size: clamp(15px, 4.2vw, 20px) !important; }
+  .home-page .footer-mobile-reviews-section { left: 95px !important; } /* sposta tutto (testo+stelle) 10px a sinistra */
+  .home-page .footer-mobile-reviews-section .footer-mobile-stars { transform: translateX(-17px) !important; } /* ulteriori -2px: totale 17px a sinistra rispetto al testo */
+
+  .servizi-page .footer-mobile-reviews-section .footer-mobile-review-text { font-size: clamp(14px, 3.85vw, 17px) !important; }
+  .servizi-page .footer-mobile-reviews-section { width: max-content !important; }
+  .servizi-page .footer-mobile-reviews-section .footer-mobile-stars { gap: clamp(2px, 0.9vw, 5px) !important; }
+  .servizi-page .footer-mobile-reviews-section .footer-mobile-stars span { font-size: clamp(15px, 4.2vw, 20px) !important; }
+  .servizi-page .footer-mobile-reviews-section .footer-mobile-stars { transform: translateX(-17px) !important; }
+  
+  /* Sposta la colonna Contatti del footer solo su pagina servizi mobile */
+  .servizi-page .footer-mobile-column-left {
+    transform: translateX(0) !important;
+  }
+
+  .body-sezione2 .footer-mobile-reviews-section .footer-mobile-review-text { font-size: clamp(13.8px, 3.7vw, 16.4px) !important; }
+  .body-sezione2 .footer-mobile-reviews-section { width: max-content !important; }
+  .body-sezione2 .footer-mobile-reviews-section .footer-mobile-stars { gap: clamp(2px, 0.9vw, 5px) !important; }
+  .body-sezione2 .footer-mobile-reviews-section .footer-mobile-stars span { font-size: clamp(15px, 4.2vw, 20px) !important; }
+  .body-sezione2 .footer-mobile-reviews-section .footer-mobile-stars { transform: translateX(-3px) !important; }
+
+  .contatti-page .footer-mobile-reviews-section .footer-mobile-review-text {
+    font-size: clamp(13.8px, 3.65vw, 16.4px) !important;
+    display: inline-block !important;
+    text-align: left !important;
+    transform: translateX(-8px) !important; /* sposta il testo leggermente a sinistra per mettere 'conta' sotto 'La' */
+  }
+  .contatti-page .footer-mobile-reviews-section { width: max-content !important; }
+  .contatti-page .footer-mobile-reviews-section .footer-mobile-stars { gap: clamp(2px, 0.9vw, 5px) !important; }
+  .contatti-page .footer-mobile-reviews-section .footer-mobile-stars span { font-size: clamp(15px, 4.2vw, 20px) !important; }
+  .contatti-page .footer-mobile-reviews-section .footer-mobile-stars { transform: translateX(-15px) !important; }
+
+  /* Prevenzione overflow stelle oltre larghezza del testo */
+  .footer-mobile-reviews-section .footer-mobile-stars { overflow: hidden !important; }
+
+  /* Spostamento specifico del logo footer SOLO per la pagina contatti (mobile) */
+  .contatti-page .logo-footer-link {
+    display: none !important;
+  }
+
+  /* Abbassa il footer nella pagina contatti per distanziarlo dal pulsante "Invia Richiesta" (mobile) */
+  .contatti-page .footer {
+    margin-top: 20px !important; /* Distanza dal pulsante invia */
+  }
+
+  /* Spostamento specifico del logo footer SOLO per la pagina nuovo-usato (mobile) */
+  .body-sezione2 .logo-footer-link {
+    transform: translateX(-238px) !important; /* ulteriori -22px (altri -7px) solo su nuovo-usato */
+  }
+
+  /* Abbassa il footer nella pagina nuovo-usato per far vedere il video oblò (mobile) */
+  .body-sezione2 .footer {
+    margin-top: 200px !important; /* Crea spazio per il video oblò */
   }
 
   .logo-footer-rect {
@@ -1576,8 +2170,8 @@
   /* Layout mobile del footer sotto il logo */
   .footer-mobile-content {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    column-gap: clamp(24px, 12vw, 80px) !important;
+    grid-template-columns: 1fr 1fr !important;
+    column-gap: clamp(10px, 3vw, 20px) !important;
     row-gap: clamp(16px, 4.5vw, 26px) !important;
     align-items: flex-start !important;
     justify-items: flex-start !important;
@@ -1595,10 +2189,17 @@
     align-items: flex-start !important;
     gap: 2px !important;
     width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .footer-mobile-col-1 {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -14px !important;
   }
 
   .footer-mobile-col-2 {
-    margin-left: 20px !important;
+    margin-left: 0 !important;
   }
 
   /* Annulla il margine negativo applicato ai testi nella colonna Orari */
@@ -1629,9 +2230,11 @@
     margin: 0 !important;
     padding: clamp(2px, 0.5vw, 3px) 0 !important;
     line-height: 1.4 !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
     text-align: left !important;
     align-self: flex-start !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
   }
 
   .footer-mobile-link {
@@ -1653,7 +2256,7 @@
   }
 
   .footer-mobile-link-middle {
-    margin-top: -20px !important; /* Alza "Cookie Policy" di 20px */
+    margin-top: -30px !important; /* Alza "Cookie Policy" di 30px */
   }
 
   .footer-mobile-link:last-of-type {
@@ -1669,15 +2272,17 @@
     font-size: clamp(11px, 2.8vw, 13px) !important;
     color: var(--sima-text-main) !important;
     margin: clamp(15px, 5vw, 20px) 0 0 0 !important;
-    padding: 0 !important;
+    padding: 0 0 0 0 !important;
     line-height: 1 !important;
     text-align: left !important;
     width: auto !important;
     align-self: flex-start !important;
-  margin-left: 80px !important; /* Spostato di 80px a destra */
+    margin-left: 80px !important; /* Spostato di 80px a destra */
     white-space: nowrap !important; /* Forza su una riga */
     display: block !important;
     margin-bottom: 0 !important;
+    position: relative !important;
+    top: -30px !important; /* Alzato di 30px */
   }
 
   /* Se la versione visibile è quella inline, spostala anch'essa di 80px */
@@ -1699,7 +2304,294 @@
   .footer-mobile-content .footer-mobile-title,
   .footer-mobile-content .footer-mobile-text,
   .footer-mobile-content .footer-mobile-link {
-    margin-left: clamp(-40px, -8vw, -30px) !important; /* Responsive invece di -30px fisso */
+    margin-left: 5px !important; /* Spostato a destra di 5px */
+  }
+
+  /* ========== FOOTER MOBILE INDIPENDENTE ========== */
+  .footer-mobile-only {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 2px !important;
+    overflow: visible !important;
+    position: relative !important;
+  }
+
+  .footer-mobile-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: clamp(8px, 3vw, 15px) !important;
+    row-gap: clamp(16px, 4.5vw, 26px) !important;
+    width: 100% !important;
+    position: relative !important;
+    top: -150px !important;
+    margin-bottom: -150px !important;
+  }
+
+  .footer-mobile-column-left,
+  .footer-mobile-column-right {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+  }
+
+  .footer-mobile-column-left {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  /* Spostamento specifico solo per la home page */
+  .home-page .footer-mobile-column-left {
+    margin-left: -14px !important;
+  }
+
+  /* Spostamento specifico solo per la pagina contatti */
+  .contatti-page .footer-mobile-column-left {
+    margin-left: 20px !important;
+  }
+
+  .footer-mobile-column-right {
+    margin-left: 50px !important;
+    padding-left: 0 !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  /* Allinea tutti gli elementi della colonna sinistra con il titolo */
+  .footer-mobile-column-left .footer-mobile-heading,
+  .footer-mobile-column-left .footer-mobile-info,
+  .footer-mobile-column-left .footer-mobile-linkitem,
+  .footer-mobile-column-left .footer-mobile-credit {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+    align-self: flex-start !important;
+  }
+
+  /* Allinea tutti gli elementi della colonna destra con il titolo */
+  .footer-mobile-column-right .footer-mobile-heading,
+  .footer-mobile-column-right .footer-mobile-info {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+    align-self: flex-start !important;
+  }
+
+  /* ===== Alignment tweaks for mobile footer columns ===== */
+  /* Move right-column lines so they visually align with corresponding left-column lines */
+  .footer-mobile-column-right .footer-mobile-info:nth-of-type(2) {
+    /* 9:00 - 18:00 -> align with Scandicci (second line of left address) */
+    position: relative !important;
+    top: -9px !important; /* Abbassato di 3px */
+  }
+
+  .footer-mobile-column-right .footer-mobile-info:nth-of-type(3) {
+    /* Emergenze -> align with Tel. line */
+    position: relative !important;
+    top: -9px !important; /* -6px - 3px = -9px */
+  }
+
+  .footer-mobile-column-right .footer-mobile-info:nth-of-type(4) {
+    /* H24/7 -> align with info@assistenzalavanderie.it */
+    position: relative !important;
+    top: -7px !important; /* Alzato di ulteriori 2px */
+  }
+
+  /* move instagram icon to align with P.IVA (left column 4th line) */
+  .footer-mobile-column-right .footer-mobile-instagram {
+    position: relative !important;
+    top: -22px !important; /* Alzata di altri 10px */
+  }
+
+  /* Footer headings and infos (base styles) */
+  .footer-mobile-heading {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(16px, 4vw, 18px) !important;
+    font-weight: 600 !important;
+    color: var(--sima-text-main) !important;
+    margin: 0 0 clamp(8px, 2vw, 12px) 0 !important;
+    padding: 0 !important;
+  }
+
+  .footer-mobile-info {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(13px, 3.2vw, 15px) !important;
+    color: var(--sima-text-main) !important;
+    margin: 0 !important;
+    padding: clamp(2px, 0.5vw, 3px) 0 !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+  }
+
+  .footer-mobile-linkitem {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(13px, 3.2vw, 15px) !important;
+    color: var(--sima-text-main) !important;
+    text-decoration: none !important;
+    margin: 0 !important;
+    padding: clamp(2px, 0.5vw, 3px) 0 !important;
+    transition: opacity 0.3s ease !important;
+  }
+
+  .footer-mobile-linkitem:hover {
+    opacity: 0.7 !important;
+  }
+
+  /* Abbassa Privacy Policy di 5px */
+  .footer-mobile-linkitem:nth-of-type(1) {
+    position: relative !important;
+    top: 5px !important;
+  }
+
+  /* Abbassa Cookie Policy di 5px */
+  .footer-mobile-linkitem:nth-of-type(2) {
+    position: relative !important;
+    top: -15px !important; /* -20px + 5px = -15px */
+  }
+
+  .footer-mobile-inline {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    margin: 0 !important;
+    padding: clamp(2px, 0.5vw, 3px) 0 !important;
+  }
+
+  .footer-mobile-info-inline {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(13px, 3.2vw, 15px) !important;
+    color: var(--sima-text-main) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+  }
+
+  .footer-mobile-linkitem-inline {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(13px, 3.2vw, 15px) !important;
+    color: var(--sima-text-main) !important;
+    text-decoration: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: opacity 0.3s ease !important;
+  }
+
+  .footer-mobile-linkitem-inline:hover {
+    opacity: 0.7 !important;
+  }
+
+  .footer-mobile-credit {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(11px, 2.8vw, 13px) !important;
+    color: #00A3E0 !important; /* Celeste */
+    margin: clamp(8px, 2vw, 10px) 0 20px 0 !important;
+    padding: 0 !important;
+    opacity: 0.7 !important;
+    width: 100% !important;
+    text-align: center !important;
+    position: relative !important;
+    top: -20px !important; /* Abbassato di altri 50px (era -70px) */
+  }
+
+  .footer-mobile-credit a {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    opacity: inherit !important;
+  }
+
+  .footer-mobile-credit a:hover {
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+
+  .footer-mobile-instagram {
+     display: block !important;
+     width: 24px !important;
+     height: 24px !important;
+     color: #00A3E0 !important;
+     margin: 6px 0 0 0 !important;
+     padding: 0 !important;
+     transition: opacity 0.3s ease !important;
+  }
+
+  .footer-mobile-instagram:hover {
+    opacity: 0.7 !important;
+  }
+
+  .footer-mobile-instagram svg {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+  }
+
+  .footer-mobile-review-text {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: clamp(13px, 3.2vw, 15px) !important;
+    font-weight: 600 !important;
+    color: #00A3E0 !important;
+    text-transform: uppercase !important;
+    margin: clamp(12px, 3vw, 16px) 0 2px 0 !important; /* gap 2px sopra le stelle */
+    padding: 0 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    position: relative !important;
+    top: -35px !important; /* -40px + 5px = -35px */
+    text-decoration: none !important; /* Rimuove sottolineatura del link */
+    display: inline-block !important;
+  }
+
+  /* Mantieni lo stesso stile al passaggio del mouse */
+  .footer-mobile-review-text:hover,
+  .footer-mobile-review-text:focus,
+  .footer-mobile-review-text:visited {
+    color: #00A3E0 !important;
+    text-decoration: none !important;
+  }
+
+  /* Spostamento specifico solo per la pagina contatti */
+  .contatti-page .footer-mobile-review-text {
+    margin-left: 0 !important; /* Allinea con H24/7 */
+    white-space: normal !important; /* Permette l'a capo */
+    text-align: center !important; /* Centra il testo */
+    display: block !important;
+    top: -37px !important; /* -40px + 3px = -37px */
+  }
+
+  .footer-mobile-stars {
+    font-size: clamp(16px, 4vw, 20px) !important;
+    color: #FFD700 !important;
+    letter-spacing: 2px !important;
+    margin: 0 0 0 -4px !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    position: relative !important;
+    top: -53px !important; /* -48px - 5px = -53px (home, servizi, sezione4) */
+    left: 19px !important; /* Spostate a destra di 19px */
+  }
+
+  /* Spostamento specifico solo per la pagina contatti */
+  .contatti-page .footer-mobile-stars {
+    margin-left: 16px !important;
+    left: 2px !important; /* -4px + 6px = 2px */
+    top: -55px !important; /* -58px + 3px = -55px */
+  }
+
+  /* ---------------- PAGINA NUOVO-USATO (mobile) ---------------- */
+  /* Allinea "La tua opinione conta" a sinistra di 6px e sposta stelle a destra di 7px solo in nuovo-usato */
+  .body-sezione2 .footer-mobile-review-text {
+    margin-left: -6px !important;
+  }
+  .body-sezione2 .footer-mobile-stars {
+    margin-left: 16px !important; /* +5px */
+    left: -4px !important; /* 6px - 10px = -4px */
+    top: -53px !important; /* Alzate di 5px anche in nuovo-usato */
   }
 
   .footer-links,
@@ -1934,6 +2826,54 @@
     overflow-wrap: break-word !important;
   }
 
+  /* ========== NUOVO/USATO - COMING SOON (mobile) ========== */
+  .coming-soon-nuovo-usato {
+    margin: 20px auto 12px auto !important;
+    text-align: center !important;
+    padding: 0 14px !important;
+  }
+  .coming-soon-title {
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: clamp(18px, 5.2vw, 24px) !important;
+    text-transform: uppercase !important;
+    margin: 0 0 8px 0 !important;
+    
+    /* Gradiente da blu scuro a celeste con sfumatura */
+    background: linear-gradient(90deg, #003D82 0%, #00A3E0 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+
+  .coming-soon-subtitle {
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: clamp(13px, 3.6vw, 16px) !important;
+    text-transform: uppercase !important;
+    line-height: 1.45 !important;
+    color: var(--sima-text-main) !important;
+    margin: 0 !important;
+  }
+
+  /* Nuovo/Usato: abbassa il video dell'oblò su mobile */
+  .body-sezione2 .hero-video-oblo {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 480px !important; /* abbassato rispetto ai 400px desktop */
+    width: 60% !important; /* mantiene proporzioni desktop */
+    z-index: 1 !important;
+    display: block !important;
+  }
+
+  /* Nascondi le card prodotti su Nuovo/Usato anche in mobile */
+  .body-sezione2 .products-grid,
+  .body-sezione2 .product-card,
+  .body-sezione2 .product-card-content {
+    display: none !important;
+  }
+
   /* Link touch-friendly */
   a {
     min-height: 44px !important;
@@ -1948,7 +2888,7 @@
       transition: none !important;
     }
   }
-}
+/* <-- RIMOSSO CHIUSURA EXTRA '}' CHE CREAVA ERRORE DI SINTASSI */
 
 /* ============================================
    BREAKPOINT: Smartphone piccoli (max 375px)
@@ -1965,6 +2905,11 @@
   .main-container-sezione4,
   .main-container-sezione5 {
     padding: 85px 4vw 0 4vw !important;
+  }
+
+  /* Nuovo/Usato: aumenta spazio dall'header fisso (smartphone piccoli) */
+  body.body-sezione2 .main-container-sezione2 {
+    padding-top: calc(85px + 40px) !important; /* +40px extra */
   }
 
   .header {
@@ -2055,6 +3000,11 @@
     padding: 88px 4.5vw 0 4.5vw !important;
   }
 
+  /* Nuovo/Usato: aumenta spazio dall'header fisso (smartphone medi) */
+  body.body-sezione2 .main-container-sezione2 {
+    padding-top: calc(88px + 40px) !important; /* +40px extra */
+  }
+
   .header {
     min-height: 78px !important;
   }
@@ -2105,6 +3055,11 @@
     padding: 92px 5vw 0 5vw !important;
   }
 
+  /* Nuovo/Usato: aumenta spazio dall'header fisso (smartphone grandi) */
+  body.body-sezione2 .main-container-sezione2 {
+    padding-top: calc(92px + 40px) !important; /* +40px extra */
+  }
+
   .header {
     min-height: 82px !important;
   }
@@ -2141,6 +3096,11 @@
   .main-container-sezione4,
   .main-container-sezione5 {
     padding: 95px 6vw 0 6vw !important;
+  }
+
+  /* Nuovo/Usato: aumenta spazio dall'header fisso (tablet piccoli) */
+  body.body-sezione2 .main-container-sezione2 {
+    padding-top: calc(95px + 40px) !important; /* +40px extra */
   }
 
   .header {
@@ -2276,7 +3236,7 @@
     text-transform: uppercase !important;
     text-align: center !important;
     font-size: clamp(40px, 10vw, 60px) !important; /* Molto più grande */
-    margin: 175px auto 20px auto !important;
+    margin: 20px auto 20px auto !important; /* riduci offset: già compensato dal padding-top */
     padding: 3px !important;
     color: #82ADE1 !important; /* Celeste brand */
     line-height: 1.2 !important;
@@ -2303,3 +3263,33 @@
 }
 
 /* Fine mobile.css */
+
+/* ==================================================================
+   Fix: hide mobile-only footer on desktop for ALL pages
+   This prevents duplicate footer info appearing on desktop
+   while keeping the mobile footer visible on mobile devices.
+   ==================================================================*/
+@media screen and (min-width: 821px) {
+  .footer-mobile-only {
+    display: none !important;
+  }
+}
+
+/* ========== ANIMAZIONI (fuori dalla media query per compatibilità) ========== */
+@keyframes color-wave {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.5) saturate(1.8) hue-rotate(10deg);
+  }
+}
+
+@keyframes color-shift {
+  0%, 100% {
+    color: #003D82 !important;
+  }
+  50% {
+    color: #00A3E0 !important;
+  }
+}

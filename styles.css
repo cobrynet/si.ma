@@ -94,7 +94,19 @@ body.lb-cs-modal-open {
 
 /* Nascondi h2-sezione-1 nella hero-section su desktop (verrà mostrato nella sezione-1) */
 .hero-section .h2-sezione-1 {
-    display: none;
+    display: none !important;
+}
+
+/* Nascondi anche con specificità più alta per sicurezza */
+@media screen and (min-width: 821px) {
+    .home .hero-section .h2-sezione-1,
+    .hero-section .h2-sezione-1 {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
 }
 
 /* Nascondi le icone mobile su desktop */
@@ -1197,6 +1209,12 @@ body.lb-cs-modal-open {
     margin-bottom: 20px;
 }
 
+/* Nascondi card mobile sul desktop */
+.story-slider-mobile,
+.servizi-slider-mobile {
+    display: none;
+}
+
 .h2-sezione-5 {
     position: absolute;
     width: clamp(900px, 92.59%, 1600px);
@@ -1362,7 +1380,8 @@ body.lb-cs-modal-open {
 .logo-footer-link {
     position: absolute;
     top: clamp(-50px, -3.47vw, -60px);
-    left: calc(50% - clamp(400px, 46.3%, 800px));
+    /* Spostato 150px a destra (terzo incremento) */
+    left: calc(50% - clamp(400px, 46.3%, 800px) + 150px);
     transform: translateX(-50%);
     text-decoration: none;
     cursor: pointer;
@@ -1399,7 +1418,9 @@ body.lb-cs-modal-open {
 /* Dati Aziendali nel Footer (desktop assoluto) */
 .footer-info {
     position: absolute;
-    top: clamp(80px, 8.1vw, 140px);
+    /* Alzato di 95px (abbassato di 5px rispetto a prima) */
+    top: calc(clamp(80px, 8.1vw, 140px) - 95px);
+    /* Ripristinato: la colonna Contatti non deve essere spostata */
     left: calc(50% - clamp(80px, 8.68vw, 150px));
     transform: translateX(-50%);
     display: flex;
@@ -1441,7 +1462,8 @@ body.lb-cs-modal-open {
 /* Orari nel Footer (desktop assoluto) */
 .footer-hours {
     position: absolute;
-    top: clamp(80px, 8.1vw, 140px);
+    /* Alzato di 95px (abbassato di 5px rispetto a prima) */
+    top: calc(clamp(80px, 8.1vw, 140px) - 95px);
     left: calc(50% + clamp(80px, 8.68vw, 150px));
     transform: translateX(-50%);
     display: flex;
@@ -1453,7 +1475,7 @@ body.lb-cs-modal-open {
 /* Social Media nel Footer (desktop assoluto) */
 .social-footer {
     position: absolute;
-    top: 140px;
+    top: 90px;
     left: calc(50% + 450px);
     transform: translateX(-50%);
     display: flex;
@@ -1496,7 +1518,8 @@ body.lb-cs-modal-open {
 /* Google Recensioni nel Footer (desktop assoluto) */
 .google-reviews-footer-container {
     position: absolute;
-    top: 180px;
+    /* Alzato di 50px */
+    top: 130px;
     left: calc(50% + 450px);
     transform: translateX(-50%);
     z-index: 10;
@@ -1555,7 +1578,7 @@ body.lb-cs-modal-open {
     .coming-soon-title {
         font-family: 'Outfit', sans-serif;
         font-weight: 700;
-        font-size: clamp(22px, 2vw, 32px);
+        font-size: clamp(36px, 3.5vw, 56px);
         letter-spacing: 0.02em;
         text-transform: uppercase;
         color: var(--sima-text-main);
@@ -1564,7 +1587,7 @@ body.lb-cs-modal-open {
     .coming-soon-subtitle {
         font-family: 'Outfit', sans-serif;
         font-weight: 400;
-        font-size: clamp(16px, 1.2vw, 20px);
+        font-size: clamp(20px, 1.8vw, 28px);
         color: var(--sima-text-main);
         text-transform: uppercase;
         line-height: 1.4;
@@ -1579,7 +1602,7 @@ body.lb-cs-modal-open {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 1200px; /* sotto .testo-nuovo-usato (top:1100px) */
+        top: 1400px; /* sotto .testo-nuovo-usato (top:1100px) */
         z-index: 15;
         margin: 0;
         width: 1194px;
@@ -1608,8 +1631,10 @@ body.lb-cs-modal-open {
 /* Footer Links (desktop assoluto) */
 .footer-links {
     position: absolute;
-    top: 260px;
-    left: calc(50% - 800px);
+    /* Abbassato di altri 30px (totale 60px dal valore 110) */
+    top: 170px;
+    /* Spostato 150px a destra (terzo incremento) */
+    left: calc(50% - 800px + 150px);
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
@@ -1651,6 +1676,16 @@ body.lb-cs-modal-open {
     color: var(--sima-text-secondary);
     margin: 10px 0 0 0;
     padding: 0;
+}
+
+.design-credit a {
+    color: #82ADE1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.design-credit a:hover {
+    color: #6a9dd1;
 }
 
 /* Footer Content Styles */
@@ -3000,5 +3035,19 @@ body.lb-cs-modal-open {
         visibility: hidden !important;
     }
 }
+
+/* Nascondi footer mobile su desktop per tutte le pagine */
+.footer-mobile-only {
+    display: none !important;
+}
+
+/* Mostra footer mobile solo su schermi <= 820px (gestito da mobile.css) */
+@media screen and (max-width: 820px) {
+    .footer-mobile-only {
+        display: block !important;
+    }
+}
+
+
 
 
