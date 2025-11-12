@@ -1515,6 +1515,16 @@ body.lb-cs-modal-open {
     color: #82ADE1;
 }
 
+/* Instagram sotto colonna Contatti (desktop) */
+.instagram-contatti-desktop {
+    /* Alzata di ulteriori 10px (totale +20px rispetto alla versione iniziale) */
+    margin-top: -10px !important;
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
 /* Google Recensioni nel Footer (desktop assoluto) */
 .google-reviews-footer-container {
     position: absolute;
@@ -2825,6 +2835,11 @@ body.lb-cs-modal-open {
     .footer-info p,
     .footer-hours p {
         text-align: center;
+    }
+
+    /* Nascondi l'icona IG sotto Contatti nella versione mobile */
+    .instagram-contatti-desktop {
+        display: none !important;
     }
     
     .social-footer {
