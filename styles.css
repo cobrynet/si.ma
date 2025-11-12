@@ -116,7 +116,7 @@ body.lb-cs-modal-open {
 
 /* Container principale per centrare il contenuto */
 .main-container {
-    width: 100vw;
+    width: 100%;
     min-height: 3450px;
     position: relative;
     background: #e6ebf1;
@@ -141,7 +141,7 @@ body.lb-cs-modal-open {
     top: 0;
     left: 0;
     right: 0;
-    width: 100vw;
+    width: 100%;
     height: 80px;
     z-index: 1000;
     background: rgba(16, 23, 34, 0.5);
@@ -268,6 +268,11 @@ body.lb-cs-modal-open {
    senza toccare il mobile (<821px) né gli schermi >1728px
    ============================= */
 @media screen and (min-width: 1024px) and (max-width: 1727px) {
+    /* Evita scrollbar orizzontali sui desktop medi */
+    html, body {
+        overflow-x: clip;
+    }
+
     /* Home e Servizi: scala solo il main .home (header fisso resta pulito) */
     body.home-page .home,
     body.servizi-page .home {
@@ -1353,7 +1358,7 @@ body.lb-cs-modal-open {
     left: 50%;
     transform: translateX(-50%);
     top: clamp(1800px, 170.78vw, 2951px); /*  Sezione 5 base (2321px) + delta 630  */
-    width: 100vw;
+    width: 100%;
     height: clamp(350px, 23.15vw, 400px);
     margin: 0 !important;
     padding: 0 0 clamp(30px, 2.89vw, 50px) 0;
@@ -1369,7 +1374,7 @@ body.lb-cs-modal-open {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: clamp(90%, 104.17vw, 1800px);
+    width: 100%;
     height: 1px;
     background: var(--sima-text-main);
 }
